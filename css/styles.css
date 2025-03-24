@@ -11248,6 +11248,8 @@ footer.footer .social-link:hover {
 .modal-content {
   border-radius: 15px; /* Rounded corners */
   padding: 20px;
+  color: black;
+  width: 100%;
 }
 
 .modal-header {
@@ -11256,65 +11258,120 @@ footer.footer .social-link:hover {
 
 .modal-body {
   font-size: 18px;
-  height: 30rem;
+  height: 100%;
 }
 
-        /* Video Banner Styles */
-        .video-banner {
-          position: relative;
-          width: 100%;
-          height: 100vh;
-          overflow: hidden;
+.member-info-text {
+  font-size: 16px;
+  text-align: justify;
+}
+
+    /* Video Banner Styles */
+    .video-banner {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+  }
+
+  .video-banner video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  /* Banner Content Styles */
+  .banner-content {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+  }
+
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+      .video-banner {
+          height: 70vh;
       }
 
-      .video-banner video {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-      }
-
-      /* Banner Content Styles */
       .banner-content {
-          position: absolute;
-          bottom: 10%;
-          left: 50%;
-          transform: translateX(-50%);
-          text-align: center;
-          color: white;
-          z-index: 1;
-          background: rgba(0, 0, 0, 0.5);
-          padding: 20px;
-          border-radius: 10px;
-          width: 90%;
-          max-width: 600px;
+          bottom: 5%;
+          padding: 15px;
       }
 
-      /* Mobile Optimizations */
-      @media (max-width: 768px) {
-          .video-banner {
-              height: 70vh;
-          }
-
-          .banner-content {
-              bottom: 5%;
-              padding: 15px;
-          }
-
-          .banner-content h1 {
-              font-size: 1.5rem;
-          }
-
-          .banner-content p {
-              font-size: 1rem;
-          }
-
-          .banner-content a {
-              font-size: 0.9rem;
-              padding: 8px 15px;
-          }
+      .banner-content h1 {
+          font-size: 1.5rem;
       }
 
+      .banner-content p {
+          font-size: 1rem;
+      }
+
+      .banner-content a {
+          font-size: 0.9rem;
+          padding: 8px 15px;
+      }
+  }
+
+  /* Modal Video Banner - Smaller Size */
+  .video-banner-modal {
+    position: relative;
+    width: 100%;
+    height: 10rem; /* Reduced height */
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .video-banner-modal video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* Smaller Banner Content */
+  .video-banner-modal .banner-content {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    border-radius: 8px;
+    width: 75%;
+    max-width: 400px;
+    font-size: 0.9rem;
+  }
+
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    .video-banner-modal {
+      height: 8rem; /* Even smaller on mobile */
+    }
+
+    .video-banner-modal .banner-content {
+      bottom: 3%;
+      padding: 6px;
+      font-size: 0.8rem;
+    }
+  }
+      
