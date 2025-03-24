@@ -5379,8 +5379,8 @@ textarea.form-control-lg {
   border-bottom-right-radius: var(--bs-modal-inner-border-radius);
   border-bottom-left-radius: var(--bs-modal-inner-border-radius);
 }
-.modal-footer > * {
-  margin: calc(var(--bs-modal-footer-gap) * 0.5);
+.modal-footer > *:not(:last-child) {
+  margin-right: 3rem;
 }
 
 @media (min-width: 576px) {
@@ -11391,4 +11391,8 @@ footer.footer .social-link:hover {
 
   .music {
     justify-content: center;
+  }
+  
+  .socials {
+    font-size: 1.5rem;
   }
