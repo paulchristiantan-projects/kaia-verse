@@ -574,7 +574,7 @@ progress {
   margin-bottom: 0.5rem;
 }
 .list-inline-item:not(:last-child) {
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 }
 
 .initialism {
@@ -10960,7 +10960,7 @@ html {
 }
 
 .btn-xl {
-  padding: 1.25rem 2.5rem;
+  padding: 1rem;
 }
 
 .callout {
@@ -10975,17 +10975,17 @@ html {
 }
 
 footer.header {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 5rem;
 }
 
 footer.header .social-link {
   display: block;
   text-decoration: none;
-  height: 4rem;
-  width: 4rem;
-  line-height: 4.3rem;
-  font-size: 1.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  line-height: 2.5rem;
+  font-size: 1rem;
   background-color: #d63384;
   transition: background-color 0.15s ease-in-out;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
@@ -11211,7 +11211,7 @@ footer.footer .social-link:hover {
   font-size: 16px;
   font-weight: bold;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 6rem;
 }
 
 .kaia-official a {
@@ -11374,4 +11374,21 @@ footer.footer .social-link:hover {
       font-size: 0.8rem;
     }
   }
-      
+
+  #about {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  #about, #services {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  #discography {
+    padding-top: 0 !important;
+  }
+
+  .music {
+    justify-content: center;
+  }
