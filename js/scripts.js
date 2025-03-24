@@ -211,3 +211,46 @@ document.getElementById("nextPage").addEventListener("click", () => {
 });
 
 displayImages();
+
+
+let currentP = 1;  // Renamed currentPage to currentP
+const rowsPerPageEvents = 6; // Set the number of events per page
+const tableEvents = document.getElementById("eventTable");
+const rowsEvents = tableEvents.getElementsByTagName("tr");
+const totalRowsEvents = rowsEvents.length; // No need to subtract 1 now, as we don't need the header
+const totalPagesEvents = Math.ceil(totalRowsEvents / rowsPerPageEvents); // Calculate the total number of pages
+
+// Function to display the current page
+function displayPageEvents(page) {
+    const start = (page - 1) * rowsPerPageEvents;
+    const end = page * rowsPerPageEvents;
+
+    // Loop through rows and show/hide based on the page
+    for (let i = 0; i < rowsEvents.length; i++) {
+        if (i >= start && i < end) {
+            rowsEvents[i].style.display = "";
+        } else {
+            rowsEvents[i].style.display = "none";
+        }
+    }
+
+    // Update the page number and total pages in the pagination
+    document.getElementById("pageNumberEvents").textContent = page;
+    document.getElementById("totalPagesEvents").textContent = totalPagesEvents;
+}
+
+// Function to change the current page when prev/next is clicked
+function changePageEvents(direction) {
+    const newPage = currentP + direction;
+    if (newPage >= 1 && newPage <= totalPagesEvents) {
+        currentP = newPage;
+        displayPageEvents(currentP);
+    }
+}
+
+// Event listeners for prev and next buttons
+document.getElementById("prevPageEvents").addEventListener("click", () => changePageEvents(-1));
+document.getElementById("nextPageEvents").addEventListener("click", () => changePageEvents(1));
+
+// Initialize the table with the first page
+displayPageEvents(currentP);

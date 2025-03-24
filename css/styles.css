@@ -11491,3 +11491,103 @@ footer.footer .social-link:hover {
   border: none;  /* Removes iframe default border */
   border-radius: 12px; /* Rounded corners for iframe */
 }
+
+/* Table Styling */
+.event-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  margin-top: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.event-table th {
+  background-color: #3498db;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 15px 20px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.event-table td {
+  background-color: #ffffff;
+  font-size: 16px;
+  padding: 15px 20px;
+  text-align: left;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+  border-left: 1px solid #f0f0f0;
+  border-right: 1px solid #f0f0f0;
+}
+
+.event-table tr:nth-child(even) td {
+  background-color: #f9f9f9;
+}
+
+.event-table tr:hover td {
+  background-color: #ecf7fc;
+  transition: background-color 0.3s ease;
+}
+
+.event-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Pagination Styles */
+.pagination-events {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-events button {
+  padding: 8px 15px;
+  margin: 5px;
+  border: 1px solid var(--bs-pink);
+  background-color: #fff;
+  color: var(--bs-pink);
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-events button:hover {
+  background-color: pink;
+  color: white;
+}
+
+.pagination-events button:disabled {
+  background-color: #f0f0f0;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Page number style */
+.pagination-events .page-number {
+  font-size: 14px;
+  color: #007bff;
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+/* For the page number, total pages, and "of" text */
+#pageNumberEvents, #totalPagesEvents, #of {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--bs-pink);
+  margin-right: 2rem;
+}
+
+#pageNumberEvents {
+  margin-left: 2rem;
+}
