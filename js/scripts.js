@@ -78,54 +78,6 @@ function fadeIn(el, display) {
         }
     })();
 };
-// MUSIC PLAYER
-document.querySelectorAll('.music-player-container').forEach((container, index, allPlayers) => {
-    const audio = document.querySelectorAll('.audioTrack')[index];
-    const playButton = container.querySelector('.playButton');
-    const seekBar = container.querySelector('.seekBar');
-    const currentTimeDisplay = container.querySelector('.currentTime');
-    const durationDisplay = container.querySelector('.duration');
-
-    // Display duration when metadata is loaded
-    audio.addEventListener('loadedmetadata', () => {
-        durationDisplay.textContent = formatTime(audio.duration);
-    });
-
-    playButton.addEventListener('click', () => {
-        // Pause all other audio elements
-        allPlayers.forEach((otherContainer, otherIndex) => {
-            if (otherIndex !== index) {
-                const otherAudio = document.querySelectorAll('.audioTrack')[otherIndex];
-                otherAudio.pause();
-                otherContainer.querySelector('.playButton').textContent = "▶";
-            }
-        });
-
-        // Toggle play/pause for the current player
-        if (audio.paused) {
-            audio.play();
-            playButton.textContent = "⏸";
-        } else {
-            audio.pause();
-            playButton.textContent = "▶";
-        }
-    });
-
-    audio.addEventListener('timeupdate', () => {
-        seekBar.value = (audio.currentTime / audio.duration) * 100;
-        currentTimeDisplay.textContent = formatTime(audio.currentTime);
-    });
-
-    seekBar.addEventListener('input', () => {
-        audio.currentTime = (seekBar.value / 100) * audio.duration;
-    });
-
-    function formatTime(seconds) {
-        let min = Math.floor(seconds / 60);
-        let sec = Math.floor(seconds % 60);
-        return min + ":" + (sec < 10 ? "0" : "") + sec;
-    }
-});
 
 
 // MODAL
@@ -265,6 +217,5 @@ window.addEventListener("load", function () {
     loader.classList.add("hidden");
     setTimeout(() => {
         loader.style.display = "none";
-        content.style.display = "block";
     }, 500);
 });

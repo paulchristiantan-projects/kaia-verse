@@ -11624,3 +11624,74 @@ footer.footer .social-link:hover {
           opacity: 0;
           visibility: hidden;
       }
+
+
+      .music-player-container {
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .music-player {
+        background: #222;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-top: 10px;
+    }
+    
+    .music-player button {
+        background: #222;
+        color: pink;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+    
+    .music-player button:hover {
+        opacity: 0.8;
+    }
+    
+    .seekBar, .volumeControl {
+        width: 80%;
+        margin: 8px 0;
+        cursor: pointer;
+    }
+    
+    .volumeControl {
+        accent-color: pink;
+    }
+    
+    .currentTime, .duration {
+        color: pink;
+        font-size: 14px;
+    }
+    
+    .downloadButton {
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .downloadButton:hover {
+        background: #218838;
+    }
+    
+    .img-fluid {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        transition: transform 0.3s;
+    }
+    
+    .img-fluid:hover {
+        transform: scale(1.05);
+    }
+    
