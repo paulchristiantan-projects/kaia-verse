@@ -254,3 +254,17 @@ document.getElementById("nextPageEvents").addEventListener("click", () => change
 
 // Initialize the table with the first page
 displayPageEvents(currentP);
+
+
+//loader
+
+window.addEventListener("load", function () {
+    let loader = document.getElementById("loader");
+    let content = document.getElementById("content");
+    
+    loader.classList.add("hidden");
+    setTimeout(() => {
+        loader.style.display = "none";
+        content.style.display = "block";
+    }, 500);
+});
