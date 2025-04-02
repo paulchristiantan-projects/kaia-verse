@@ -1,13 +1,8 @@
-/*!
-* Start Bootstrap - Stylish Portfolio v6.0.6 (https://startbootstrap.com/theme/stylish-portfolio)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-stylish-portfolio/blob/master/LICENSE)
-*/
+// Side Navigation Bar
 window.addEventListener('DOMContentLoaded', event => {
 
     const sidebarWrapper = document.getElementById('sidebar-wrapper');
     let scrollToTopVisible = false;
-    // Closes the sidebar menu
     const menuToggle = document.body.querySelector('.menu-toggle');
     menuToggle.addEventListener('click', event => {
         event.preventDefault();
@@ -15,8 +10,6 @@ window.addEventListener('DOMContentLoaded', event => {
         _toggleMenuIcon();
         menuToggle.classList.toggle('active');
     })
-
-    // Closes responsive menu when a scroll trigger link is clicked
     var scrollTriggerList = [].slice.call(document.querySelectorAll('#sidebar-wrapper .js-scroll-trigger'));
     scrollTriggerList.map(scrollTrigger => {
         scrollTrigger.addEventListener('click', () => {
@@ -39,7 +32,6 @@ window.addEventListener('DOMContentLoaded', event => {
         }
     }
 
-    // Scroll to top button appear
     document.addEventListener('scroll', () => {
         const scrollToTop = document.body.querySelector('.scroll-to-top');
         if (document.documentElement.scrollTop > 100) {
@@ -79,93 +71,7 @@ function fadeIn(el, display) {
     })();
 };
 
-
-// MODAL
-
-function openModal(id, event) {
-    if (event) event.preventDefault(); // Prevents the page from scrolling up
-    document.getElementById(id).classList.remove('hidden');
-}
-
-function closeModal(id) {
-    document.getElementById(id).classList.add('hidden');
-}
-
-// Close modal when clicking outside the content test
-document.querySelectorAll('.modal').forEach(modal => {
-    modal.addEventListener('click', function(event) {
-        if (event.target === this) {
-            closeModal(this.id);
-        }
-    });
-});
-
-
-//Gallery 
-
-const images = [
-    "assets/img/gallery/angela.jpg", "assets/img/gallery/charice.jpg", "assets/img/gallery/alexa.jpg", 
-    "assets/img/gallery/sophia.jpg", "assets/img/gallery/charlotte.jpg", "assets/img/gallery/kaia.jpg", 
-    
-    "assets/img/gallery/angela3.jpg", "assets/img/gallery/charice3.jpg", "assets/img/gallery/alexa3.jpg", 
-    "assets/img/gallery/sophia3.jpg", "assets/img/gallery/charlotte3.jpg", "assets/img/gallery/kaia3.jpg", 
-
-    "assets/img/gallery/angela4.jpg", "assets/img/gallery/charice4.jpg", "assets/img/gallery/alexa4.jpg", 
-    "assets/img/gallery/sophia4.jpg", "assets/img/gallery/charlotte4.jpg", "assets/img/gallery/kaia4.jpg", 
-
-    "assets/img/gallery/angela5.jpg", "assets/img/gallery/charice5.jpg", "assets/img/gallery/alexa5.jpg", 
-    "assets/img/gallery/sophia5.jpg", "assets/img/gallery/charlotte5.jpg", "assets/img/gallery/kaia5.jpg", 
-
-    "assets/img/gallery/angela6.jpg", "assets/img/gallery/charice6.jpg", "assets/img/gallery/alexa6.jpg", 
-    "assets/img/gallery/sophia6.jpg", "assets/img/gallery/charlotte6.jpg", "assets/img/gallery/kaia6.jpg", 
-
-    "assets/img/gallery/angela7.jpg", "assets/img/gallery/charice7.jpg", "assets/img/gallery/alexa7.jpg", 
-    "assets/img/gallery/sophia7.jpg", "assets/img/gallery/charlotte7.jpg", "assets/img/gallery/kaia7.jpg", 
-
-    "assets/img/gallery/angela2.jpg", "assets/img/gallery/charice2.jpg", "assets/img/gallery/alexa2.jpg", 
-    "assets/img/gallery/sophia2.jpg", "assets/img/gallery/charlotte2.jpg", "assets/img/gallery/kaia2.jpg", 
-];
-const itemsPerPage = 6;
-let currentPage = 1;
-const totalPages = Math.ceil(images.length / itemsPerPage);
-
-function displayImages() {
-    const galleryGrid = document.getElementById("galleryGrid");
-    galleryGrid.innerHTML = "";
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const imagesToShow = images.slice(start, end);
-
-    imagesToShow.forEach(img => {
-        const imgElement = document.createElement("img");
-        imgElement.src = img;
-        galleryGrid.appendChild(imgElement);
-    });
-
-    document.getElementById("pageNumber").textContent = currentPage;
-    document.getElementById("totalPages").textContent = totalPages;
-    document.getElementById("prevPage").disabled = currentPage === 1;
-    document.getElementById("nextPage").disabled = currentPage === totalPages;
-}
-
-document.getElementById("prevPage").addEventListener("click", () => {
-    if (currentPage > 1) {
-        currentPage--;
-        displayImages();
-    }
-});
-
-document.getElementById("nextPage").addEventListener("click", () => {
-    if (currentPage < totalPages) {
-        currentPage++;
-        displayImages();
-    }
-});
-
-displayImages();
-
-
-//loader
+// Loader
 
 window.addEventListener("load", function () {
     let loader = document.getElementById("loader");
@@ -176,3 +82,26 @@ window.addEventListener("load", function () {
         loader.style.display = "none";
     }, 500);
 });
+
+
+
+// Modal
+
+function openModal(id, event) {
+    if (event) event.preventDefault();
+    document.getElementById(id).classList.remove('hidden');
+}
+
+function closeModal(id) {
+    document.getElementById(id).classList.add('hidden');
+}
+
+document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('click', function(event) {
+        if (event.target === this) {
+            closeModal(this.id);
+        }
+    });
+});
+
+
