@@ -11695,3 +11695,30 @@ footer.footer .social-link:hover {
         transform: scale(1.05);
     }
     
+
+    /* Ensure the container does not exceed the page width */
+#events-container {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling if needed */
+}
+
+/* Style the event table */
+.event-table {
+  width: 100%; /* Make table stretch within its container */
+}
+
+
+/* Ensure links stay within the table */
+.details-link {
+  text-decoration: none;
+}
+
+.details-link:hover {
+  text-decoration: underline;
+}
+
+/* Pagination styling */
+.pagination-events {
+  text-align: center;
+  margin-top: 20px;
+}

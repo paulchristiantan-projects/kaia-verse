@@ -44,8 +44,6 @@
                 <li class="sidebar-nav-item"><a href="#gallery">Gallery</a></li>
                 <li class="sidebar-nav-item"><a href="#discography">Discography</a></li>
                 <li class="sidebar-nav-item"><a href="#events">Events</a></li>
-                <!-- <li class="sidebar-nav-item"><a href="#games">Games</a></li> -->
-                <!-- <li class="sidebar-nav-item"><a href="#contact">Contact</a></li> -->
             </ul>
             
         </nav>
@@ -470,132 +468,27 @@
         </section>
 
 
-        <!-- Events-->
-        <section class="content-section" id="events">
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading text-center">
-                    <h2>Events</h2>
-                </div>
-                <table class="event-table" id="eventTable">
-                    <tbody>
-                        <!-- Event rows will go here -->
-                        <tr>
-                            <td>March 28</td>
-                            <td>KAIA is set to release their new single, "Tanga."</td>
-                            <td>-</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>March 17</td>
-                            <td>Walkie Talkie</td>
-                            <td>SM City Davao</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>March 15</td>
-                            <td>Fusion MNL 2025</td>
-                            <td>CCP Open Grounds</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Feb 26</td>
-                            <td>PINID National Arts Month</td>
-                            <td>Metropolitan Theater, Manila City</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Feb 24</td>
-                            <td>Wish107.5 Roadshow</td>
-                            <td>Arellano University</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Feb 23</td>
-                            <td>Panagbenga Grand Float Parade</td>
-                            <td>Baguio City</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Feb 19</td>
-                            <td>National Commission for Culture and the Arts' Sayaw Pinoy!</td>
-                            <td>Quezon Convention Center, Lucena City, Quezon Province</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Feb 15 - 16</td>
-                            <td>BEECON 2025</td>
-                            <td>SMX Convention Center Bacolod</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Feb 13</td>
-                            <td>27th Paranaque Cityhood Anniversary</td>
-                            <td>Paranaque City</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Feb 7 - 9</td>
-                            <td>Udaipur World Music Festival 2025</td>
-                            <td>Udaipur, India</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Jan 28</td>
-                            <td>Puregold Lunar Year 2025</td>
-                            <td>-</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Jan 26</td>
-                            <td>Backyard Live</td>
-                            <td>Quezon City</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Jan 25</td>
-                            <td>Dance Supremacy Kings & Queens</td>
-                            <td>The Theater, Solaire</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Jan 24</td>
-                            <td>DTSN 2025</td>
-                            <td>Iloilo Convention Center</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Jan 10</td>
-                            <td>Honor X9C 5G Grand Launch</td>
-                            <td>-</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Jan 8</td>
-                            <td>BRGY TFC</td>
-                            <td>-</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Jan 1</td>
-                            <td>Kapuso Countdown to 2025</td>
-                            <td>SM Mall of Asia (Open Grounds)</td>
-                            <td><a href="#event1" class="details-link">See Details</a></td>
-                        </tr>
-                        
-                        <!-- Additional rows can be added here -->
-                    </tbody>
-                </table>
-        
-                <!-- Pagination Controls -->
-                <div class="pagination-events">
-                    <button id="prevPageEvents">&laquo; Prev</button>
-                    <span id="pageNumberEvents">1</span> 
-                    <span id="of">of</span>
-                    <span id="totalPagesEvents">1</span> <!-- Total number of pages -->
-                    <button id="nextPageEvents">Next &raquo;</button>
-                </div>
+    <!-- Events Section -->
+    <section class="content-section" id="events">
+        <div class="container px-4 px-lg-5">
+            <div class="content-section-heading text-center">
+                <h2>Events</h2>
             </div>
-        </section>
+
+            <!-- Events Table Container -->
+            <div id="events-container"></div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-events">
+                <button id="prevPageEvents">&laquo; Prev</button>
+                <span id="pageNumberEvents">1</span> 
+                <span id="of">of</span>
+                <span id="totalPagesEvents">1</span> 
+                <button id="nextPageEvents">Next &raquo;</button>
+            </div>
+            <script src="js/events.js"></script>  
+        </div>
+    </section>
         
 
         <!-- Games-->
