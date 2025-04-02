@@ -11329,7 +11329,7 @@ footer.footer .social-link:hover {
   .video-banner-modal {
     position: relative;
     width: 100%;
-    height: 10rem; /* Reduced height */
+    height: 25rem; /* Reduced height */
     overflow: hidden;
     border-radius: 10px;
   }
@@ -11685,7 +11685,7 @@ footer.footer .social-link:hover {
     }
     
     .img-fluid {
-        width: 100%;
+        /* width: 100%; */
         height: auto;
         border-radius: 10px;
         transition: transform 0.3s;
