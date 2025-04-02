@@ -1,6 +1,6 @@
 const events = [
     { date: "April 05", title: "TANGA MV release", location: "-" },
-    { date: "March 28", title: "TANGA release", location: "-" },
+    { date: "March 28", title: "TANGA music release", location: "-" },
     { date: "March 17", title: "Walkie Talkie", location: "SM City Davao" },
     { date: "March 15", title: "Fusion MNL 2025", location: "CCP Open Grounds" },
     { date: "Feb 26", title: "PINID National Arts Month", location: "Metropolitan Theater, Manila City" },
