@@ -10976,7 +10976,6 @@ html {
 
 footer.header {
   padding-top: 1rem;
-  padding-bottom: 3.75rem;
 }
 
 footer.header .social-link {
@@ -11038,9 +11037,6 @@ footer.footer .social-link:hover {
   display: table;
   width: 100%;
   height: auto;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../assets/img/kaia-banner.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11071,7 +11067,7 @@ footer.footer .social-link:hover {
   display: flex;
   height: 100%;
   width: 100%;
-  background-color: rgba(33, 37, 41, 0.2);
+  /* background-color: rgba(33, 37, 41, 0.2); */
   position: absolute;
   top: 0;
   bottom: 0;
@@ -11141,7 +11137,7 @@ footer.footer .social-link:hover {
 /* Music Player Styling */
 .music-player-container {
     width: 300px;
-    background: #181818;
+    /* background: #181818; */
     border-radius: 12px;
     text-align: center;
     font-family: Arial, sans-serif;
@@ -11161,7 +11157,7 @@ footer.footer .social-link:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #282828;
+    /* background: #282828; */
     padding: 10px;
     border-radius: 8px;
     gap: 10px;
@@ -11211,7 +11207,6 @@ footer.footer .social-link:hover {
   font-size: 16px;
   font-weight: bold;
   text-align: center;
-  margin-top: 6rem;
 }
 
 .kaia-official a {
@@ -11721,4 +11716,31 @@ footer.footer .social-link:hover {
 .pagination-events {
   text-align: center;
   margin-top: 20px;
+}
+
+
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Adjust height as needed */
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* Adjust text styling as needed */
+  margin-top: 3rem;
 }
