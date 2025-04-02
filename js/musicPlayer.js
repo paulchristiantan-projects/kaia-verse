@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const musicData = [
-        { title: "Walang Biruan Christmas Edition", image: "assets/img/music-tanga.png", audio: "assets/audio/music-tanga.mp3" },
+        { title: "Tanga", image: "assets/img/music-tanga.png", audio: "assets/audio/music-tanga.mp3" },
         { title: "Walang Biruan Christmas Edition", image: "assets/img/music-walangbiruan-christmasedition.png", audio: "assets/audio/music-walangbiruanchristmasrush.mp3" },
         { title: "Walang Biruan", image: "assets/img/music-walangbiruan.png", audio: "assets/audio/music-walangbiruan.mp3" },
         { title: "You Did It", image: "assets/img/music-youdidit.png", audio: "assets/audio/music-youdidit.mp3" },
@@ -9,107 +9,116 @@ document.addEventListener("DOMContentLoaded", function () {
         { title: "A Perfect Christmas", image: "assets/img/music-aperfectchristmas.png", audio: "assets/audio/music-aperfectchristmas.mp3" },
         { title: "Dalawa", image: "assets/img/music-dalawa.png", audio: "assets/audio/music-dalawa.mp3" },
         { title: "Blah Blah", image: "assets/img/music-blahblah.png", audio: "assets/audio/music-blahlah.mp3" },
-        { title: "Kaya", image: "assets/img/music-kaya.png", audio: "assets/audio/music-kaya.mp3" }        
+        { title: "Kaya", image: "assets/img/music-kaya.png", audio: "assets/audio/music-kaya.mp3" }
     ];
 
-    const musicContainer = document.getElementById("musicContainer");
+    const swiperWrapper = document.querySelector(".swiper-wrapper");
+    const mainAudioTrack = document.getElementById("mainAudioTrack");
+    const mainPlayButton = document.getElementById("mainPlayButton");
+    const seekBar = document.getElementById("seekBar");
+    const volumeControl = document.getElementById("volumeControl");
+    const currentTimeDisplay = document.querySelector(".currentTime");
+    const durationDisplay = document.querySelector(".duration");
 
-    musicData.forEach((track, index) => {
-        const playerHTML = `
-            <div class="col-lg-3 music-player-container">
-                <a class="portfolio-item" href="#!">
-                    <div class="caption">
-                        <div class="caption-content"></div>
-                    </div>
-                    <img class="img-fluid" src="${track.image}" alt="Music Cover" />
-                </a>
-
-                <!-- Music Player Controls -->
-                <div class="music-player">
-                    <button class="playButton" data-index="${index}">▶</button>
-                    <input type="range" class="seekBar" value="0" step="1">
-                    <span class="currentTime">0:00</span> / <span class="duration">0:00</span>
-                    <br>
-                    <input type="range" class="volumeControl" min="0" max="1" step="0.1" value="1">
-                    <br>
-                </div>
-                <audio class="audioTrack" src="${track.audio}"></audio>
-            </div>
-        `;
-        musicContainer.innerHTML += playerHTML;
-    });
-
-    // Select all elements
-    const playButtons = document.querySelectorAll(".playButton");
-    const seekBars = document.querySelectorAll(".seekBar");
-    const volumeControls = document.querySelectorAll(".volumeControl");
-    const audioTracks = document.querySelectorAll(".audioTrack");
-    const currentTimeDisplays = document.querySelectorAll(".currentTime");
-    const durationDisplays = document.querySelectorAll(".duration");
-    const downloadButtons = document.querySelectorAll(".downloadButton");
-
-    // Function to format time
-    function formatTime(seconds) {
-        const min = Math.floor(seconds / 60);
-        const sec = Math.floor(seconds % 60);
-        return `${min}:${sec < 10 ? "0" : ""}${sec}`;
+    if (!swiperWrapper || !mainAudioTrack || !mainPlayButton) {
+        console.error("Required elements not found!");
+        return;
     }
 
-    // Play/Pause toggle
-    playButtons.forEach((button, index) => {
-        button.addEventListener("click", () => {
-            const audio = audioTracks[index];
+    // Populate slides dynamically
+    swiperWrapper.innerHTML = musicData.map((track, index) => `
+        <div class="swiper-slide" data-index="${index}">
+            <img src="${track.image}" class="music-cover" alt="${track.title}">
+        </div>
+    `).join("");
 
-            // Stop all other audio players before playing the selected one
-            audioTracks.forEach((track, trackIndex) => {
-                if (trackIndex !== index) {
-                    track.pause();
-                    track.currentTime = 0; // Reset progress
-                    playButtons[trackIndex].textContent = "▶"; // Reset play button
-                }
-            });
-
-            // Toggle play/pause for the clicked track
-            if (audio.paused) {
-                audio.play();
-                button.textContent = "⏸";
-            } else {
-                audio.pause();
-                button.textContent = "▶";
+    // Initialize Swiper
+    var swiper = new Swiper(".music-carousel", {
+        slidesPerView: 5,
+        spaceBetween: -20,
+        loop: true,
+        centeredSlides: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 5 }
+        },
+        on: {
+            slideChangeTransitionEnd: function () {
+                updateMusicInfo();
+                resetPlayerState();
             }
-        });
-
-        // Update seek bar and duration when metadata loads
-        audioTracks[index].addEventListener("loadedmetadata", () => {
-            durationDisplays[index].textContent = formatTime(audioTracks[index].duration);
-            seekBars[index].max = Math.floor(audioTracks[index].duration);
-        });
-
-        // Update seek bar while playing
-        audioTracks[index].addEventListener("timeupdate", () => {
-            seekBars[index].value = Math.floor(audioTracks[index].currentTime);
-            currentTimeDisplays[index].textContent = formatTime(audioTracks[index].currentTime);
-        });
-
-        // Seek to new position
-        seekBars[index].addEventListener("input", () => {
-            audioTracks[index].currentTime = seekBars[index].value;
-        });
-
-        // Volume control
-        volumeControls[index].addEventListener("input", () => {
-            audioTracks[index].volume = volumeControls[index].value;
-        });
-
-        // Download button functionality
-        // downloadButtons[index].addEventListener("click", function () {
-        //     const audioURL = this.getAttribute("data-audio");
-        //     const a = document.createElement("a");
-        //     a.href = audioURL;
-        //     a.download = audioURL.split("/").pop();
-        //     document.body.appendChild(a);
-        //     a.click();
-        //     document.body.removeChild(a);
-        // });
+        }
     });
+
+    // Function to update the music info and load the new track
+    function updateMusicInfo() {
+        const activeSlide = document.querySelector(".swiper-slide-active");
+        const index = activeSlide.dataset.index;
+        const track = musicData[index];
+
+        // Update song title
+        document.getElementById("music-title").textContent = track.title;
+
+        // Load new audio file
+        mainAudioTrack.src = track.audio;
+
+        // Reset the seek bar
+        seekBar.value = 0;
+
+        // Update the duration when the audio is loaded
+        mainAudioTrack.addEventListener('loadedmetadata', function() {
+            durationDisplay.textContent = formatTime(mainAudioTrack.duration);
+        });
+    }
+
+    // Function to reset player state (pause and reset seek bar)
+    function resetPlayerState() {
+        mainAudioTrack.pause();
+        mainPlayButton.textContent = "▶"; // Set the play button to "▶" (play)
+        seekBar.value = 0; // Reset the seek bar to 0
+    }
+
+    // Play/Pause button functionality
+    mainPlayButton.addEventListener("click", function () {
+        if (mainAudioTrack.paused) {
+            mainAudioTrack.play();
+            mainPlayButton.textContent = "⏸"; // Change to pause button
+        } else {
+            mainAudioTrack.pause();
+            mainPlayButton.textContent = "▶"; // Change to play button
+        }
+    });
+
+    // Update seek bar and other player info
+    mainAudioTrack.addEventListener("timeupdate", function () {
+        if (mainAudioTrack.duration) {
+            seekBar.value = (mainAudioTrack.currentTime / mainAudioTrack.duration) * 100;
+            currentTimeDisplay.textContent = formatTime(mainAudioTrack.currentTime);
+        }
+    });
+
+    // Seek bar functionality
+    seekBar.addEventListener("input", function () {
+        mainAudioTrack.currentTime = (seekBar.value / 100) * mainAudioTrack.duration;
+    });
+
+    // Volume control
+    volumeControl.addEventListener("input", function () {
+        mainAudioTrack.volume = volumeControl.value;
+    });
+
+    // Format time helper function
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60).toString().padStart(2, '0');
+        return `${minutes}:${sec}`;
+    }
+
+    // Set initial song on page load (the first song will be shown)
+    updateMusicInfo();
+    resetPlayerState();
 });

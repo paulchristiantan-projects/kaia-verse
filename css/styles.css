@@ -11148,13 +11148,6 @@ footer.footer .social-link:hover {
     margin: 3rem;
 }
 
-/* Music Image */
-.music-player-container img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
 /* Player Controls */
 .music-player {
     display: flex;
@@ -11166,45 +11159,7 @@ footer.footer .social-link:hover {
     gap: 10px;
 }
 
-/* Play Button */
-.playButton {  /* Changed from #playButton to .playButton */
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: pink;
-    font-size: 1.5rem;
-}
 
-/* Seek Bar */
-.seekBar {  /* Changed from #seekBar to .seekBar */
-    width: 100px;
-    appearance: none;
-    background: #535353;
-    height: 5px;
-    border-radius: 5px;
-    outline: none;
-    cursor: pointer;
-}
-
-.seekBar::-webkit-slider-thumb {
-    appearance: none;
-    width: 10px;
-    height: 10px;
-    background: pink;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-/* Time Display */
-.currentTime, .duration {  /* Changed from #currentTime and #duration to .currentTime and .duration */
-    font-size: 12px;
-    color: pink;
-}
 
 .kaia-official {
   font-size: 16px;
@@ -11746,4 +11701,232 @@ footer.footer .social-link:hover {
   transform: translate(-50%, -50%);
   color: white; /* Adjust text styling as needed */
   margin-top: 3rem;
+}
+.music-carousel {
+  width: 100%;
+  padding: 20px 0;
+  position: relative;
+  overflow: hidden; /* Prevents slides from overflowing */
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s ease-in-out;
+  padding-top: 8rem;
+}
+
+.swiper-slide {
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  transform: scale(0.6); /* Smaller slides */
+  opacity: 0.4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure the active slide is centered and larger */
+.swiper-slide-active {
+  transform: scale(1.4); /* Larger active slide */
+  opacity: 1;
+  z-index: 10; /* Keep active slide above others */
+}
+
+/* Image size adjustment */
+.music-cover {
+  width: 15rem; 
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.swiper-slide-active .music-cover {
+  width: 25rem; /* Larger image for active slide */
+  height: 25rem;
+  margin-left: -50px;
+  margin-right: -50px;
+}
+
+/* Navigation buttons */
+.swiper-button-next, .swiper-button-prev {
+  color: #fff;
+  font-size: 24px;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small devices (phones in portrait mode) */
+@media (max-width: 600px) {
+  .swiper-slide {
+    transform: scale(0.8); /* Less scaling on smaller devices */
+    opacity: 0.7;
+  }
+
+  .swiper-slide-active {
+    transform: scale(1.2); /* Slightly larger active slide */
+    opacity: 1;
+  }
+
+  .music-cover {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .swiper-slide-active .music-cover {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  /* .playButton {
+    font-size: 16px;
+    padding: 6px 12px;
+  } */
+
+  .swiper-button-next, .swiper-button-prev {
+    font-size: 18px;
+  }
+}
+
+/* Medium devices (tablets in portrait mode) */
+@media (max-width: 768px) {
+  .swiper-slide {
+    transform: scale(0.9); /* Slightly smaller scaling for tablets */
+    opacity: 0.6;
+  }
+
+  .swiper-slide-active {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+
+  .music-cover {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .swiper-slide-active .music-cover {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  /* .playButton {
+    font-size: 17px;
+    padding: 7px 14px;
+  } */
+
+  .swiper-button-next, .swiper-button-prev {
+    font-size: 20px;
+  }
+}
+
+/* Larger devices (tablets in landscape mode, laptops) */
+@media (min-width: 1024px) {
+  .swiper-slide {
+    transform: scale(0.6); 
+    opacity: 0.4;
+  }
+
+  .swiper-slide-active {
+    transform: scale(1.4); 
+    opacity: 1;
+  }
+
+  .music-cover {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .swiper-slide-active .music-cover {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  /* .playButton {
+    font-size: 18px;
+    padding: 8px 16px;
+  } */
+
+  .swiper-button-next, .swiper-button-prev {
+    font-size: 24px;
+  }
+}
+
+/* .playButton {
+  display: inline-block !important;
+  font-size: 24px;
+  background: red;
+  color: white;
+  padding: 10px;
+} */
+
+/* Center the .music-info-container */
+.music-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Center the text inside the container */
+  padding: 20px; /* Optional padding */
+  box-sizing: border-box;
+}
+
+/* Style for the music player controls */
+.music-player {
+  margin-top: 20px;
+}
+
+/* Style for the range inputs */
+input[type="range"] {
+  margin: 10px 0;
+  width: 80%; /* You can adjust this to make the sliders bigger or smaller */
+}
+
+/* Play Button */
+.playButton {  /* Changed from #playButton to .playButton */
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  color: pink;
+  font-size: 1.5rem;
+}
+
+/* Seek Bar */
+.seekBar {  /* Changed from #seekBar to .seekBar */
+  width: 100px;
+  appearance: none;
+  background: #535353;
+  height: 5px;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.seekBar::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: pink;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Time Display */
+.currentTime, .duration {  /* Changed from #currentTime and #duration to .currentTime and .duration */
+  font-size: 12px;
+  color: pink;
 }

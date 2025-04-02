@@ -15,6 +15,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <script defer src="js/members.js"></script> <!-- Link the JS file -->
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="js/musicPlayer.js"></script>
     </head>
     
     <body id="page-top">
@@ -175,16 +179,41 @@
 
                     <h2>Video</h2>
                     <div class="iframe-container">
-                    <iframe src="https://www.youtube.com/embed/i7b-r5yszw0?si=Oc-TyMenfJnsHl2M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/N6bh_gBcels?si=7UK5ii76uyUE1TZ1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
 
                     <h2>Music</h2>
-                </div>
-                <div class="row gx-0 music" id="musicContainer">
                     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/5UWPjwwieMFFohWLHe4Usy?utm_source=generator&theme=0" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
+                <div class="swiper music-carousel">
+                    <div class="swiper-wrapper">
+                        <!-- Music items will be inserted dynamically -->
+                    </div>
+                    <!-- Navigation Arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                
 
-                <script src="js/musicPlayer.js"></script>
+                <div class="music-info-container">
+                    <h2 id="music-title">Song Title</h2>
+                    <p id="music-artist">KAIA</p>
+                
+                    <!-- Music Player Controls -->
+                    <div class="music-player">
+                        <button class="playButton" id="mainPlayButton">▶</button>
+                        <span class="currentTime">0:00</span> /
+                        <input type="range" id="seekBar" class="seekBar" value="0" step="1">
+                        <span class="duration">0:00</span>
+                        <br>
+                        <span class="duration">Volume:</span>
+                        <input type="range" id="volumeControl" class="volumeControl" min="0" max="1" step="0.1" value="1">
+                        <br>
+                    </div>
+                    <audio id="mainAudioTrack" class="audioTrack"></audio>
+                    
+                </div>
+                
             </div>
         </section>
 
