@@ -7651,6 +7651,7 @@ textarea.form-control-lg {
 
 .mb-0 {
   margin-bottom: 0 !important;
+  color:var(--bs-pink) !important;
 }
 
 .mb-1 {
@@ -10843,6 +10844,8 @@ html {
 
 .content-section-heading h2, .content-section-heading .h2 {
   font-size: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;;
 }
 .content-section-heading h3, .content-section-heading .h3 {
   font-size: 1rem;
@@ -11370,7 +11373,7 @@ footer.footer .social-link:hover {
     }
   }
 
-  #about {
+  /* #about {
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
   }
@@ -11387,7 +11390,7 @@ footer.footer .social-link:hover {
   #gallery {
     padding-bottom: 5rem;
     padding-top: 1.5rem;
-  }
+  } */
 
   .music {
     justify-content: center;
@@ -11400,7 +11403,7 @@ footer.footer .social-link:hover {
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 1rem;
 }
 .gallery-grid img {
     width: 100%;
