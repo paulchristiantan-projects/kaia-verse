@@ -1,5 +1,8 @@
 const events = [
-    { date: "April 05", title: "TANGA MV release", location: "-" },
+    { date: "April 08", title: "KAIA 3rd Anniversary", location: "-" },
+    { date: "April 08", title: "TANGA MV release", location: "-" },
+    { date: "April 07", title: "Wish107.5", location: "Eton, Centris" },
+    { date: "April 05", title: "PJMA Madworld 2025", location: "FILOIL ECOOIL CENTRE" },
     { date: "March 28", title: "TANGA music release", location: "-" },
     { date: "March 17", title: "Walkie Talkie", location: "SM City Davao" },
     { date: "March 15", title: "Fusion MNL 2025", location: "CCP Open Grounds" },

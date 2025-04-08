@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             name: "Angela",
             emoji: "🐻",
-            img: "assets/img/dp-angela.png",
+            img: "assets/img/gallery/angela.jpg",
             modalId: "modal-angela",
             video: "assets/video/videoplayback-angela.mp4",
             birthName: "Charlotte Angela C. Hermoso",
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             name: "Charice",
             emoji: "🍒",
-            img: "assets/img/dp-charice.png",
+            img: "assets/img/gallery/charice.jpg",
             modalId: "modal-charice",
             video: "assets/video/videoplayback-charice.mp4",
             birthName: "Charice Andrea C. Hermoso",
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             name: "Alexa",
             emoji: "🐉",
-            img: "assets/img/dp-alexa.png",
+            img: "assets/img/gallery/alexa.jpg",
             modalId: "modal-alexa",
             video: "assets/video/videoplayback-alexa.mp4",
             birthName: "Alexandra Pelagio Averilla",
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             name: "Sophia",
             emoji: "🦊",
-            img: "assets/img/dp-sophia.png",
+            img: "assets/img/gallery/sophia.jpg",
             modalId: "modal-sophia",
             video: "assets/video/videoplayback-sophia.mp4",
             birthName: "Sophia Alexandra D. Mercado",
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             name: "Charlotte",
             emoji: "🍊",
-            img: "assets/img/dp-charlotte.png",
+            img: "assets/img/gallery/charlotte.jpg",
             modalId: "modal-charlotte",
             video: "assets/video/videoplayback-charlotte.mp4",
             birthName: "Charlotte Erica Fransdel P. Secretario",
