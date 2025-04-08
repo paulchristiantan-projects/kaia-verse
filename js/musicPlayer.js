@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
     const musicData = [
-        { title: "Tanga", image: "assets/img/music-tanga.png", audio: "assets/audio/music-tanga.mp3" },
-        { title: "Walang Biruan Christmas Edition", image: "assets/img/music-walangbiruan-christmasedition.png", audio: "assets/audio/music-walangbiruanchristmasrush.mp3" },
-        { title: "Walang Biruan", image: "assets/img/music-walangbiruan.png", audio: "assets/audio/music-walangbiruan.mp3" },
-        { title: "You Did It", image: "assets/img/music-youdidit.png", audio: "assets/audio/music-youdidit.mp3" },
-        { title: "5678", image: "assets/img/music-5678.png", audio: "assets/audio/music-5678.mp3" },
-        { title: "Turn Up", image: "assets/img/music-turnup.png", audio: "assets/audio/music-turnup.mp3" },
-        { title: "A Perfect Christmas", image: "assets/img/music-aperfectchristmas.png", audio: "assets/audio/music-aperfectchristmas.mp3" },
-        { title: "Dalawa", image: "assets/img/music-dalawa.png", audio: "assets/audio/music-dalawa.mp3" },
-        { title: "Blah Blah", image: "assets/img/music-blahblah.png", audio: "assets/audio/music-blahlah.mp3" },
-        { title: "Kaya", image: "assets/img/music-kaya.png", audio: "assets/audio/music-kaya.mp3" }
+        { title: "Tanga", releaseDate: "Release Date: 2025", image: "assets/img/music-tanga.png", audio: "assets/audio/music-tanga.mp3" },
+        { title: "Walang Biruan Christmas Edition", releaseDate: "Release Date: 2024", image: "assets/img/music-walangbiruan-christmasedition.png", audio: "assets/audio/music-walangbiruanchristmasrush.mp3" },
+        { title: "Walang Biruan", releaseDate: "Release Date: 2024", image: "assets/img/music-walangbiruan.png", audio: "assets/audio/music-walangbiruan.mp3" },
+        { title: "You Did It", releaseDate: "Release Date: 2024", image: "assets/img/music-youdidit.png", audio: "assets/audio/music-youdidit.mp3" },
+        { title: "5678", releaseDate: "Release Date: 2023", image: "assets/img/music-5678.png", audio: "assets/audio/music-5678.mp3" },
+        { title: "Turn Up", releaseDate: "Release Date: 2023", image: "assets/img/music-turnup.png", audio: "assets/audio/music-turnup.mp3" },
+        { title: "A Perfect Christmas", releaseDate: "Release Date: 2022", image: "assets/img/music-aperfectchristmas.png", audio: "assets/audio/music-aperfectchristmas.mp3" },
+        { title: "Dalawa", releaseDate: "Release Date: 2022", image: "assets/img/music-dalawa.png", audio: "assets/audio/music-dalawa.mp3" },
+        { title: "Blah Blah", releaseDate: "Release Date: 2022", image: "assets/img/music-blahblah.png", audio: "assets/audio/music-blahlah.mp3" },
+        { title: "Kaya", releaseDate: "Release Date: 2021", image: "assets/img/music-kaya.png", audio: "assets/audio/music-kaya.mp3" }
     ];
 
     const swiperWrapper = document.querySelector(".swiper-wrapper");
@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Update song title
         document.getElementById("music-title").textContent = track.title;
+        document.getElementById("music-release-date").textContent = track.releaseDate;
 
         // Load new audio file
         mainAudioTrack.src = track.audio;
