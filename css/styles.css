@@ -11864,6 +11864,7 @@ footer.footer .social-link:hover {
 /* Style for the music player controls */
 .music-player {
   margin-top: 20px;
+  width: 70% !important;
 }
 
 /* Style for the range inputs */
@@ -12025,4 +12026,50 @@ input[type="range"] {
   width: 100%;
   height: 100%;
   z-index: -1;  /* Ensure the fallback image is behind the content */
+}
+
+/* Overall styling for lyrics container */
+.lyrics-container {
+  padding: 20px;
+  background-color: #222;
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 70%;
+  margin: 0 auto;
+  max-height: 400px; /* Limit height to fit more lyrics */
+  overflow-y: auto; /* Make it scrollable vertically */
+}
+
+/* Style for the header */
+.lyrics-container h3 {
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Styling for lyrics text */
+#lyrics-display {
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style for individual lyric lines */
+.lyric-line {
+  display: block;
+  opacity: 0.5; /* Dim the lines that are not active */
+  transition: opacity 0.3s ease;
+  padding-bottom: 10px; /* Space between lines */
+}
+
+/* Highlight the current lyric line */
+.lyric-line.active {
+  font-weight: bold;
+  font-size: 26px;
+  color: var(--bs-pink);
+  opacity: 1;
 }

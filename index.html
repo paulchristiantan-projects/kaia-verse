@@ -174,15 +174,16 @@
                     <p id="music-artist">KAIA</p>
                     <p id="music-release-date">April 8, 2022</p>
                 
+                    <div class="lyrics-container">
+                        <h3>Lyrics</h3>
+                        <p id="lyrics-display"></p>
+                    </div>
                     <!-- Music Player Controls -->
                     <div class="music-player">
                         <button class="playButton" id="mainPlayButton">▶</button>
                         <span class="currentTime">0:00</span> /
                         <input type="range" id="seekBar" class="seekBar" value="0" step="1">
                         <span class="duration">0:00</span>
-                        <br>
-                        <span class="duration">Volume:</span>
-                        <input type="range" id="volumeControl" class="volumeControl" min="0" max="1" step="0.1" value="1">
                         <br>
                     </div>
                     <audio id="mainAudioTrack" class="audioTrack"></audio>
