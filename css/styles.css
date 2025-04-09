@@ -11930,3 +11930,45 @@ input[type="range"] {
   font-size: 12px;
   color: pink;
 }
+
+.video-wrapper {
+  display: block;
+}
+
+.image-fallback {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .video-wrapper {
+      display: none;
+  }
+
+  .image-fallback {
+      display: block;
+  }
+}
+
+.video-banner {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-wrapper video,
+.image-fallback img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+}
+
+.banner-content {
+  z-index: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.video-wrapper video {
+  object-fit: cover;
+  object-position: center center; /* tweak this if subject is getting cut off */
+}

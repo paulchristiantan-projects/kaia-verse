@@ -101,27 +101,39 @@
               </div>
         </header>
 
-        <div class="video-banner">
-            <video autoplay loop muted playsinline>
-                <source src="assets/video/videoplayback.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="banner-content">
-                <h1>KAIA Releases New Single 'TANGA'</h1>
-                <p>Stream it on your favorite platform!</p>
+        <div class="video-banner position-relative text-white">
+            <!-- Video background for desktop -->
+            <div class="video-wrapper d-none d-md-block position-absolute top-0 start-0 w-100 h-100 z-n1">
+                <video autoplay loop muted playsinline class="w-100 h-100 object-fit-cover">
+                    <source src="assets/video/videoplayback.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        
+            <!-- Fallback image for mobile -->
+            <div class="image-fallback d-block d-md-none position-absolute top-0 start-0 w-100 h-100 z-n1">
+                <img src="assets/img/fallback-image-banner.jpg"KAIA TANGA Banner" class="w-100 h-100 object-fit-cover">
+            </div>
+        
+            <!-- Bottom-centered content with 10% margin from bottom -->
+            <div class="banner-content position-absolute start-50 translate-middle-x text-center p-4 w-100" style="bottom: 10%;">
+                <h1 class="mb-2">KAIA Releases New Single 'TANGA'</h1>
+                <p class="mb-3">Stream it on your favorite platform!</p>
                 <div>
-                    <a href="https://open.spotify.com/track/35XFkYrc5OH9pPlkIwzbJX?si=2a38f9a6edc04eba" target="_blank" class="btn btn-success">
+                    <a href="https://open.spotify.com/track/35XFkYrc5OH9pPlkIwzbJX?si=2a38f9a6edc04eba" target="_blank" class="btn btn-success m-1">
                         <i class="fab fa-spotify"></i>
                     </a>
-                    <a href="https://youtu.be/N6bh_gBcels?si=Q8mAEO6_a3wiyuo4" target="_blank" class="btn btn-danger">
+                    <a href="https://youtu.be/N6bh_gBcels?si=Q8mAEO6_a3wiyuo4" target="_blank" class="btn btn-danger m-1">
                         <i class="fab fa-youtube"></i>
                     </a>
-                    <a href="https://music.apple.com/ph/album/tanga/1802597708?i=1802597710" target="_blank" class="btn btn-dark">
+                    <a href="https://music.apple.com/ph/album/tanga/1802597708?i=1802597710" target="_blank" class="btn btn-dark m-1">
                         <i class="fab fa-apple"></i>
                     </a>
                 </div>
             </div>
+
         </div>
+        
 
         <!-- About-->
         <section class="content-section bg-light" id="about">
