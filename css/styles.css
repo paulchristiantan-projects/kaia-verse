@@ -10977,45 +10977,24 @@ html {
   color: #212529;
 }
 
-footer.header {
-  padding-top: 1rem;
-}
-
-footer.header .social-link {
-  display: block;
-  text-decoration: none;
-  height: 2.5rem;
-  width: 2.5rem;
-  line-height: 2.5rem;
-  font-size: 1rem;
-  background-color: #d63384;
-  transition: background-color 0.15s ease-in-out;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
-}
-
-footer.header .social-link:hover {
-  background-color: pink;
-  text-decoration: none;
-}
-
 footer.footer {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  background-color: black;
 }
 
 footer.footer .social-link {
   display: block;
   text-decoration: none;
-  height: 4rem;
-  width: 4rem;
-  line-height: 4.3rem;
-  font-size: 1.5rem;
-  background-color: #d63384;
+  height: 2rem;
+  width: 2rem;
+  line-height:2rem;
+  font-size: 2rem;
   transition: background-color 0.15s ease-in-out;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
 footer.footer .social-link:hover {
-  background-color: #155d74;
+  opacity: 0.8;
   text-decoration: none;
 }
 
@@ -11931,23 +11910,7 @@ input[type="range"] {
   color: pink;
 }
 
-.video-wrapper {
-  display: block;
-}
 
-.image-fallback {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .video-wrapper {
-      display: none;
-  }
-
-  .image-fallback {
-      display: block;
-  }
-}
 
 .video-banner {
   height: 100vh;
@@ -11989,13 +11952,6 @@ input[type="range"] {
 }
 
 @media (max-width: 768px) {
-  .video-background video {
-    display: none; /* hide video on mobile */
-  }
-
-  .video-background {
-    background-color: black;
-  }
 
   .content-banner {
     height: 100vh !important;
@@ -12005,4 +11961,68 @@ input[type="range"] {
     padding: 0 1rem !important;
     text-align: center !important;
   }
+}
+
+
+.masthead {
+  position: relative;
+  height: 100vh;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-banner {
+  position: relative;
+  z-index: 2;  /* Ensure it's above the video */
+  color: white;
+  padding: 20px;
+}
+
+.image-fallback img {
+  object-fit: cover;
+}
+
+
+.masthead {
+  position: relative;
+  height: 100vh;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-banner {
+  position: relative;
+  z-index: 2;  /* Ensure it’s in front of the video */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);  /* Apply text shadow */
+}
+
+.image-fallback img {
+  object-fit: cover;
+}
+
+/* For fallback image on mobile */
+.image-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;  /* Ensure the fallback image is behind the content */
 }
