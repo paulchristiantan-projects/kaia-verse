@@ -11759,13 +11759,13 @@ footer.footer .social-link:hover {
   }
 
   .music-cover {
-    width: 8rem;
-    height: 8rem;
+    width: 5rem;
+    height: 5rem;
   }
 
   .swiper-slide-active .music-cover {
-    width: 12rem;
-    height: 12rem;
+    width: 9rem;
+    height: 9rem;
   }
 
   /* .playButton {
@@ -12072,4 +12072,16 @@ input[type="range"] {
   font-size: 1.5rem;
   color: var(--bs-pink);
   opacity: 1;
+}
+
+@media (max-width: 767.98px) {
+  .video-banner .banner-content {
+    bottom: 25% !important; /* or any value you prefer for image fallback layout */
+    padding: 2rem 1rem;     /* tighter padding for mobile */
+    background: rgba(0, 0, 0, 0.5); /* Optional: add semi-transparent bg for text readability on image */
+    border-radius: 0.5rem;  /* Optional: soften edges for mobile */
+    width: auto;            /* Optional: fit content instead of full width */
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
