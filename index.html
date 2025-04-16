@@ -70,12 +70,17 @@
         </header>
 
         <div class="video-banner position-relative text-white">
-            <!-- Video background for all devices -->
-            <div class="video-wrapper position-absolute top-0 start-0 w-100 h-100 z-n1">
+            <!-- Video background for desktop -->
+            <div class="video-wrapper position-absolute top-0 start-0 w-100 h-100 z-n1 d-none d-md-block">
                 <video autoplay loop muted playsinline class="w-100 h-100 object-fit-cover">
                     <source src="assets/video/videoplayback.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+            </div>
+        
+            <!-- Fallback image for mobile -->
+            <div class="image-wrapper position-absolute top-0 start-0 w-100 h-100 z-n1 d-block d-md-none">
+                <img src="assets/img/fallback-image-banner.jpg" alt="Fallback image" class="w-100 h-100 object-fit-cover">
             </div>
         
             <!-- Bottom-centered content with 10% margin from bottom -->
@@ -94,7 +99,8 @@
                     </a>
                 </div>
             </div>
-        </div>        
+        </div>
+           
         
 
         <!-- About-->
