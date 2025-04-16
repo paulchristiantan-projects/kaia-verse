@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             img: "assets/img/gallery/charice.jpg",
             modalId: "modal-charice",
             video: "assets/video/videoplayback-charice.mp4",
+            fallbackImage: "assets/img/charice-banner-fallback.jpg",
             birthName: "Charice Andrea C. Hermoso",
             position: "Rapper, Dancer",
             birthday: "November 3, 1998",
@@ -162,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <video autoplay loop muted playsinline preload="auto">
                                     <source src="${member.video}" type="video/mp4">
                                 </video>
+                                <img src="${member.fallbackImage}" alt="Fallback Image" class="img-fluid" style="display: none;" />
                             </div>
                             <p class="fw-bold text-start mt-3">Stage Name: ${member.name} ${member.emoji}</p>
                             <ul class="list-unstyled text-start">
