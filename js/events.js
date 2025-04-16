@@ -1,4 +1,6 @@
 const events = [
+    { date: "April 26", title: "KAIA's Anniversary Celebration", location: "Quezon City" },
+    { date: "April 12", title: "Vinfast PH KAIA's Meet and Greet", location: "World Trade Center" },
     { date: "April 08", title: "KAIA 3rd Anniversary", location: "-" },
     { date: "April 08", title: "TANGA MV release", location: "-" },
     { date: "April 07", title: "Wish107.5", location: "Eton, Centris" },
