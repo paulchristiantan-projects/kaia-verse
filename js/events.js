@@ -1,4 +1,6 @@
 const events = [
+    { date: "May 04", title: "All Out Sunday ", location: "GMA" },
+    { date: "April 30", title: "Love Boracay", location: "Boracay Station 2" },
     { date: "April 26", title: "KAIA's Anniversary Celebration", location: "Quezon City" },
     { date: "April 12", title: "Vinfast PH KAIA's Meet and Greet", location: "World Trade Center" },
     { date: "April 08", title: "KAIA 3rd Anniversary", location: "-" },
