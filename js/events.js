@@ -1,4 +1,5 @@
 const events = [
+    { date: "July 05", title: "Puregold: OPM CON 2025 ", location: "Philippine Arena" },
     { date: "May 04", title: "All Out Sunday ", location: "GMA" },
     { date: "April 30", title: "Love Boracay", location: "Boracay Station 2" },
     { date: "April 26", title: "KAIA's Anniversary Celebration", location: "Quezon City" },
