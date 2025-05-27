@@ -1,5 +1,13 @@
 const events = [
     { date: "July 05", title: "Puregold: OPM CON 2025 ", location: "Philippine Arena" },
+    { date: "May 27", title: "KAOGMA Festival ", location: "Pili, Camarines Sur" },
+    { date: "May 26", title: "Monster RX 93.1: The Concert Series ", location: "Pasig City" },
+    { date: "May 22 & May 24", title: "Huawei Watch Fit 4 Series Launch ", location: "BGC High Street Activity Center, Taguig City" },
+    { date: "May 22", title: "Binibining Pilipinas Press Presentation ", location: "Live" },
+    { date: "May 19", title: "Grand Balangay Festival ", location: "Butuan Sports Complex" },
+    { date: "May 18", title: "San Jose Partido Town Fiesta 2025", location: "San Jose, Camarines Sur" },
+    { date: "May 17", title: "KFC Crave and Music Live ", location: "Live" },
+    { date: "May 14", title: "Magic 89.9 ", location: "Live" },
     { date: "May 04", title: "All Out Sunday ", location: "GMA" },
     { date: "April 30", title: "Love Boracay", location: "Boracay Station 2" },
     { date: "April 26", title: "KAIA's Anniversary Celebration", location: "Quezon City" },
