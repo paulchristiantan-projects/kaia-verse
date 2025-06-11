@@ -1,6 +1,50 @@
 document.addEventListener("DOMContentLoaded", function () {
     const musicData = [
-        { title: "Walkie Talkie", releaseDate: "Release Date: 2025", image: "assets/img/music-walkietalkie.png", audio: "assets/audio/music-walkietalkie.mp3" },
+        { title: "Walkie Talkie", 
+            releaseDate: "Release Date: 2025", 
+            image: "assets/img/music-walkietalkie.png", 
+            audio: "assets/audio/music-walkietalkie.mp3",
+                        lyrics: [
+                { time: 1, text: "Hm, hm Hello? I have been thinking a lot about you lately And I was wondering if you were as well? Do you copy over?" },
+                { time: 12, text: "♬ ♬ ♬" },
+                { time: 24, text: "Don't know if I should, I'd stop if I could Don't know how I live anymore without thinking 'bout you, boy, yeah" },
+
+
+                { time: 36, text: "Now, just look at the time, 11:59 If you got a minute, I'm about to give you all the signs"},
+                { time: 42, text: "Should we just talk all night? You know that it's alright Why don't you make your move just vibe with me?" },
+                { time: 47, text: "Don't keep me waiting I know I'm there, I'm always in your mind" },
+                { time: 53, text: "Oh, baby, now I'm gonna break it to you, oh You got me feeling for you, boy" },
+
+
+                { time: 60, text: "Come now, get on my frequency Tune in so we can walkie-talkie"},
+                { time: 66, text: "Do you hear me over? Baby, come here closer I just wanna hear you better" },
+                { time: 72, text: "D-O Y-O-U copy? Check that walkie-talkie, baby" },
+                { time: 78, text: "D-O Y-O-U copy? Check that walkie-talkie, baby" },
+
+                { time: 84, text: "♬ ♬ ♬" },
+
+
+                { time: 90, text: "Can't figure out what to do, what's in the manual? Don't know how to function, is this the button?"},
+                { time: 94, text: "Or something for me to click with you? Yeah, reply without delay" },
+                { time: 98, text: "'Lam mo naman, I like your name on my notification every day Not a clue, I can't decode it, dama kong ikaw ay lumalapit" },
+                { time: 105, text: "Ano bang mga 'di sinasabi? Iniisip palagi-lagi You won't stop, sweet like a soda pop, yeah" },
+                { time: 111, text: "I know you're not like any other" },
+
+                { time: 113, text: "Don't keep waiting I know I'm there, I'm always in your mind"},
+                { time: 118, text: "Oh, baby, now I'm gonna break it to you, oh You got me feeling for you, boy, yeah" },
+                { time: 131, text: "Got me feeling for you Feeling for you" },
+
+
+                { time: 138, text: "Come now, get on my frequency Tune in so we can walkie-talkie"},
+                { time: 144, text: "Do you hear me over? Baby, come here closer I just wanna hear you better" },
+                { time: 150, text: "Tell me now, so we can see Tune up, come on, let's walkie-talkie" },
+                { time: 156, text: "My heart's getting closer, baby, come on over I wanna be with you forever" },
+
+                { time: 162, text: "D-O Y-O-U copy? Check that walkie-talkie, baby" },
+                { time: 168, text: "D-O Y-O-U copy?Check that, check that Check that, check that" },
+
+            ]
+        },
         {
             title: "Tanga", 
             releaseDate: "Release Date: 2025", 
