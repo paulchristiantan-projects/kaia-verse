@@ -73,15 +73,15 @@ function fadeIn(el, display) {
 
 // Loader
 
-window.addEventListener("load", function () {
-    let loader = document.getElementById("loader");
-    let content = document.getElementById("content");
+// window.addEventListener("load", function () {
+//     let loader = document.getElementById("loader");
+//     let content = document.getElementById("content");
     
-    loader.classList.add("hidden");
-    setTimeout(() => {
-        loader.style.display = "none";
-    }, 500);
-});
+//     loader.classList.add("hidden");
+//     setTimeout(() => {
+//         loader.style.display = "none";
+//     }, 500);
+// });
 
 
 

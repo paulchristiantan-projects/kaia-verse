@@ -1,6 +1,12 @@
 //Gallery 
 
 const images = [
+    "assets/img/gallery/angela16.jpg", "assets/img/gallery/charice16.jpg", "assets/img/gallery/alexa16.jpg", 
+    "assets/img/gallery/sophia16.jpg", "assets/img/gallery/charlotte16.jpg", "assets/img/gallery/kaia8.jpg", 
+
+    "assets/img/gallery/angela15.jpg", "assets/img/gallery/charice15.jpg", "assets/img/gallery/alexa15.jpg", 
+    "assets/img/gallery/sophia15.jpg", "assets/img/gallery/charlotte15.jpg", "assets/img/gallery/kaia8.jpg", 
+
     "assets/img/gallery/angela8.jpg", "assets/img/gallery/charice8.jpg", "assets/img/gallery/alexa8.jpg", 
     "assets/img/gallery/sophia8.jpg", "assets/img/gallery/charlotte8.jpg", "assets/img/gallery/kaia8.jpg", 
 
