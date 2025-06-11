@@ -1,5 +1,11 @@
 const events = [
     { date: "July 05", title: "Puregold: OPM CON 2025 ", location: "Philippine Arena" },
+    { date: "June 22", title: "Kitchie Nadal's New Ground Manila", location: "Smart Araneta Coliseum" },
+    { date: "June 20", title: "-", location: "-" },
+    { date: "June 12", title: "Puregold MV", location: "-" },
+    { date: "June 14", title: "TOYCON 2025", location: "SMX Convention Center Manila" },
+    { date: "June 07", title: "Realme Mobile Legends Cup Grand Finals ", location: "SM North EDSA" },
+    { date: "June 06", title: "Walkie Talkie song release", location: "Online Music" },
     { date: "May 27", title: "KAOGMA Festival ", location: "Pili, Camarines Sur" },
     { date: "May 26", title: "Monster RX 93.1: The Concert Series ", location: "Pasig City" },
     { date: "May 22 & May 24", title: "Huawei Watch Fit 4 Series Launch ", location: "BGC High Street Activity Center, Taguig City" },

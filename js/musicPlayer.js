@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const musicData = [
+        { title: "Walkie Talkie", releaseDate: "Release Date: 2025", image: "assets/img/music-walkietalkie.png", audio: "assets/audio/music-walkietalkie.mp3" },
         {
             title: "Tanga", 
             releaseDate: "Release Date: 2025", 
