@@ -1,5 +1,7 @@
 const events = [
     { date: "July 05", title: "Puregold: OPM CON 2025 ", location: "Philippine Arena" },
+    { date: "June 28", title: "PPOPCON: Fete de la Musique", location: "Farmers Mall, Cubao" },
+    { date: "June 28", title: "Airasia: Fun Run", location: "Parqal, Paranaque City" },
     { date: "June 21", title: "Kitchie Nadal's New Ground Manila", location: "Smart Araneta Coliseum" },
     { date: "June 20", title: "-", location: "-" },
     { date: "June 14", title: "TOYCON 2025", location: "SMX Convention Center Manila" },
