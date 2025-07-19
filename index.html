@@ -57,7 +57,7 @@
                     <div class="container px-4 px-lg-5 text-center">
                         <h1 class="mb-1">KAIAverse</h1>
                         <h6 class="kaia-official">
-                            <a href="https://kaiaofficial.ph/" target="_blank"><em>Visit KAIA's Official Website</em></a>
+                            <!-- <a href="https://kaiaofficial.ph/" target="_blank"><em>Visit KAIA's Official Website</em></a> -->
                         </h6>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
             <!-- Video background for desktop -->
             <div class="video-wrapper position-absolute top-0 start-0 w-100 h-100 z-n1 d-none d-md-block">
                 <video autoplay loop muted playsinline class="w-100 h-100 object-fit-cover">
-                    <source src="assets/video/videoplayback.mp4" type="video/mp4">
+                    <source src="assets/video/videoplayback-puregoldmv.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -86,18 +86,18 @@
         
             <!-- Bottom-centered content with 10% margin from bottom -->
             <div class="banner-content position-absolute start-50 translate-middle-x text-center p-4 w-100" style="bottom: 10%;">
-                <h1 class="mb-2">KAIA, together with ZIV, releases new song 'Walkie Talkie'</h1>
-                <p class="mb-3">Stream it on your favorite platform!</p>
+                <h1 class="mb-2">'KAIA performs at OPM Con 2025 in the Philippine Arena'</h1>
+                <p class="mb-3">Watch their Puregold Always Panalo MV on your favorite platform!</p>
                 <div>
-                    <a href="https://open.spotify.com/track/5NLNNJ8aAT4mCRUg2uZuOU?si=25DgI7vmS-uvmzgeybWasg" target="_blank" class="btn btn-success m-1">
+                    <!-- <a href="https://open.spotify.com/track/5NLNNJ8aAT4mCRUg2uZuOU?si=25DgI7vmS-uvmzgeybWasg" target="_blank" class="btn btn-success m-1">
                         <i class="fab fa-spotify"></i>
-                    </a>
-                    <a href="https://youtu.be/lF7JeE9nc9Y?list=RDlF7JeE9nc9Y" target="_blank" class="btn btn-danger m-1">
+                    </a> -->
+                    <a href="https://youtu.be/SqARYU7Xf0A?list=RDSqARYU7Xf0A" target="_blank" class="btn btn-danger m-1">
                         <i class="fab fa-youtube"></i>
                     </a>
-                    <a href="https://music.apple.com/ph/album/walkie-talkie-single/1817413220" target="_blank" class="btn btn-dark m-1">
+                    <!-- <a href="https://music.apple.com/ph/album/walkie-talkie-single/1817413220" target="_blank" class="btn btn-dark m-1">
                         <i class="fab fa-apple"></i>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
@@ -117,6 +117,9 @@
                         </p>
                         <p class="lead">
                             They released a pre-debut single “KAYA” on December 10, 2021. They officially debuted on April 8, 2022 with “Blah Blah” followed up with digital singles “Dalawa”, “TURN UP”, and “5678”. The group recently released their newest single, YOU DID IT, on April 12, 2024.
+                        </p>
+                        <p class="lead">
+                            Their fandom is called <b>ZAIA</b>, a community that shares in their journey, passion, and growth.
                         </p>
                     </div>
                 </div>
@@ -160,7 +163,8 @@
 
                     <h2>Video</h2>
                     <div class="iframe-container">
-                        <iframe width="1296" height="729" src="https://www.youtube.com/embed/jY5--PXuAx0" title="KAIA &#39;TANGA&#39; Official Music Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe width="1236" height="695" src="https://www.youtube.com/embed/SqARYU7Xf0A?list=RDSqARYU7Xf0A" title="Puregold Nasa Atin Ang Panalo- Kaya Mo ft. KAIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <!-- <iframe width="1296" height="729" src="https://www.youtube.com/embed/jY5--PXuAx0" title="KAIA &#39;TANGA&#39; Official Music Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
                     </div>
 
                     <h2>Music</h2>
@@ -201,26 +205,35 @@
         </section>
 
 
-    <!-- Events Section -->
-    <section class="content-section" id="events">
-        <div class="container px-4 px-lg-5">
-            <div class="content-section-heading text-center">
-                <h2>Events</h2>
-            </div>
+<!-- Events Section -->
+<section class="content-section" id="events">
+  <div class="container px-4 px-lg-5">
+    <div class="content-section-heading text-center mb-4">
+      <h2>Events</h2>
+    </div>
 
-            <div id="events-container"></div>
+    <!-- Year Selector -->
+    <div id="year-selector" class="year-buttons">
+      <button onclick="setYear(2024)">2024</button>
+      <button onclick="setYear(2025)" class="active-year">2025</button>
+      <button onclick="setYear(2026)">2026</button>
+    </div>
 
-            <!-- Pagination Controls -->
-            <div class="pagination-events">
-                <button id="prevPageEvents">&laquo; Prev</button>
-                <span id="pageNumberEvents">1</span> 
-                <span id="of">of</span>
-                <span id="totalPagesEvents">1</span> 
-                <button id="nextPageEvents">Next &raquo;</button>
-            </div>
-            <script src="js/events.js"></script>  
-        </div>
-    </section>
+    <!-- Event Table -->
+    <div id="events-container" class="event-table-wrapper"></div>
+
+    <!-- Pagination -->
+    <div class="pagination-events">
+      <button id="prevPageEvents">&laquo; Prev</button>
+      <span id="pageNumberEvents">1</span> 
+      <span id="of">of</span>
+      <span id="totalPagesEvents">1</span> 
+      <button id="nextPageEvents">Next &raquo;</button>
+    </div>
+
+    <script src="js/events.js"></script>
+  </div>
+</section>
 
         <!-- Footer-->
         <footer class="footer text-center">

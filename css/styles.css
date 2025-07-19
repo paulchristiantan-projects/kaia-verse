@@ -11342,7 +11342,7 @@ footer.footer .social-link:hover {
 .gallery-grid img {
     width: 100%;
     height: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1.25 / 1.25;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -12003,7 +12003,7 @@ input[type="range"] {
 
 .content-banner {
   position: relative;
-  z-index: 2;  /* Ensure it’s in front of the video */
+  z-index: 1;  /* Ensure it’s in front of the video */
   color: white;
   text-align: center;
   padding: 20px;
@@ -12081,3 +12081,117 @@ input[type="range"] {
     transform: translateX(-50%);
   }
 }
+
+  .year-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .year-buttons button {
+    background: #ffcad4;
+    border: none;
+    color: #444;
+    font-weight: 500;
+    padding: 10px 16px;
+    margin: 0 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .year-buttons button:hover {
+    background-color: pink;
+    color: white;
+  }
+
+  .year-buttons .active-year {
+    background-color:#ffcad4;
+    color: #003366;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .event-table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  }
+
+  .event-table-wrapper th,
+  .event-table-wrapper td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    color: #333;
+  }
+
+  .event-table-wrapper tr:hover {
+    background-color: #fff7f9;
+    transition: background 0.3s ease;
+  }
+
+  .pagination-events {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .pagination-events button {
+    background: #ffcad4;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 4px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+
+  .pagination-events button:hover {
+    background: #ffb3c1;
+  }
+
+  .pagination-events span {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    margin: 0 5px;
+    color: #555;
+  }
+
+  @media (max-width: 600px) {
+    .event-table-wrapper table,
+    .event-table-wrapper thead,
+    .event-table-wrapper tbody,
+    .event-table-wrapper th,
+    .event-table-wrapper td,
+    .event-table-wrapper tr {
+      display: block;
+      width: 100%;
+    }
+
+    .event-table-wrapper td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    .event-table-wrapper td::before {
+      position: absolute;
+      top: 14px;
+      left: 18px;
+      font-weight: bold;
+      color: #666;
+      white-space: nowrap;
+    }
+
+    .event-table-wrapper td:nth-child(1)::before { content: \"📅 Date\"; }
+    .event-table-wrapper td:nth-child(2)::before { content: \"🎤 Title\"; }
+    .event-table-wrapper td:nth-child(3)::before { content: \"📍 Location\"; }
+  }
