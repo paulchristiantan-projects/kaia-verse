@@ -12141,7 +12141,7 @@ input[type="range"] {
 }
 
 /* Pagination Styles */
-.pagination-events {
+.pagination-events, .pagination-news {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -12150,7 +12150,8 @@ input[type="range"] {
   gap: 10px;
 }
 
-.pagination-events button {
+.pagination-events button,
+.pagination-news button{
   padding: 8px 15px;
   border: 1px solid var(--bs-pink);
   background-color: #fff;
@@ -12161,18 +12162,21 @@ input[type="range"] {
   transition: background-color 0.3s, color 0.3s;
 }
 
-.pagination-events button:hover {
+.pagination-events button:hover,
+.pagination-news button:hover {
   background-color: pink;
   color: white;
 }
 
-.pagination-events button:disabled {
+.pagination-events button:disabled,
+.pagination-news button:disabled {
   background-color: #f0f0f0;
   color: #ccc;
   cursor: not-allowed;
 }
 
-.pagination-events .page-number,
+.pagination-events,
+.pagination-news, .page-number,
 #pageNumberEvents,
 #totalPagesEvents,
 #of {
@@ -12188,4 +12192,30 @@ input[type="range"] {
     font-size: 14px;
     padding: 10px 12px;
   }
+}
+
+
+.news-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+.news-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.news-card .news-body {
+  padding: 15px;
+}
+.news-card h5 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.news-card small {
+  color: #888;
 }
