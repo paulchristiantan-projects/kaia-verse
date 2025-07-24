@@ -11516,10 +11516,13 @@ footer.footer .social-link:hover {
     }
     
     .img-fluid {
-        /* width: 100%; */
+        width: 88%;
         height: auto;
         border-radius: 10px;
         transition: transform 0.3s;
+        background: white;
+        padding: 0.75rem 0.75rem 3.5rem 0.75rem;
+        cursor: pointer;
     }
     
     .img-fluid:hover {
@@ -11973,9 +11976,8 @@ input[type="range"] {
   }
 
   .year-buttons button {
-    background: #ffcad4;
-    border: none;
-    color: #444;
+    border: 1px solid var(--bs-pink);
+    color: var(--bs-pink);
     font-weight: 500;
     padding: 10px 16px;
     margin: 0 6px;
@@ -11991,8 +11993,7 @@ input[type="range"] {
   }
 
   .year-buttons .active-year {
-    background-color:#ffcad4;
-    color: #003366;
+    color: var(--bs-pink);
     font-weight: 600;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }

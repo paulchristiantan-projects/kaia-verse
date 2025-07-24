@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             name: "Angela",
             emoji: "🐻",
+            fandomName: "Jellies",
             img: "assets/img/gallery/angela.jpg",
             modalId: "modal-angela",
             video: "assets/video/videoplayback-angela.mp4",
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             name: "Charice",
             emoji: "🍒",
+            fandomName: "Cherries",
             img: "assets/img/gallery/charice.jpg",
             modalId: "modal-charice",
             video: "assets/video/videoplayback-charice.mp4",
@@ -55,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             name: "Alexa",
             emoji: "🐉",
+            fandomName: "Dragons",
             img: "assets/img/gallery/alexa.jpg",
             modalId: "modal-alexa",
             video: "assets/video/videoplayback-alexa.mp4",
@@ -79,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             name: "Sophia",
             emoji: "🦊",
+            fandomName: "Sopas",
             img: "assets/img/gallery/sophia.jpg",
             modalId: "modal-sophia",
             video: "assets/video/videoplayback-sophia.mp4",
@@ -105,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             name: "Charlotte",
             emoji: "🍊",
+            fandomName: "Charms",
             img: "assets/img/gallery/charlotte.jpg",
             modalId: "modal-charlotte",
             video: "assets/video/videoplayback-charlotte.mp4",
@@ -140,12 +145,18 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create member card
         membersHTML += `
             <div class="col mb-4 text-center member-info">
-                <img src="${member.img}" alt="${member.name} Icon" class="img-fluid rounded-circle" width="150">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#${member.modalId}">
+                    <img src="${member.img}" alt="${member.name} Icon" class="img-fluid rounded-circle" width="150">
+                </a>
                 <h4 class="mt-2"><strong>${member.name}</strong></h4>
-                <p class="text-muted mb-1">Emoji: ${member.emoji}</p>
                 <a href="#" data-bs-toggle="modal" data-bs-target="#${member.modalId}" class="text-primary">
                     View Profile
                 </a>
+
+                <p class="text-muted mb-1">
+                    Emoji: ${member.emoji} <span class="fst-italic">(${member.fandomName})</span>
+                </p>
+
             </div>
         `;
 

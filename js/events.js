@@ -4,8 +4,8 @@ const rowsPerPageEvents = 6;
 
 const eventsByYear = {
     2024: [
-        { date: "-", title: "-", location: "-" },
-        { date: "-", title: "-", location: "-" }
+        { date: "October 29", title: "Wish Bus (Walang Biruan)", location: "Venice Grand Canal Mall" },
+        { date: "December 29", title: "KPOP Convention 12", location: "SPACE, One Ayala" }
     ],
     2025: [
         { date: "Aug 02", title: "Ult Vibe Live ", location: "BGC Amphitheater, Taguig City" },
