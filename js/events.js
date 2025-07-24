@@ -8,6 +8,7 @@ const eventsByYear = {
         { date: "December 29", title: "KPOP Convention 12", location: "SPACE, One Ayala" }
     ],
     2025: [
+        { date: "October 10", title: "Fusion 10 (The Philippine Music Festival) ", location: "UPLB Freedom Park" },
         { date: "Aug 02", title: "Ult Vibe Live ", location: "BGC Amphitheater, Taguig City" },
         { date: "July 05", title: "Puregold: OPM CON 2025 ", location: "Philippine Arena" },
         { date: "June 28", title: "PPOPCON: Fete de la Musique", location: "Farmers Mall, Cubao" },
