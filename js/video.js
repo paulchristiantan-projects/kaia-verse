@@ -13,8 +13,21 @@ const videoList = [
     {
         src: "https://www.youtube.com/embed/i7b-r5yszw0?list=RDi7b-r5yszw0",
         title: "KAIA 'Walang Biruan' Official Music Video"
+    },
+    {
+        src: "https://www.youtube.com/embed/Z1Lfxww39h8",
+        title: "KAIA 'YOU DID IT' Official Music Video"
+    },
+    {
+        src: "https://www.youtube.com/embed/7_PGKzNVD4I",
+        title: "KAIA '5678' Official Music Video"
+    },
+    {
+        src: "https://www.youtube.com/embed/kGwgyKovR-w",
+        title: "KAIA 'KAYA' Performance (Acoustic Version)"
     }
 ];
+
 
 function displayVideoPage(page) {
     const container = document.getElementById("video-container");
