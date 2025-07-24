@@ -180,10 +180,13 @@
                 <div class="content-section-heading text-center">
                     <h3 class="text-secondary mb-0">Discography</h3>
 
-                    <h2>Video</h2>
-                    <div class="iframe-container">
-                        <iframe width="1236" height="695" src="https://www.youtube.com/embed/SqARYU7Xf0A?list=RDSqARYU7Xf0A" title="Puregold Nasa Atin Ang Panalo- Kaya Mo ft. KAIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        <!-- <iframe width="1296" height="729" src="https://www.youtube.com/embed/jY5--PXuAx0" title="KAIA &#39;TANGA&#39; Official Music Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+                    <h2>Videos</h2>
+                    <div id="video-container" class="iframe-container"></div>
+
+                    <div class="pagination-videos">
+                        <button id="prevPageVideos">« Prev</button>
+                        <span id="pageNumberVideos">1</span> <span id="of">of</span><span id="totalPagesVideos"></span>
+                        <button id="nextPageVideos">Next »</button>
                     </div>
 
                     <h2>Music</h2>
@@ -327,6 +330,7 @@
         </footer>
         <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/video.js"></script>
         <script src="js/scripts.js"></script>
     </body>
 </html>

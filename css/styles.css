@@ -12142,7 +12142,7 @@ input[type="range"] {
 }
 
 /* Pagination Styles */
-.pagination-events, .pagination-news {
+.pagination-events, .pagination-news, .pagination-videos{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -12151,6 +12151,7 @@ input[type="range"] {
   gap: 10px;
 }
 
+.pagination-videos button,
 .pagination-events button,
 .pagination-news button{
   padding: 8px 15px;
@@ -12163,6 +12164,7 @@ input[type="range"] {
   transition: background-color 0.3s, color 0.3s;
 }
 
+.pagination-videos button:hover,
 .pagination-events button:hover,
 .pagination-news button:hover {
   background-color: pink;
@@ -12170,16 +12172,20 @@ input[type="range"] {
 }
 
 .pagination-events button:disabled,
+.pagination-events button:disabled,
 .pagination-news button:disabled {
   background-color: #f0f0f0;
   color: #ccc;
   cursor: not-allowed;
 }
 
+.pagination-videos,
 .pagination-events,
 .pagination-news, .page-number,
 #pageNumberEvents,
 #totalPagesEvents,
+#pageNumberVideos,
+#totalPagesVideos,
 #of {
   font-size: 14px;
   font-weight: bold;
@@ -12219,4 +12225,12 @@ input[type="range"] {
 }
 .news-card small {
   color: #888;
+}
+
+
+.iframe-container iframe {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
 }
