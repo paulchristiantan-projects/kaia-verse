@@ -31,6 +31,22 @@ const newsData = [
     date: "January 30, 2025",
     source: "PULP Magazine"
   },
+
+  {
+    title: "P-pop girl group KAIA shares music advice from SB19",
+    url: "https://www.philstar.com/entertainment/2024/11/10/2398883/p-pop-girl-group-kaia-shares-music-advice-sb19",
+    image: "assets/img/news/news12.jpg",
+    date: "November 10, 2024",
+    source: "PhilStar"
+  },
+
+  {
+    title: "Walang Biruan: KAIA On Evolving As Songwriters, Working With Kindred, And Releasing More Music Soon",
+    url: "https://billboardphilippines.com/music/features/walang-biruan-kaia-on-evolving-as-songwriters-working-with-kindred-and-releasing-more-music-soon-interview-2024/",
+    image: "assets/img/news/news11.jpg",
+    date: "October 23, 2024",
+    source: "Billboard Philippines"
+  },
   
   {
     title: "How P-pop girl group KAIA fuses fashion and music",
@@ -38,6 +54,14 @@ const newsData = [
     image: "assets/img/news/news8.jpg",
     date: "September 07, 2024",
     source: "PhilStar"
+  },
+
+  {
+    title: "Ppop girl group KAIA collabs with designer Chynna Mamawal for special merch",
+    url: "https://www.gmanetwork.com/entertainment/showbiznews/ppop-girl-group-kaia-collabs-with-designer-chynna-mamawal-for-special-merch/115474/#google_vignette",
+    image: "assets/img/news/news13.jpg",
+    date: "August 29, 2024",
+    source: "GMA News"
   },
 
   {
@@ -69,6 +93,14 @@ const newsData = [
     image: "assets/img/news/news9.jpg",
     date: "June 28, 2023",
     source: "PARCINQ"
+  },
+
+  {
+    title: "Filipino girl group KAIA finally drops debut single “BLAH BLAH”",
+    url: "https://www.metroscenemag.com/2022/04/filipino-girl-group-kaia-finally-drops.html",
+    image: "assets/img/news/news14.jpg",
+    date: "April 8, 2022",
+    source: "Metro Scene Magazine"
   },
 
   {
