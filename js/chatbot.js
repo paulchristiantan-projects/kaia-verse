@@ -108,9 +108,9 @@ ${infoText}
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: "Bearer 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", // Replace this with browser-safe key
+        Authorization: "Bearer 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", // Replace this with browser-safe key
         "Content-Type": "application/json",
-        // "HTTP-Referer": "http://127.0.0.1:5500/", // or your deployed domain
+        // "HTTP-Referer": "http://127.0.0.1:5500/", // or your deployed domain 
         "HTTP-Referer": "https://kaia-verse.vercel.app/", // or your deployed domain
         "X-Title": "KAIA Chat Assistant"
       },
