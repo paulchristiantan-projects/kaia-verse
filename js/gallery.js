@@ -2,7 +2,7 @@
 
 const images = [
     "assets/img/gallery/angela17.jpg", "assets/img/gallery/charice17.jpg", "assets/img/gallery/alexa17.jpg", 
-    "assets/img/gallery/sophia17.jpg", "assets/img/gallery/charlotte17.jpg", "assets/img/gallery/kaia17.jpg", 
+    "assets/img/gallery/sophia17.jpg", "assets/img/gallery/charlotte17.jpg", "assets/img/gallery/kaia8.jpg", 
 
     "assets/img/gallery/angela16.jpg", "assets/img/gallery/charice16.jpg", "assets/img/gallery/alexa16.jpg", 
     "assets/img/gallery/sophia16.jpg", "assets/img/gallery/charlotte16.jpg", "assets/img/gallery/kaia8.jpg", 
