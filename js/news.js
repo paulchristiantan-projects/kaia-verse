@@ -1,6 +1,13 @@
 // ✅ Must come first
 const newsData = [
   {
+    title: "Zack Tabudlo on why he loved working with KAIA: ’They’re family’",
+    url: "https://entertainment.inquirer.net/622726/zack-tabudlo-on-why-he-loved-working-with-kaia-theyre-family",
+    image: "assets/img/news/news15.jpg",
+    date: "August 08, 2025",
+    source: "Inquirer.net"
+  },
+  {
     title: "KAIA on the P-pop Spotlight | One Music PH",
     url: "https://www.abs-cbn.com/entertainment/showbiz/music/2025/7/3/kaia-on-the-p-pop-spotlight-one-music-ph-1044",
     image: "assets/img/news/news5.jpg",
