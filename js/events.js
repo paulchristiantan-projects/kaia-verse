@@ -10,7 +10,9 @@ const eventsByYear = {
     2025: [
         { date: "October 10", title: "Fusion 10 (The Philippine Music Festival) ", location: "UPLB Freedom Park" },
         { date: "Aug 29", title: "Wish Anniversary Celebration ", location: "Eton Centris Open Grounds" },
+        { date: "Aug 14", title: "PPOP Concert Caravan ", location: "National Teachers College (Science Quadrangle)" },
         { date: "Aug 09", title: "New Ground: Kitchie Nadal ", location: "Robinsons Galleria Cebu City" },
+        { date: "Aug 08", title: "ASEAN Day 2025 ", location: "-" },
         { date: "Aug 02", title: "Ult Vibe Live ", location: "BGC Amphitheater, Taguig City" },
         { date: "Aug 01", title: "NESTCON 2025 (Nestle) ", location: "SMX Convention (SM Aura), Taguig City" },
         { date: "July 05", title: "Puregold: OPM CON 2025 ", location: "Philippine Arena" },
