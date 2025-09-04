@@ -9,6 +9,9 @@ const eventsByYear = {
     ],
     2025: [
         { date: "October 10", title: "Fusion 10 (The Philippine Music Festival) ", location: "UPLB Freedom Park" },
+        { date: "Sept 12", title: "Love on Loop Album Concert (Lola Amour) ", location: "SPACE, One Ayala" },
+        { date: "Sept 6", title: "DTI: Malikhaing Pinoy Expo ", location: "SMX Convention Center, SM Aura" },
+        { date: "Aug 30", title: "New Ground: Kitchie Nadal ", location: "Robinson, Las Pinas" },
         { date: "Aug 29", title: "Wish Anniversary Celebration ", location: "Eton Centris Open Grounds" },
         { date: "Aug 09", title: "New Ground: Kitchie Nadal ", location: "Robinsons Galleria Cebu City" },
         { date: "Aug 02", title: "Ult Vibe Live ", location: "BGC Amphitheater, Taguig City" },
