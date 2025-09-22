@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { musicData } from '../data/music';
 import { getAssetPath } from '../utils/assetHelper';
+import Videos from './Videos';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -198,6 +199,9 @@ const Discography = () => {
             </div>
           </div>
         </div>
+        
+        {/* Videos Section */}
+        <Videos />
       </div>
     </section>
   );

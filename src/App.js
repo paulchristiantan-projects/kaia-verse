@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Members from './components/Members';
 import Gallery from './components/Gallery';
 import Discography from './components/Discography';
+import VideoSection from './components/VideoSection';
 import News from './components/News';
 import Events from './components/Events';
 import Footer from './components/Footer';
@@ -38,6 +39,7 @@ function App() {
         <Members />
         <Gallery />
         <Discography />
+        <VideoSection />
         <News />
         <Events />
         <Footer />
