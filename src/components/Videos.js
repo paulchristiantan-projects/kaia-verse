@@ -7,7 +7,7 @@ const Videos = () => {
 
   const videoList = [
     {
-      src: "https://www.youtube.com/embed/SqARYU7Xf0A?list=RDSqARYU7Xf0A",
+      src: "https://www.youtube.com/embed/SqARYU7Xf0A",
       title: "Puregold Nasa Atin Ang Panalo- Kaya Mo ft. KAIA"
     },
     {
@@ -15,7 +15,7 @@ const Videos = () => {
       title: "KAIA 'TANGA' Official Music Video"
     },
     {
-      src: "https://www.youtube.com/embed/i7b-r5yszw0?list=RDi7b-r5yszw0",
+      src: "https://www.youtube.com/embed/i7b-r5yszw0",
       title: "KAIA 'Walang Biruan' Official Music Video"
     },
     {
@@ -55,28 +55,53 @@ const Videos = () => {
       </h3>
       
       <div className="video-container text-center">
-        <div className="video-wrapper" style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '15px' }}>
+        <div className="video-wrapper" style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '15px', background: '#f0f0f0' }}>
           <iframe
             src={currentVideo.src}
             title={currentVideo.title}
+            width="100%"
+            height="100%"
             style={{
               position: 'absolute',
               top: 0,
               left: 0,
               width: '100%',
               height: '100%',
-              border: 'none',
-              borderRadius: '15px'
+              border: 'none'
             }}
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
+            onError={(e) => console.log('Video failed to load:', e)}
           />
+          {/* Fallback link */}
+          <div style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+            <a 
+              href={currentVideo.src.replace('/embed/', '/watch?v=')}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: 'var(--kaia-primary)',
+                color: 'white',
+                padding: '5px 10px',
+                borderRadius: '5px',
+                textDecoration: 'none',
+                fontSize: '12px'
+              }}
+            >
+              Watch on YouTube
+            </a>
+          </div>
         </div>
         
         <h4 className="mt-3" style={{ color: 'var(--kaia-primary)', fontSize: '1.1rem' }}>
           {currentVideo.title}
         </h4>
+        
+        {/* Debug info */}
+        <small style={{ color: '#666', display: 'block', marginTop: '5px' }}>
+          Video URL: {currentVideo.src}
+        </small>
       </div>
 
       {/* Pagination */}

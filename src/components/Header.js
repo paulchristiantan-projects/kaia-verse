@@ -42,7 +42,7 @@ const Header = () => {
             <li><a href="#about" onClick={() => scrollToSection('about')}>About</a></li>
             <li><a href="#gallery" onClick={() => scrollToSection('gallery')}>Gallery</a></li>
             <li><a href="#discography" onClick={() => scrollToSection('discography')}>Music</a></li>
-            <li><a href="#videos" onClick={() => scrollToSection('videos')}>Videos</a></li>
+            {/* <li><a href="#videos" onClick={() => scrollToSection('videos')}>Videos</a></li> */}
             <li><a href="#news" onClick={() => scrollToSection('news')}>News</a></li>
             <li><a href="#events" onClick={() => scrollToSection('events')}>Events</a></li>
           </ul>
@@ -104,9 +104,9 @@ const Header = () => {
           <li className="sidebar-nav-item">
             <a href="#discography" onClick={() => scrollToSection('discography')}>Music</a>
           </li>
-          <li className="sidebar-nav-item">
+          {/* <li className="sidebar-nav-item">
             <a href="#videos" onClick={() => scrollToSection('videos')}>Videos</a>
-          </li>
+          </li> */}
           <li className="sidebar-nav-item">
             <a href="#news" onClick={() => scrollToSection('news')}>News</a>
           </li>

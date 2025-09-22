@@ -7,23 +7,23 @@ const OtherVideos = () => {
   const otherKaiaVideos = [
     {
       title: "KAIA – 'Walang Biruan' | Backyard Live Performance",
-      src: "https://www.youtube.com/embed/BWTRSFt1Q9Y?list=RDBWTRSFt1Q9Y"
+      src: "https://www.youtube.com/embed/BWTRSFt1Q9Y"
     },
     {
       title: "KAIA – 'Walang Biruan' | 2024 ROUND FESTIVAL",
-      src: "https://www.youtube.com/embed/LCzAZcqjB24?list=RDLCzAZcqjB24"
+      src: "https://www.youtube.com/embed/LCzAZcqjB24"
     },
     {
       title: "KAIA – 'KAYA' | 2024 ROUND FESTIVAL",
-      src: "https://www.youtube.com/embed/5RmBL_XBSEo?list=RD5RmBL_XBSEo"
+      src: "https://www.youtube.com/embed/5RmBL_XBSEo"
     },
     {
       title: "KAIA – 'Walang Biruan' | All-Out Sundays",
-      src: "https://www.youtube.com/embed/eCj85yJGptE?list=RDeCj85yJGptE"
+      src: "https://www.youtube.com/embed/eCj85yJGptE"
     },
     {
       title: "KAIA 'Tanga' | All-Out Sundays",
-      src: "https://www.youtube.com/embed/X_rJ6ww3Usw?list=RDX_rJ6ww3Usw"
+      src: "https://www.youtube.com/embed/X_rJ6ww3Usw"
     },
     {
       title: "KAIA | Concert Series | RX931",
@@ -88,9 +88,10 @@ const OtherVideos = () => {
                     border: 'none',
                     borderRadius: '15px'
                   }}
+                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
+                  loading="lazy"
                 />
               </div>
               <div className="video-caption text-center">

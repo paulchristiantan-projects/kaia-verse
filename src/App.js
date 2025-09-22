@@ -39,7 +39,7 @@ function App() {
         <Members />
         <Gallery />
         <Discography />
-        <VideoSection />
+        {/* <VideoSection /> */}
         <News />
         <Events />
         <Footer />

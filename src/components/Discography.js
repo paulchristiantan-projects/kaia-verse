@@ -201,7 +201,7 @@ const Discography = () => {
         </div>
         
         {/* Videos Section */}
-        <Videos />
+        {/* <Videos /> */}
       </div>
     </section>
   );
