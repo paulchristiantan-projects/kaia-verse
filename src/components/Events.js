@@ -14,8 +14,11 @@ const Events = () => {
         { id: 1, date: 'October 29', event: 'Wish Bus (Walang Biruan)', venue: 'Venice Grand Canal Mall', status: 'Completed' }
       ],
       2025: [
-        { id: 56, date: 'October 11', event: 'Fusion 10 (The Philippine Music Festival)', venue: 'UPLB Freedom Park', status: 'Upcoming' },
-        { id: 55, date: 'October 10', event: 'PPOP Music & Culture Caravan', venue: 'Foro De Intramuros', status: 'Upcoming' },
+        { id: 59, date: 'November 8', event: 'ALPAS sunset sessions', venue: 'Alpas La Union', status: 'Upcoming' },
+        { id: 58, date: 'October 11', event: 'Blackout', venue: 'Bridgetown Open Grounds', status: 'Upcoming' },
+        { id: 57, date: 'October 10', event: 'Fusion 10 (The Philippine Music Festival)', venue: 'UPLB Freedom Park', status: 'Upcoming' },
+        { id: 56, date: 'September 27', event: 'PPOP Music & Culture Caravan', venue: 'Foro De Intramuros', status: 'Postponed' },
+        { id: 55, date: 'September 24', event: 'YORI Launch', venue: 'SM Megamall', status: 'Completed' },
         { id: 54, date: 'September 19', event: 'It\'s Showtime', venue: 'ABS CBN Live', status: 'Completed' },
         { id: 53, date: 'September 19', event: 'Billboard Philippines x Cosmos', venue: 'Baked Studios, Makati', status: 'Completed' },
         { id: 52, date: 'September 12', event: 'Love on Loop Album Concert (Lola Amour)', venue: 'SPACE, One Ayala', status: 'Completed' },
