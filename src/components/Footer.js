@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Footer = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const socialLinks = [
     {
       name: 'Facebook',
@@ -43,7 +53,13 @@ const Footer = () => {
   return (
     <footer className="footer text-center">
       <div className="container px-4 px-lg-5">
-        <ul className="list-inline mb-5">
+        <ul className="list-inline mb-5" style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          gap: isMobile ? '0.5rem' : '1rem',
+          padding: '0'
+        }}>
           {socialLinks.map((social, index) => (
             <li key={social.name} className="list-inline-item">
               <a
@@ -53,17 +69,18 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 style={{
                   display: 'inline-block',
-                  width: '50px',
-                  height: '50px',
-                  lineHeight: '50px',
+                  width: isMobile ? '40px' : '50px',
+                  height: isMobile ? '40px' : '50px',
+                  lineHeight: isMobile ? '40px' : '50px',
                   textAlign: 'center',
                   borderRadius: '50%',
                   background: social.color,
                   color: 'white',
-                  margin: '0 0.5rem',
+                  margin: isMobile ? '0 0.25rem' : '0 0.5rem',
                   transition: 'all 0.3s ease',
                   textDecoration: 'none',
-                  animationDelay: `${index * 0.1}s`
+                  animationDelay: `${index * 0.1}s`,
+                  fontSize: isMobile ? '0.9rem' : '1rem'
                 }}
                 className={`social-link fade-in`}
                 onMouseEnter={(e) => {

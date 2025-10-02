@@ -187,7 +187,8 @@ ${infoText}
           zIndex: 1000,
           transition: 'all 0.3s ease',
           boxShadow: '0 5px 20px rgba(214, 51, 132, 0.3)',
-          fontSize: '0.9rem'
+          fontSize: '0.9rem',
+          display: 'none'
         }}
         onMouseEnter={(e) => {
           e.target.style.background = '#b8296b';

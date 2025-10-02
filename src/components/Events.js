@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 const Events = () => {
   const [events, setEvents] = useState([]);
+  const [cseEvents, setCseEvents] = useState([]);
   const [currentYear, setCurrentYear] = useState(2025);
+  const [cseCurrentYear, setCseCurrentYear] = useState(2025);
   const [currentPage, setCurrentPage] = useState(1);
+  const [cseCurrentPage, setCseCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const eventsPerPage = 10;
 
@@ -14,10 +17,11 @@ const Events = () => {
         { id: 1, date: 'October 29', event: 'Wish Bus (Walang Biruan)', venue: 'Venice Grand Canal Mall', status: 'Completed' }
       ],
       2025: [
-        { id: 59, date: 'November 8', event: 'ALPAS sunset sessions', venue: 'Alpas La Union', status: 'Upcoming' },
+        { id: 60, date: 'November 8', event: 'ALPAS sunset sessions', venue: 'Alpas La Union', status: 'Upcoming' },
+        { id: 59, date: 'October 18', event: 'FWC 2025 Manila', venue: 'Ayala Malls, Manila Bay', status: 'Upcoming' },
         { id: 58, date: 'October 11', event: 'Blackout', venue: 'Bridgetown Open Grounds', status: 'Upcoming' },
         { id: 57, date: 'October 10', event: 'Fusion 10 (The Philippine Music Festival)', venue: 'UPLB Freedom Park', status: 'Upcoming' },
-        { id: 56, date: 'September 27', event: 'PPOP Music & Culture Caravan', venue: 'Foro De Intramuros', status: 'Postponed' },
+        { id: 56, date: 'October 3', event: 'PPOP Music & Culture Caravan', venue: 'Foro De Intramuros', status: 'Upcoming' },
         { id: 55, date: 'September 24', event: 'YORI Launch', venue: 'SM Megamall', status: 'Completed' },
         { id: 54, date: 'September 19', event: 'It\'s Showtime', venue: 'ABS CBN Live', status: 'Completed' },
         { id: 53, date: 'September 19', event: 'Billboard Philippines x Cosmos', venue: 'Baked Studios, Makati', status: 'Completed' },
@@ -76,7 +80,25 @@ const Events = () => {
       ]
     };
     
+    const cseEventsData = {
+      2024: [
+        { id: 1, date: '-', event: '-', venue: '-', status: '-' },
+      ],
+      2025: [
+        { id: 10, date: 'TBA', event: 'Charice CSE', venue: 'TBA', status: 'Upcoming' },
+        { id: 9, date: 'TBA', event: 'Angela CSE', venue: 'TBA', status: 'Upcoming' },
+        { id: 8, date: 'October 18', event: 'Charlotte CSE v2', venue: 'Kape Light', status: 'Upcoming' },
+        { id: 7, date: 'October 11', event: 'Charlotte CSE', venue: 'Cafe', status: 'Upcoming' },
+        { id: 6, date: 'August 21', event: 'Sophia CSE', venue: 'Kape Light', status: 'Completed' },
+        { id: 5, date: 'May 20', event: 'Alexa CSE', venue: 'Kape Light', status: 'Completed' }
+      ],
+      2026: [
+        { id: 1, date: '-', event: '-', venue: '-', status: '-' },
+      ]
+    };
+    
     setEvents(eventsData);
+    setCseEvents(cseEventsData);
     setLoading(false);
   }, []);
 
@@ -131,39 +153,67 @@ const Events = () => {
         </div>
 
         {/* Year Selector */}
-        <div className="year-buttons text-center mb-4">
-          {[2024, 2025, 2026].map(year => (
-            <button
-              key={year}
-              onClick={() => setYear(year)}
-              className={`btn m-2 ${currentYear === year ? 'active-year' : ''}`}
+        <div className="text-center mb-5">
+          <div style={{ position: 'relative', display: 'inline-block' }}>
+            <select
+              value={currentYear}
+              onChange={(e) => setYear(parseInt(e.target.value))}
               style={{
-                background: currentYear === year ? 'var(--kaia-primary)' : 'transparent',
-                color: currentYear === year ? 'white' : 'var(--kaia-primary)',
-                border: '2px solid var(--kaia-primary)',
-                borderRadius: '25px',
-                padding: '0.5rem 1.5rem',
-                fontWeight: 'bold',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                if (currentYear !== year) {
-                  e.target.style.background = 'var(--kaia-primary)';
-                  e.target.style.color = 'white';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (currentYear !== year) {
-                  e.target.style.background = 'transparent';
-                  e.target.style.color = 'var(--kaia-primary)';
-                }
+                background: 'white',
+                color: '#333',
+                border: '2px solid #ddd',
+                borderRadius: '8px',
+                padding: '0.75rem 2rem 0.75rem 1rem',
+                fontWeight: '500',
+                fontSize: '1rem',
+                cursor: 'pointer',
+                outline: 'none',
+                appearance: 'none',
+                minWidth: '120px'
               }}
             >
-              {year}
-            </button>
-          ))}
+              <option value={2024}>2024</option>
+              <option value={2025}>2025</option>
+              <option value={2026}>2026</option>
+            </select>
+            <div style={{
+              position: 'absolute',
+              right: '10px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              pointerEvents: 'none',
+              color: '#666',
+              fontSize: '0.8rem'
+            }}>▼</div>
+          </div>
         </div>
 
+        {/* KAIA Events Section */}
+        <div style={{
+          background: 'linear-gradient(135deg, rgba(214, 51, 132, 0.05), rgba(184, 41, 107, 0.05))',
+          borderRadius: '20px',
+          padding: '2rem',
+          marginBottom: '3rem',
+          border: '1px solid rgba(214, 51, 132, 0.1)'
+        }}>
+          <div style={{
+            textAlign: 'center',
+            marginBottom: '2rem',
+            paddingBottom: '1rem',
+            borderBottom: '2px solid rgba(214, 51, 132, 0.1)'
+          }}>
+            <h3 style={{ 
+              color: 'var(--kaia-primary)', 
+              fontWeight: '700',
+              fontSize: '1.75rem',
+              margin: '0',
+              textTransform: 'uppercase',
+              letterSpacing: '1px'
+            }}>
+              KAIA Events {currentYear}
+            </h3>
+          </div>
+        
         {/* Desktop Events Table */}
         <div className="event-table-wrapper slide-in-left">
           <div 
@@ -250,52 +300,140 @@ const Events = () => {
           ))}
         </div>
 
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="pagination-events text-center mt-4">
-            <button 
-              onClick={handlePrevPage}
-              disabled={currentPage === 1}
-              style={{
-                background: currentPage === 1 ? '#ccc' : 'var(--kaia-primary)',
-                color: 'white',
-                border: 'none',
-                borderRadius: '25px',
-                padding: '0.5rem 1rem',
-                margin: '0 0.5rem',
-                cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              &laquo; Prev
-            </button>
-            
-            <span style={{ 
-              margin: '0 1rem', 
-              fontWeight: 'bold',
-              color: 'var(--kaia-primary)'
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center',
+              marginTop: '2rem',
+              gap: window.innerWidth <= 768 ? '0.5rem' : '1rem',
+              flexWrap: 'wrap'
             }}>
-              {currentPage} of {totalPages}
-            </span>
-            
-            <button 
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages}
-              style={{
-                background: currentPage === totalPages ? '#ccc' : 'var(--kaia-primary)',
-                color: 'white',
-                border: 'none',
-                borderRadius: '25px',
-                padding: '0.5rem 1rem',
-                margin: '0 0.5rem',
-                cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              Next &raquo;
-            </button>
+              <button 
+                onClick={handlePrevPage}
+                disabled={currentPage === 1}
+                style={{
+                  background: currentPage === 1 ? 'rgba(0,0,0,0.1)' : 'var(--kaia-primary)',
+                  color: currentPage === 1 ? '#999' : 'white',
+                  border: 'none',
+                  borderRadius: '12px',
+                  padding: window.innerWidth <= 768 ? '0.5rem 1rem' : '0.75rem 1.5rem',
+                  cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                  transition: 'all 0.3s ease',
+                  fontWeight: '600',
+                  fontSize: window.innerWidth <= 768 ? '0.8rem' : '0.9rem',
+                  boxShadow: currentPage === 1 ? 'none' : '0 4px 12px rgba(214, 51, 132, 0.3)',
+                  minWidth: window.innerWidth <= 768 ? '80px' : 'auto'
+                }}
+              >
+                {window.innerWidth <= 768 ? '←' : '← Previous'}
+              </button>
+              
+              <div style={{
+                background: 'rgba(214, 51, 132, 0.1)',
+                padding: window.innerWidth <= 768 ? '0.5rem 1rem' : '0.75rem 1.5rem',
+                borderRadius: '12px',
+                fontWeight: '600',
+                color: 'var(--kaia-primary)',
+                fontSize: window.innerWidth <= 768 ? '0.8rem' : '0.95rem',
+                whiteSpace: 'nowrap'
+              }}>
+                {currentPage} of {totalPages}
+              </div>
+              
+              <button 
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages}
+                style={{
+                  background: currentPage === totalPages ? 'rgba(0,0,0,0.1)' : 'var(--kaia-primary)',
+                  color: currentPage === totalPages ? '#999' : 'white',
+                  border: 'none',
+                  borderRadius: '12px',
+                  padding: window.innerWidth <= 768 ? '0.5rem 1rem' : '0.75rem 1.5rem',
+                  cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                  transition: 'all 0.3s ease',
+                  fontWeight: '600',
+                  fontSize: window.innerWidth <= 768 ? '0.8rem' : '0.9rem',
+                  boxShadow: currentPage === totalPages ? 'none' : '0 4px 12px rgba(214, 51, 132, 0.3)',
+                  minWidth: window.innerWidth <= 768 ? '80px' : 'auto'
+                }}
+              >
+                {window.innerWidth <= 768 ? '→' : 'Next →'}
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Cup Sleeve Events Table */}
+        <h4 className="text-center mb-4 mt-5" style={{ color: '#c44569', fontWeight: 'bold' }}>
+          Cup Sleeve Events - {cseCurrentYear}
+        </h4>
+        
+        <div className="event-table-wrapper slide-in-left">
+          <div 
+            style={{
+              background: 'white',
+              borderRadius: '15px',
+              overflow: 'hidden',
+              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
+            }}
+          >
+            <table className="table table-hover mb-0">
+              <thead style={{ background: '#c44569', color: 'white' }}>
+                <tr>
+                  <th style={{ padding: '1rem', border: 'none' }}>Date</th>
+                  <th style={{ padding: '1rem', border: 'none' }}>Event</th>
+                  <th style={{ padding: '1rem', border: 'none' }}>Venue</th>
+                  <th style={{ padding: '1rem', border: 'none' }}>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {(cseEvents[cseCurrentYear] || []).map((event) => (
+                  <tr 
+                    key={event.id}
+                    style={{
+                      transition: 'all 0.3s ease',
+                      cursor: 'pointer'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = '#f8f9fa';
+                      e.currentTarget.style.transform = 'scale(1.01)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'white';
+                      e.currentTarget.style.transform = 'scale(1)';
+                    }}
+                  >
+                    <td style={{ padding: '1rem', border: 'none', fontWeight: '500' }}>
+                      {event.date}
+                    </td>
+                    <td style={{ padding: '1rem', border: 'none', fontWeight: 'bold', color: '#c44569' }}>
+                      {event.event}
+                    </td>
+                    <td style={{ padding: '1rem', border: 'none', color: '#666' }}>
+                      {event.venue}
+                    </td>
+                    <td style={{ padding: '1rem', border: 'none' }}>
+                      <span 
+                        style={{
+                          background: getStatusColor(event.status),
+                          color: 'white',
+                          padding: '0.25rem 0.75rem',
+                          borderRadius: '15px',
+                          fontSize: '0.85rem',
+                          fontWeight: '500'
+                        }}
+                      >
+                        {event.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );
