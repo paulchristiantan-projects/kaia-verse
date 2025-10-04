@@ -21,7 +21,7 @@ const Events = () => {
         { id: 59, date: 'October 18', event: 'FWC 2025 Manila', venue: 'Ayala Malls, Manila Bay', status: 'Upcoming' },
         { id: 58, date: 'October 11', event: 'Blackout', venue: 'Bridgetown Open Grounds', status: 'Upcoming' },
         { id: 57, date: 'October 10', event: 'Fusion 10 (The Philippine Music Festival)', venue: 'UPLB Freedom Park', status: 'Upcoming' },
-        { id: 56, date: 'October 3', event: 'PPOP Music & Culture Caravan', venue: 'Foro De Intramuros', status: 'Upcoming' },
+        { id: 56, date: 'October 3', event: 'PPOP Music & Culture Caravan', venue: 'Foro De Intramuros', status: 'Completed' },
         { id: 55, date: 'September 24', event: 'YORI Launch', venue: 'SM Megamall', status: 'Completed' },
         { id: 54, date: 'September 19', event: 'It\'s Showtime', venue: 'ABS CBN Live', status: 'Completed' },
         { id: 53, date: 'September 19', event: 'Billboard Philippines x Cosmos', venue: 'Baked Studios, Makati', status: 'Completed' },
@@ -327,7 +327,7 @@ const Events = () => {
                   minWidth: window.innerWidth <= 768 ? '80px' : 'auto'
                 }}
               >
-                {window.innerWidth <= 768 ? '←' : '← Previous'}
+                {window.innerWidth <= 768 ? '←' : '← Prev'}
               </button>
               
               <div style={{
@@ -366,7 +366,7 @@ const Events = () => {
         </div>
 
         {/* Cup Sleeve Events Table */}
-        <h4 className="text-center mb-4 mt-5" style={{ color: '#c44569', fontWeight: 'bold' }}>
+        {/* <h4 className="text-center mb-4 mt-5" style={{ color: '#c44569', fontWeight: 'bold' }}>
           Cup Sleeve Events - {cseCurrentYear}
         </h4>
         
@@ -433,7 +433,7 @@ const Events = () => {
               </tbody>
             </table>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
