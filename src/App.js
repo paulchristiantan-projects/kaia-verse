@@ -10,9 +10,11 @@ import News from './components/News';
 import Events from './components/Events';
 import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
+import AnnouncementModal from './components/AnnouncementModal';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showBirthdayModal, setShowBirthdayModal] = useState(true);
 
   useEffect(() => {
     // Simulate loading time
@@ -44,6 +46,14 @@ function App() {
         <Events />
         <Footer />
         <ChatBot />
+        <AnnouncementModal 
+          isOpen={showBirthdayModal}
+          onClose={() => setShowBirthdayModal(false)}
+          type="birthday"
+          memberName="Charlotte"
+          memberImage="/assets/img/gallery/charlotte17.jpg"
+          date="October 9, 2025"
+        />
       </div>
     </ThemeProvider>
   );
