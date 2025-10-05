@@ -11,10 +11,15 @@ import Events from './components/Events';
 import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
 import AnnouncementModal from './components/AnnouncementModal';
+import MessageButton from './components/MessageButton';
+import MessageKaiaPage from './components/MessageKaiaPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showBirthdayModal, setShowBirthdayModal] = useState(true);
+  
+  // Check if this is the message page
+  const isMessagePage = window.location.pathname === '/message-kaia' || window.location.search.includes('message=true');
 
   useEffect(() => {
     // Simulate loading time
@@ -32,6 +37,11 @@ function App() {
       </div>
     );
   }
+  
+  // Show message page if requested
+  if (isMessagePage) {
+    return <MessageKaiaPage />;
+  }
 
   return (
     <ThemeProvider>
@@ -46,6 +56,9 @@ function App() {
         <Events />
         <Footer />
         <ChatBot />
+        
+        {/* Message Board for KAIA */}
+        <MessageButton />
         <AnnouncementModal 
           isOpen={showBirthdayModal}
           onClose={() => setShowBirthdayModal(false)}

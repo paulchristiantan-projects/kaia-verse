@@ -11,17 +11,20 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Initialize from localStorage immediately
+    const savedTheme = localStorage.getItem('kaia-theme');
+    return savedTheme === 'dark';
+  });
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('kaia-theme');
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === 'dark');
-    }
+    // Apply theme to document root for CSS variables
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
   }, []);
 
   useEffect(() => {
     document.body.className = isDarkMode ? 'dark-theme' : 'light-theme';
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
     localStorage.setItem('kaia-theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 

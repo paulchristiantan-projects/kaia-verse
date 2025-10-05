@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Events = () => {
+  const { isDarkMode } = useTheme();
   const [events, setEvents] = useState([]);
   const [cseEvents, setCseEvents] = useState([]);
   const [currentYear, setCurrentYear] = useState(2025);
@@ -159,9 +161,9 @@ const Events = () => {
               value={currentYear}
               onChange={(e) => setYear(parseInt(e.target.value))}
               style={{
-                background: 'white',
-                color: '#333',
-                border: '2px solid #ddd',
+                background: isDarkMode ? '#4a5568' : 'white',
+                color: isDarkMode ? 'white' : '#333',
+                border: isDarkMode ? '2px solid #4a5568' : '2px solid #ddd',
                 borderRadius: '8px',
                 padding: '0.75rem 2rem 0.75rem 1rem',
                 fontWeight: '500',

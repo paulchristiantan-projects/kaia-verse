@@ -1,5 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
+import { useTheme } from '../contexts/ThemeContext';
 
 const AnnouncementModal = ({ 
   isOpen, 
@@ -11,6 +12,7 @@ const AnnouncementModal = ({
   message, 
   date 
 }) => {
+  const { isDarkMode } = useTheme();
   if (!isOpen) return null;
 
   const getBirthdayMessage = (name) => {
@@ -68,10 +70,13 @@ const AnnouncementModal = ({
     >
       <div 
         style={{
-          background: 'white',
+          background: isDarkMode ? 'linear-gradient(135deg, #2d3748, #1a202c)' : 'linear-gradient(135deg, #ffffff, #f8f9fa)',
+          color: isDarkMode ? 'white' : 'black',
+          boxShadow: '0 25px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+          border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(214, 51, 132, 0.1)',
           borderRadius: '20px',
-          width: window.innerWidth <= 768 ? '95vw' : '20vw',
-          maxWidth: window.innerWidth <= 768 ? '400px' : 'none',
+          width: window.innerWidth <= 768 ? '90vw' : '350px',
+          maxWidth: '350px',
           maxHeight: '90vh',
           overflow: 'auto',
           position: 'relative',
@@ -86,12 +91,15 @@ const AnnouncementModal = ({
             position: 'absolute',
             top: '1rem',
             right: '1rem',
-            background: 'transparent',
+            background: isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(214, 51, 132, 0.1)',
             border: 'none',
-            width: '30px',
-            height: '30px',
+            width: '40px',
+            height: '40px',
+            borderRadius: '50%',
             color: 'var(--kaia-primary)',
-            fontSize: '1.5rem',
+            fontSize: '1.2rem',
+            transition: 'all 0.3s ease',
+            backdropFilter: 'blur(10px)',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
@@ -106,54 +114,80 @@ const AnnouncementModal = ({
         {memberImage && (
           <div style={{ 
             textAlign: 'center', 
-            padding: window.innerWidth <= 768 ? '2.5rem 1rem 1rem 1rem' : '3rem 2rem 1rem 2rem',
+            padding: '1.5rem 1rem 0.5rem 1rem',
+            background: isDarkMode ? 'rgba(214, 51, 132, 0.05)' : 'rgba(214, 51, 132, 0.02)',
+            borderRadius: '20px 20px 0 0',
             position: 'relative',
             zIndex: 5
           }}>
-            <img 
-              src={memberImage}
-              alt={memberName}
-              style={{
-                width: '100%',
-                height: 'auto',
-                borderRadius: '15px',
-                border: '4px solid var(--kaia-primary)',
-
-              }}
-            />
+            <div style={{
+              position: 'relative',
+              display: 'inline-block',
+              padding: '4px',
+              background: 'linear-gradient(135deg, var(--kaia-primary), #b8296b)',
+              borderRadius: '15px',
+              boxShadow: '0 8px 25px rgba(214, 51, 132, 0.2)'
+            }}>
+              <img 
+                src={memberImage}
+                alt={memberName}
+                style={{
+                  width: '300px',
+                  height: '300px',
+                  objectFit: 'cover',
+                  borderRadius: '12px',
+                  display: 'block'
+                }}
+              />
+            </div>
           </div>
         )}
 
         {/* Content Below Photo */}
         <div style={{ 
-          padding: window.innerWidth <= 768 ? '0 1rem 1.5rem 1rem' : '0 2rem 2rem 2rem', 
-          textAlign: 'center' 
+          padding: '0.5rem 1rem 1.5rem 1rem', 
+          textAlign: 'center',
+          background: isDarkMode ? 'rgba(255, 255, 255, 0.02)' : 'rgba(255, 255, 255, 0.5)',
+          borderRadius: '0 0 20px 20px'
         }}>
           <div style={{
-            fontSize: window.innerWidth <= 768 ? '1.5rem' : '2rem',
-            fontWeight: 'bold',
+            width: '40px',
+            height: '2px',
+            background: 'linear-gradient(90deg, var(--kaia-primary), #b8296b)',
+            margin: '0 auto 1rem auto',
+            borderRadius: '1px'
+          }}></div>
+          
+          <div style={{
+            fontSize: '1.5rem',
+            fontWeight: '700',
             color: 'var(--kaia-primary)',
-            marginBottom: '0.5rem'
+            marginBottom: '0.5rem',
+            letterSpacing: '1px'
           }}>
             KAIA
           </div>
           
           <div style={{
-            fontSize: window.innerWidth <= 768 ? '1.2rem' : '1.5rem',
+            fontSize: '1.1rem',
             fontWeight: '600',
-            color: '#333',
-            marginBottom: '0.5rem'
+            color: isDarkMode ? '#e2e8f0' : '#2d3748',
+            marginBottom: '0.8rem'
           }}>
             {memberName}'s Birthday
           </div>
           
           {date && (
             <div style={{
-              fontSize: window.innerWidth <= 768 ? '1rem' : '1.1rem',
-              color: '#666',
-              fontWeight: '500'
+              fontSize: '0.9rem',
+              color: isDarkMode ? '#a0aec0' : '#666',
+              fontWeight: '500',
+              padding: '0.5rem 1rem',
+              background: isDarkMode ? 'rgba(214, 51, 132, 0.1)' : 'rgba(214, 51, 132, 0.05)',
+              borderRadius: '10px',
+              display: 'inline-block'
             }}>
-              {date}
+{date}
             </div>
           )}
         </div>
