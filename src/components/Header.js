@@ -45,6 +45,7 @@ const Header = () => {
             <li><a href="#videos" onClick={() => scrollToSection('videos')}>Videos</a></li>
             <li><a href="#news" onClick={() => scrollToSection('news')}>News</a></li>
             <li><a href="#events" onClick={() => scrollToSection('events')}>Events</a></li>
+            <li><a href="/?message=true" style={{ color: 'var(--kaia-primary)' }}>Member Login</a></li>
           </ul>
         </nav>
 
@@ -112,6 +113,9 @@ const Header = () => {
           </li>
           <li className="sidebar-nav-item">
             <a href="#events" onClick={() => scrollToSection('events')}>Events</a>
+          </li>
+          <li className="sidebar-nav-item">
+            <a href="/?message=true" style={{ color: 'var(--kaia-primary)' }}>Member Login</a>
           </li>
         </ul>
       </nav>
