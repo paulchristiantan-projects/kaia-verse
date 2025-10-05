@@ -70,9 +70,10 @@ const AnnouncementModal = ({
         style={{
           background: 'white',
           borderRadius: '20px',
-          width: '20vw',
+          width: window.innerWidth <= 768 ? '95vw' : '20vw',
+          maxWidth: window.innerWidth <= 768 ? '400px' : 'none',
           maxHeight: '90vh',
-          overflow: 'hidden',
+          overflow: 'auto',
           position: 'relative',
 
         }}
@@ -105,7 +106,7 @@ const AnnouncementModal = ({
         {memberImage && (
           <div style={{ 
             textAlign: 'center', 
-            padding: '3rem 2rem 1rem 2rem',
+            padding: window.innerWidth <= 768 ? '2.5rem 1rem 1rem 1rem' : '3rem 2rem 1rem 2rem',
             position: 'relative',
             zIndex: 5
           }}>
@@ -124,9 +125,12 @@ const AnnouncementModal = ({
         )}
 
         {/* Content Below Photo */}
-        <div style={{ padding: '0 2rem 2rem 2rem', textAlign: 'center' }}>
+        <div style={{ 
+          padding: window.innerWidth <= 768 ? '0 1rem 1.5rem 1rem' : '0 2rem 2rem 2rem', 
+          textAlign: 'center' 
+        }}>
           <div style={{
-            fontSize: '2rem',
+            fontSize: window.innerWidth <= 768 ? '1.5rem' : '2rem',
             fontWeight: 'bold',
             color: 'var(--kaia-primary)',
             marginBottom: '0.5rem'
@@ -135,7 +139,7 @@ const AnnouncementModal = ({
           </div>
           
           <div style={{
-            fontSize: '1.5rem',
+            fontSize: window.innerWidth <= 768 ? '1.2rem' : '1.5rem',
             fontWeight: '600',
             color: '#333',
             marginBottom: '0.5rem'
@@ -145,7 +149,7 @@ const AnnouncementModal = ({
           
           {date && (
             <div style={{
-              fontSize: '1.1rem',
+              fontSize: window.innerWidth <= 768 ? '1rem' : '1.1rem',
               color: '#666',
               fontWeight: '500'
             }}>
