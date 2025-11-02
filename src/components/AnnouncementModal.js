@@ -8,6 +8,7 @@ const AnnouncementModal = ({
   type = 'birthday', 
   memberName, 
   memberImage, 
+  members, // New prop for multiple members
   title, 
   message, 
   date 
@@ -15,7 +16,11 @@ const AnnouncementModal = ({
   const { isDarkMode } = useTheme();
   if (!isOpen) return null;
 
-  const getBirthdayMessage = (name) => {
+  const getBirthdayMessage = (name, isMultiple = false) => {
+    if (isMultiple && members) {
+      const names = members.map(m => m.name).join(' and ');
+      return `🎉 Happy Birthday to our amazing ${names}! 🎂\n\nWishing you both all the love, joy, and success in the world. Thank you for being such incredible parts of KAIA and bringing so much happiness to ZAIA! 💖\n\n#HappyBirthday${members.map(m => m.name).join('')} #KAIA #ZAIA`;
+    }
     return `🎉 Happy Birthday to our amazing ${name}! 🎂\n\nWishing you all the love, joy, and success in the world. Thank you for being such an incredible part of KAIA and bringing so much happiness to ZAIA! 💖\n\n#HappyBirthday${name} #KAIA #ZAIA`;
   };
 
@@ -49,7 +54,8 @@ const AnnouncementModal = ({
   };
 
   const styles = getTypeStyles();
-  const displayMessage = message || (type === 'birthday' ? getBirthdayMessage(memberName) : '');
+  const displayMessage = message || (type === 'birthday' ? getBirthdayMessage(memberName, !!members) : '');
+  const isMultipleBirthday = members && members.length > 0;
 
   return createPortal(
     <div 
@@ -110,8 +116,8 @@ const AnnouncementModal = ({
           ×
         </button>
 
-        {/* Big Photo on Top */}
-        {memberImage && (
+        {/* Photos on Top */}
+        {(memberImage || isMultipleBirthday) && (
           <div style={{ 
             textAlign: 'center', 
             padding: '1.5rem 1rem 0.5rem 1rem',
@@ -120,26 +126,72 @@ const AnnouncementModal = ({
             position: 'relative',
             zIndex: 5
           }}>
-            <div style={{
-              position: 'relative',
-              display: 'inline-block',
-              padding: '4px',
-              background: 'linear-gradient(135deg, var(--kaia-primary), #b8296b)',
-              borderRadius: '15px',
-              boxShadow: '0 8px 25px rgba(214, 51, 132, 0.2)'
-            }}>
-              <img 
-                src={memberImage}
-                alt={memberName}
-                style={{
-                  width: '300px',
-                  height: '300px',
-                  objectFit: 'cover',
-                  borderRadius: '12px',
-                  display: 'block'
-                }}
-              />
-            </div>
+            {isMultipleBirthday ? (
+              <div style={{
+                display: 'flex',
+                gap: '10px',
+                justifyContent: 'center',
+                flexWrap: 'wrap'
+              }}>
+                {members.map((member, index) => (
+                  <div key={index} style={{
+                    position: 'relative',
+                    display: 'inline-block',
+                    padding: '4px',
+                    background: 'linear-gradient(135deg, var(--kaia-primary), #b8296b)',
+                    borderRadius: '15px',
+                    boxShadow: '0 8px 25px rgba(214, 51, 132, 0.2)'
+                  }}>
+                    <img 
+                      src={member.image}
+                      alt={member.name}
+                      style={{
+                        width: '140px',
+                        height: '180px',
+                        objectFit: 'cover',
+                        borderRadius: '12px',
+                        display: 'block'
+                      }}
+                    />
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '-5px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      background: 'linear-gradient(135deg, var(--kaia-primary), #b8296b)',
+                      color: 'white',
+                      padding: '2px 8px',
+                      borderRadius: '8px',
+                      fontSize: '0.7rem',
+                      fontWeight: '600'
+                    }}>
+                      {member.name}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div style={{
+                position: 'relative',
+                display: 'inline-block',
+                padding: '4px',
+                background: 'linear-gradient(135deg, var(--kaia-primary), #b8296b)',
+                borderRadius: '15px',
+                boxShadow: '0 8px 25px rgba(214, 51, 132, 0.2)'
+              }}>
+                <img 
+                  src={memberImage}
+                  alt={memberName}
+                  style={{
+                    width: '300px',
+                    height: '300px',
+                    objectFit: 'cover',
+                    borderRadius: '12px',
+                    display: 'block'
+                  }}
+                />
+              </div>
+            )}
           </div>
         )}
 
@@ -174,7 +226,10 @@ const AnnouncementModal = ({
             color: isDarkMode ? '#e2e8f0' : '#2d3748',
             marginBottom: '0.8rem'
           }}>
-            {memberName}'s Birthday
+            {isMultipleBirthday 
+              ? `${members.map(m => m.name).join(' & ')}'s Birthday` 
+              : `${memberName}'s Birthday`
+            }
           </div>
           
           {date && (

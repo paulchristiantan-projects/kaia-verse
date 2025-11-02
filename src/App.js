@@ -63,9 +63,17 @@ function App() {
           isOpen={showBirthdayModal}
           onClose={() => setShowBirthdayModal(false)}
           type="birthday"
-          memberName="Charlotte"
-          memberImage="/assets/img/gallery/charlotte17.jpg"
-          date="October 9, 2025"
+          members={[
+            {
+              name: "Angela",
+              image: "/assets/img/gallery/angela.jpg"
+            },
+            {
+              name: "Charice",
+              image: "/assets/img/gallery/charice.jpg"
+            }
+          ]}
+          date="November 3, 2025"
         />
       </div>
     </ThemeProvider>

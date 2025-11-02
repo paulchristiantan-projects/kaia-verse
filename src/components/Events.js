@@ -19,10 +19,11 @@ const Events = () => {
         { id: 1, date: 'October 29', event: 'Wish Bus (Walang Biruan)', venue: 'Venice Grand Canal Mall', status: 'Completed' }
       ],
       2025: [
-        { id: 60, date: 'November 8', event: 'ALPAS sunset sessions', venue: 'Alpas La Union', status: 'Upcoming' },
-        { id: 59, date: 'October 18', event: 'FWC 2025 Manila', venue: 'Ayala Malls, Manila Bay', status: 'Upcoming' },
-        { id: 58, date: 'October 11', event: 'Blackout', venue: 'Bridgetown Open Grounds', status: 'Upcoming' },
-        { id: 57, date: 'October 10', event: 'Fusion 10 (The Philippine Music Festival)', venue: 'UPLB Freedom Park', status: 'Upcoming' },
+        { id: 61, date: 'November 8', event: 'ALPAS sunset sessions', venue: 'Alpas La Union', status: 'Upcoming' },
+        { id: 60, date: 'October 21', event: 'Filipino Music Awards', venue: 'MOA Arena', status: 'Completed' },
+        { id: 59, date: 'October 18', event: 'FWC 2025 Manila', venue: 'Ayala Malls, Manila Bay', status: 'Completed' },
+        { id: 58, date: 'October 11', event: 'Blackout', venue: 'Bridgetown Open Grounds', status: 'Completed' },
+        { id: 57, date: 'October 10', event: 'Fusion 10 (The Philippine Music Festival)', venue: 'UPLB Freedom Park', status: 'Completed' },
         { id: 56, date: 'October 3', event: 'PPOP Music & Culture Caravan', venue: 'Foro De Intramuros', status: 'Completed' },
         { id: 55, date: 'September 24', event: 'YORI Launch', venue: 'SM Megamall', status: 'Completed' },
         { id: 54, date: 'September 19', event: 'It\'s Showtime', venue: 'ABS CBN Live', status: 'Completed' },
