@@ -160,7 +160,6 @@ const Events = () => {
           <h2 className="fade-in">Events</h2>
         </div>
 
-        {/* Year Selector */}
         <div className="text-center mb-5">
           <div style={{ position: 'relative', display: 'inline-block' }}>
             <select
@@ -196,7 +195,6 @@ const Events = () => {
           </div>
         </div>
 
-        {/* KAIA Events Section */}
         <div style={{
           background: 'linear-gradient(135deg, rgba(214, 51, 132, 0.05), rgba(184, 41, 107, 0.05))',
           borderRadius: '20px',
@@ -222,7 +220,6 @@ const Events = () => {
             </h3>
           </div>
         
-        {/* Desktop Events Table */}
         <div className="event-table-wrapper slide-in-left">
           <div 
             style={{
@@ -288,7 +285,6 @@ const Events = () => {
           </div>
         </div>
 
-        {/* Mobile Events Cards */}
         <div className="events-mobile-cards">
           {displayEvents.map((event) => (
             <div key={event.id} className="event-mobile-card">
@@ -308,17 +304,17 @@ const Events = () => {
           ))}
         </div>
 
-          {/* Pagination */}
           {totalPages > 1 && (
-            <div style={{ 
+            <div className="pagination-controls" style={{ 
               display: 'flex', 
               justifyContent: 'center', 
               alignItems: 'center',
               marginTop: '2rem',
-              gap: window.innerWidth <= 768 ? '0.5rem' : '1rem',
+              gap: '1rem',
               flexWrap: 'wrap'
             }}>
               <button 
+                className="pagination-btn"
                 onClick={handlePrevPage}
                 disabled={currentPage === 1}
                 style={{
@@ -326,31 +322,31 @@ const Events = () => {
                   color: currentPage === 1 ? '#999' : 'white',
                   border: 'none',
                   borderRadius: '12px',
-                  padding: window.innerWidth <= 768 ? '0.5rem 1rem' : '0.75rem 1.5rem',
+                  padding: '0.75rem 1.5rem',
                   cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
                   transition: 'all 0.3s ease',
                   fontWeight: '600',
-                  fontSize: window.innerWidth <= 768 ? '0.8rem' : '0.9rem',
-                  boxShadow: currentPage === 1 ? 'none' : '0 4px 12px rgba(214, 51, 132, 0.3)',
-                  minWidth: window.innerWidth <= 768 ? '80px' : 'auto'
+                  fontSize: '0.9rem',
+                  boxShadow: currentPage === 1 ? 'none' : '0 4px 12px rgba(214, 51, 132, 0.3)'
                 }}
               >
-                {window.innerWidth <= 768 ? '←' : '← Prev'}
+                Prev
               </button>
               
-              <div style={{
+              <div className="pagination-info" style={{
                 background: 'rgba(214, 51, 132, 0.1)',
-                padding: window.innerWidth <= 768 ? '0.5rem 1rem' : '0.75rem 1.5rem',
+                padding: '0.75rem 1.5rem',
                 borderRadius: '12px',
                 fontWeight: '600',
                 color: 'var(--kaia-primary)',
-                fontSize: window.innerWidth <= 768 ? '0.8rem' : '0.95rem',
+                fontSize: '0.95rem',
                 whiteSpace: 'nowrap'
               }}>
                 {currentPage} of {totalPages}
               </div>
               
               <button 
+                className="pagination-btn"
                 onClick={handleNextPage}
                 disabled={currentPage === totalPages}
                 style={{
@@ -358,90 +354,19 @@ const Events = () => {
                   color: currentPage === totalPages ? '#999' : 'white',
                   border: 'none',
                   borderRadius: '12px',
-                  padding: window.innerWidth <= 768 ? '0.5rem 1rem' : '0.75rem 1.5rem',
+                  padding: '0.75rem 1.5rem',
                   cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
                   transition: 'all 0.3s ease',
                   fontWeight: '600',
-                  fontSize: window.innerWidth <= 768 ? '0.8rem' : '0.9rem',
-                  boxShadow: currentPage === totalPages ? 'none' : '0 4px 12px rgba(214, 51, 132, 0.3)',
-                  minWidth: window.innerWidth <= 768 ? '80px' : 'auto'
+                  fontSize: '0.9rem',
+                  boxShadow: currentPage === totalPages ? 'none' : '0 4px 12px rgba(214, 51, 132, 0.3)'
                 }}
               >
-                {window.innerWidth <= 768 ? '→' : 'Next →'}
+                Next
               </button>
             </div>
           )}
         </div>
-
-        {/* Cup Sleeve Events Table */}
-        {/* <h4 className="text-center mb-4 mt-5" style={{ color: '#c44569', fontWeight: 'bold' }}>
-          Cup Sleeve Events - {cseCurrentYear}
-        </h4>
-        
-        <div className="event-table-wrapper slide-in-left">
-          <div 
-            style={{
-              background: 'white',
-              borderRadius: '15px',
-              overflow: 'hidden',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
-            }}
-          >
-            <table className="table table-hover mb-0">
-              <thead style={{ background: '#c44569', color: 'white' }}>
-                <tr>
-                  <th style={{ padding: '1rem', border: 'none' }}>Date</th>
-                  <th style={{ padding: '1rem', border: 'none' }}>Event</th>
-                  <th style={{ padding: '1rem', border: 'none' }}>Venue</th>
-                  <th style={{ padding: '1rem', border: 'none' }}>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {(cseEvents[cseCurrentYear] || []).map((event) => (
-                  <tr 
-                    key={event.id}
-                    style={{
-                      transition: 'all 0.3s ease',
-                      cursor: 'pointer'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = '#f8f9fa';
-                      e.currentTarget.style.transform = 'scale(1.01)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = 'white';
-                      e.currentTarget.style.transform = 'scale(1)';
-                    }}
-                  >
-                    <td style={{ padding: '1rem', border: 'none', fontWeight: '500' }}>
-                      {event.date}
-                    </td>
-                    <td style={{ padding: '1rem', border: 'none', fontWeight: 'bold', color: '#c44569' }}>
-                      {event.event}
-                    </td>
-                    <td style={{ padding: '1rem', border: 'none', color: '#666' }}>
-                      {event.venue}
-                    </td>
-                    <td style={{ padding: '1rem', border: 'none' }}>
-                      <span 
-                        style={{
-                          background: getStatusColor(event.status),
-                          color: 'white',
-                          padding: '0.25rem 0.75rem',
-                          borderRadius: '15px',
-                          fontSize: '0.85rem',
-                          fontWeight: '500'
-                        }}
-                      >
-                        {event.status}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div> */}
       </div>
     </section>
   );

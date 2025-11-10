@@ -11,22 +11,25 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Initialize from localStorage immediately
-    const savedTheme = localStorage.getItem('kaia-theme');
-    return savedTheme === 'dark';
-  });
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    // Apply theme to document root for CSS variables
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+    // Initialize theme from localStorage after component mounts
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('kaia-theme');
+      setIsDarkMode(savedTheme === 'dark');
+    }
+    setIsInitialized(true);
   }, []);
 
   useEffect(() => {
-    document.body.className = isDarkMode ? 'dark-theme' : 'light-theme';
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-    localStorage.setItem('kaia-theme', isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
+    if (isInitialized && typeof window !== 'undefined') {
+      document.body.className = isDarkMode ? 'dark-theme' : 'light-theme';
+      document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+      localStorage.setItem('kaia-theme', isDarkMode ? 'dark' : 'light');
+    }
+  }, [isDarkMode, isInitialized]);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);

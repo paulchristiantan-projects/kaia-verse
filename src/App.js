@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
+import ErrorBoundary from './components/ErrorBoundary';
 import ThemeToggle from './components/ThemeToggle';
 import Header from './components/Header';
 import Members from './components/Members';
@@ -44,39 +45,41 @@ function App() {
   }
 
   return (
-    <ThemeProvider>
-      <div className="App">
-        <ThemeToggle />
-        <Header />
-        <Members />
-        <Gallery />
-        <Discography />
-        <Videos />
-        <News />
-        <Events />
-        <Footer />
-        <ChatBot />
-        
-        {/* Message Board for KAIA */}
-        <MessageButton />
-        <AnnouncementModal 
-          isOpen={showBirthdayModal}
-          onClose={() => setShowBirthdayModal(false)}
-          type="birthday"
-          members={[
-            {
-              name: "Angela",
-              image: "/assets/img/gallery/angela.jpg"
-            },
-            {
-              name: "Charice",
-              image: "/assets/img/gallery/charice.jpg"
-            }
-          ]}
-          date="November 3, 2025"
-        />
-      </div>
-    </ThemeProvider>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <div className="App">
+          <ThemeToggle />
+          <Header />
+          <Members />
+          <Gallery />
+          <Discography />
+          <Videos />
+          <News />
+          <Events />
+          <Footer />
+          <ChatBot />
+          
+          {/* Message Board for KAIA */}
+          <MessageButton />
+          <AnnouncementModal 
+            isOpen={showBirthdayModal}
+            onClose={() => setShowBirthdayModal(false)}
+            type="birthday"
+            members={[
+              {
+                name: "Angela",
+                image: "/assets/img/gallery/angela.jpg"
+              },
+              {
+                name: "Charice",
+                image: "/assets/img/gallery/charice.jpg"
+              }
+            ]}
+            date="November 3, 2025"
+          />
+        </div>
+      </ThemeProvider>
+    </ErrorBoundary>
   );
 }
 

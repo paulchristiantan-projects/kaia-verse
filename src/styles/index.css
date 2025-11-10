@@ -2031,3 +2031,21 @@ body {
 .dark-theme .top-nav.scrolled .nav-brand span {
   color: var(--kaia-primary) !important;
 }
+
+/* Responsive Pagination Buttons */
+@media (max-width: 768px) {
+  .pagination-controls {
+    gap: 0.5rem !important;
+  }
+  
+  .pagination-btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8rem !important;
+    min-width: 80px !important;
+  }
+  
+  .pagination-info {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8rem !important;
+  }
+}
