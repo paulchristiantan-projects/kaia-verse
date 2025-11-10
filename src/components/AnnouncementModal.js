@@ -16,45 +16,45 @@ const AnnouncementModal = ({
   const { isDarkMode } = useTheme();
   if (!isOpen) return null;
 
-  const getBirthdayMessage = (name, isMultiple = false) => {
-    if (isMultiple && members) {
-      const names = members.map(m => m.name).join(' and ');
-      return `🎉 Happy Birthday to our amazing ${names}! 🎂\n\nWishing you both all the love, joy, and success in the world. Thank you for being such incredible parts of KAIA and bringing so much happiness to ZAIA! 💖\n\n#HappyBirthday${members.map(m => m.name).join('')} #KAIA #ZAIA`;
-    }
-    return `🎉 Happy Birthday to our amazing ${name}! 🎂\n\nWishing you all the love, joy, and success in the world. Thank you for being such an incredible part of KAIA and bringing so much happiness to ZAIA! 💖\n\n#HappyBirthday${name} #KAIA #ZAIA`;
-  };
+  // const getBirthdayMessage = (name, isMultiple = false) => {
+  //   if (isMultiple && members) {
+  //     const names = members.map(m => m.name).join(' and ');
+  //     return `🎉 Happy Birthday to our amazing ${names}! 🎂\n\nWishing you both all the love, joy, and success in the world. Thank you for being such incredible parts of KAIA and bringing so much happiness to ZAIA! 💖\n\n#HappyBirthday${members.map(m => m.name).join('')} #KAIA #ZAIA`;
+  //   }
+  //   return `🎉 Happy Birthday to our amazing ${name}! 🎂\n\nWishing you all the love, joy, and success in the world. Thank you for being such an incredible part of KAIA and bringing so much happiness to ZAIA! 💖\n\n#HappyBirthday${name} #KAIA #ZAIA`;
+  // };
 
-  const getTypeStyles = () => {
-    switch (type) {
-      case 'birthday':
-        return {
-          background: 'linear-gradient(135deg, #ff6b9d, #c44569)',
-          icon: '🎉',
-          color: 'white'
-        };
-      case 'announcement':
-        return {
-          background: 'linear-gradient(135deg, var(--kaia-primary), #b8296b)',
-          icon: '📢',
-          color: 'white'
-        };
-      case 'event':
-        return {
-          background: 'linear-gradient(135deg, #4ecdc4, #44a08d)',
-          icon: '🎪',
-          color: 'white'
-        };
-      default:
-        return {
-          background: 'linear-gradient(135deg, var(--kaia-primary), #b8296b)',
-          icon: '✨',
-          color: 'white'
-        };
-    }
-  };
+  // const getTypeStyles = () => {
+  //   switch (type) {
+  //     case 'birthday':
+  //       return {
+  //         background: 'linear-gradient(135deg, #ff6b9d, #c44569)',
+  //         icon: '🎉',
+  //         color: 'white'
+  //       };
+  //     case 'announcement':
+  //       return {
+  //         background: 'linear-gradient(135deg, var(--kaia-primary), #b8296b)',
+  //         icon: '📢',
+  //         color: 'white'
+  //       };
+  //     case 'event':
+  //       return {
+  //         background: 'linear-gradient(135deg, #4ecdc4, #44a08d)',
+  //         icon: '🎪',
+  //         color: 'white'
+  //       };
+  //     default:
+  //       return {
+  //         background: 'linear-gradient(135deg, var(--kaia-primary), #b8296b)',
+  //         icon: '✨',
+  //         color: 'white'
+  //       };
+  //   }
+  // };
 
-  const styles = getTypeStyles();
-  const displayMessage = message || (type === 'birthday' ? getBirthdayMessage(memberName, !!members) : '');
+  // const styles = getTypeStyles();
+  // const displayMessage = message || (type === 'birthday' ? getBirthdayMessage(memberName, !!members) : '');
   const isMultipleBirthday = members && members.length > 0;
 
   return createPortal(

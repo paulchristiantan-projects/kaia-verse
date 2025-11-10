@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { musicData } from '../data/music';
 import { getAssetPath } from '../utils/assetHelper';
-import Videos from './Videos';
+// import Videos from './Videos';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -14,7 +14,7 @@ const Discography = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [swiperInstance, setSwiperInstance] = useState(null);
+  const [setSwiperInstance] = useState(null);
   const audioRef = useRef(null);
 
   useEffect(() => {

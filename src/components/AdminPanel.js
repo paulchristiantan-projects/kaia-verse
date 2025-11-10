@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, doc, updateDoc, deleteDoc, query, where, orderBy, addDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, updateDoc, query, orderBy, addDoc } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../firebase/config';
 
@@ -102,52 +102,52 @@ const AdminPanel = () => {
     setSendingAnnouncement(false);
   };
 
-  const migrateExistingMessages = async () => {
-    setLoading(true);
-    try {
-      // Get all users
-      const usersQuery = query(collection(db, 'users'));
-      const usersSnapshot = await getDocs(usersQuery);
-      const userMap = {};
-      
-      usersSnapshot.docs.forEach(doc => {
-        const userData = doc.data();
-        if (userData.email) {
-          userMap[userData.email] = doc.id;
-        }
-      });
-      
-      // Get all messages without authorId
-      const messagesQuery = query(collection(db, 'messages'));
-      const messagesSnapshot = await getDocs(messagesQuery);
-      
-      let updatedCount = 0;
-      
-      for (const messageDoc of messagesSnapshot.docs) {
-        const messageData = messageDoc.data();
-        
-        // Skip if already has authorId
-        if (messageData.authorId) continue;
-        
-        // Try to match author email to user ID
-        const authorId = userMap[messageData.author];
-        
-        if (authorId) {
-          await updateDoc(doc(db, 'messages', messageDoc.id), {
-            authorId: authorId
-          });
-          updatedCount++;
-        }
-      }
-      
-      setToast({ type: 'success', message: `Updated ${updatedCount} existing messages!` });
-      setTimeout(() => setToast(null), 4000);
-    } catch (error) {
-      setToast({ type: 'error', message: 'Error migrating messages: ' + error.message });
-      setTimeout(() => setToast(null), 4000);
-    }
-    setLoading(false);
-  };
+  // const migrateExistingMessages = async () => {
+  //   setLoading(true);
+  //   try {
+  //     // Get all users
+  //     const usersQuery = query(collection(db, 'users'));
+  //     const usersSnapshot = await getDocs(usersQuery);
+  //     const userMap = {};
+  //     
+  //     usersSnapshot.docs.forEach(doc => {
+  //       const userData = doc.data();
+  //       if (userData.email) {
+  //         userMap[userData.email] = doc.id;
+  //       }
+  //     });
+  //     
+  //     // Get all messages without authorId
+  //     const messagesQuery = query(collection(db, 'messages'));
+  //     const messagesSnapshot = await getDocs(messagesQuery);
+  //     
+  //     let updatedCount = 0;
+  //     
+  //     for (const messageDoc of messagesSnapshot.docs) {
+  //       const messageData = messageDoc.data();
+  //       
+  //       // Skip if already has authorId
+  //       if (messageData.authorId) continue;
+  //       
+  //       // Try to match author email to user ID
+  //       const authorId = userMap[messageData.author];
+  //       
+  //       if (authorId) {
+  //         await updateDoc(doc(db, 'messages', messageDoc.id), {
+  //           authorId: authorId
+  //         });
+  //         updatedCount++;
+  //       }
+  //     }
+  //     
+  //     setToast({ type: 'success', message: `Updated ${updatedCount} existing messages!` });
+  //     setTimeout(() => setToast(null), 4000);
+  //   } catch (error) {
+  //     setToast({ type: 'error', message: 'Error migrating messages: ' + error.message });
+  //     setTimeout(() => setToast(null), 4000);
+  //   }
+  //   setLoading(false);
+  // };
 
   return (
     <div style={{

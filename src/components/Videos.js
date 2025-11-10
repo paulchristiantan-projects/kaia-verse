@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useTheme } from '../contexts/ThemeContext';
+// import { useTheme } from '../contexts/ThemeContext';
 
 const Videos = () => {
-  const { isDarkMode } = useTheme();
+  // const { isDarkMode } = useTheme();
   const [currentPage, setCurrentPage] = useState(1);
   const [currentOtherPage, setCurrentOtherPage] = useState(1);
   const videosPerPage = 1;

@@ -82,7 +82,6 @@ const Footer = () => {
                   animationDelay: `${index * 0.1}s`,
                   fontSize: isMobile ? '0.9rem' : '1rem'
                 }}
-                className={`social-link fade-in`}
                 onMouseEnter={(e) => {
                   e.target.style.transform = 'translateY(-5px) scale(1.1)';
                   e.target.style.boxShadow = '0 10px 25px rgba(214, 51, 132, 0.4)';

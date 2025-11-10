@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { collection, addDoc, getDocs, orderBy, query } from 'firebase/firestore';
-import { signOut } from 'firebase/auth';
+// import { signOut } from 'firebase/auth';
 import { auth, db } from '../firebase/config';
 import AccountModal from './AccountModal';
 
@@ -108,9 +108,9 @@ const MessageBoard = () => {
     setLoading(false);
   };
 
-  const handleLogout = () => {
-    signOut(auth);
-  };
+  // const handleLogout = () => {
+  //   signOut(auth);
+  // };
 
   return (
     <div style={{

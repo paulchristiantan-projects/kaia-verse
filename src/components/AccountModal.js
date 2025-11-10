@@ -5,7 +5,7 @@ import { auth, db } from '../firebase/config';
 
 const AccountModal = ({ onClose }) => {
   const [username, setUsername] = useState(auth.currentUser?.displayName || '');
-  const [currentPassword, setCurrentPassword] = useState('');
+  const [setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
