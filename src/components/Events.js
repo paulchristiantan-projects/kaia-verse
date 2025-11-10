@@ -19,7 +19,12 @@ const Events = () => {
         { id: 1, date: 'October 29', event: 'Wish Bus (Walang Biruan)', venue: 'Venice Grand Canal Mall', status: 'Completed' }
       ],
       2025: [
-        { id: 61, date: 'November 8', event: 'ALPAS sunset sessions', venue: 'Alpas La Union', status: 'Upcoming' },
+        { id: 66, date: 'November 22', event: 'Puregold Hakot Relay', venue: 'Manila', status: 'Upcoming' },
+        { id: 65, date: 'November 15', event: 'FLIGHT 27: TWIN EXPRESS', venue: 'Manila', status: 'Upcoming' },
+        { id: 64, date: 'November 11', event: 'SONY 11:11 MEGA CELEBRATION', venue: 'Online', status: 'Upcoming' },
+        { id: 63, date: 'November 9', event: 'NUBIA VIBEFEST 2025', venue: 'Gateway, Cubao', status: 'Completed' },
+        { id: 62, date: 'November 8', event: 'ALPAS sunset sessions', venue: 'Alpas La Union', status: 'Postponed' },
+        { id: 61, date: 'November 6', event: 'SONY ULT POWER SOUND', venue: 'Cebu', status: 'Completed' },
         { id: 60, date: 'October 21', event: 'Filipino Music Awards', venue: 'MOA Arena', status: 'Completed' },
         { id: 59, date: 'October 18', event: 'FWC 2025 Manila', venue: 'Ayala Malls, Manila Bay', status: 'Completed' },
         { id: 58, date: 'October 11', event: 'Blackout', venue: 'Bridgetown Open Grounds', status: 'Completed' },
