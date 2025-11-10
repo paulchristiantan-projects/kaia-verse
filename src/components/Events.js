@@ -4,11 +4,8 @@ import { useTheme } from '../contexts/ThemeContext';
 const Events = () => {
   const { isDarkMode } = useTheme();
   const [events, setEvents] = useState([]);
-  const [cseEvents, setCseEvents] = useState([]);
   const [currentYear, setCurrentYear] = useState(2025);
-  const [cseCurrentYear, setCseCurrentYear] = useState(2025);
   const [currentPage, setCurrentPage] = useState(1);
-  const [cseCurrentPage, setCseCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const eventsPerPage = 10;
 
@@ -88,25 +85,7 @@ const Events = () => {
       ]
     };
     
-    const cseEventsData = {
-      2024: [
-        { id: 1, date: '-', event: '-', venue: '-', status: '-' },
-      ],
-      2025: [
-        { id: 10, date: 'TBA', event: 'Charice CSE', venue: 'TBA', status: 'Upcoming' },
-        { id: 9, date: 'TBA', event: 'Angela CSE', venue: 'TBA', status: 'Upcoming' },
-        { id: 8, date: 'October 18', event: 'Charlotte CSE v2', venue: 'Kape Light', status: 'Upcoming' },
-        { id: 7, date: 'October 11', event: 'Charlotte CSE', venue: 'Cafe', status: 'Upcoming' },
-        { id: 6, date: 'August 21', event: 'Sophia CSE', venue: 'Kape Light', status: 'Completed' },
-        { id: 5, date: 'May 20', event: 'Alexa CSE', venue: 'Kape Light', status: 'Completed' }
-      ],
-      2026: [
-        { id: 1, date: '-', event: '-', venue: '-', status: '-' },
-      ]
-    };
-    
     setEvents(eventsData);
-    setCseEvents(cseEventsData);
     setLoading(false);
   }, []);
 
