@@ -16,7 +16,7 @@ const Events = () => {
         { id: 1, date: 'October 29', event: 'Wish Bus (Walang Biruan)', venue: 'Venice Grand Canal Mall', status: 'Completed' }
       ],
       2025: [
-        { id: 66, date: 'November 22', event: 'Puregold Hakot Relay', venue: 'Manila', status: 'Upcoming' },
+        { id: 66, date: 'November 22', event: 'Puregold Hakot Relay', venue: 'Manila', status: 'Completed' },
         { id: 65, date: 'November 15', event: 'FLIGHT 27: TWIN EXPRESS', venue: 'Manila', status: 'Completed' },
         { id: 64, date: 'November 11', event: 'SONY 11:11 MEGA CELEBRATION', venue: 'Online', status: 'Completed' },
         { id: 63, date: 'November 9', event: 'NUBIA VIBEFEST 2025', venue: 'Gateway, Cubao', status: 'Completed' },
@@ -81,7 +81,7 @@ const Events = () => {
         { id: 4, date: 'January 1', event: 'Kapuso Countdown to 2025', venue: 'SM Mall of Asia (Open Grounds)', status: 'Completed' }
       ],
       2026: [
-        { id: 57, date: '-', event: '-', venue: '-', status: 'Planned' }
+        { id: 57, date: 'January 10', event: 'ALPAS sunset sessions', venue: 'Alpas La Union', status: 'Upcoming' }
       ]
     };
     
