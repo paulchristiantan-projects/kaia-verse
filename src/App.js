@@ -17,7 +17,7 @@ import MessageKaiaPage from './components/MessageKaiaPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [showBirthdayModal, setShowBirthdayModal] = useState(true);
+  const [showBirthdayModal, setShowBirthdayModal] = useState(false); // Temporarily disabled - no announcements
   
   // Check if this is the message page
   const isMessagePage = window.location.pathname === '/message-kaia' || window.location.search.includes('message=true');

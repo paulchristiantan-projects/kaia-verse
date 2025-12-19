@@ -16,6 +16,8 @@ const Events = () => {
         { id: 1, date: 'October 29', event: 'Wish Bus (Walang Biruan)', venue: 'Venice Grand Canal Mall', status: 'Completed' }
       ],
       2025: [
+        { id: 72, date: 'December 19', event: 'MMFF Parade', venue: 'Circuit Makati', status: 'Completed' },
+        { id: 71, date: 'December 15', event: 'Rekonek Premiere Night', venue: 'Trinoma, Quezon City', status: 'Completed' },
         { id: 70, date: 'December 12', event: 'Sony 12:12 Mega Celebration', venue: 'Sony Philippines Tiktok Live', status: 'Completed' },
         { id: 69, date: 'December 8', event: 'Fierce and Fearless Carmona', venue: 'Brgy.Carmona, Makati', status: 'Completed' },
         { id: 68, date: 'December 5', event: 'PPOP Caravan: Concert', venue: 'St. Scholastica College', status: 'Completed' },

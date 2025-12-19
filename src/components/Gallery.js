@@ -15,8 +15,8 @@ const Gallery = () => {
     const members = ['angela', 'charice', 'alexa', 'sophia', 'charlotte', 'kaia'];
     
     members.forEach(member => {
-      for (let i = 1; i <= 17; i++) {
-        if (member === 'kaia' && i > 14) continue; // KAIA has fewer images
+      for (let i = 18; i >= 1; i--) {
+        if (member === 'kaia' && i > 18) continue; // KAIA has fewer images
         images.push({
           id: `${member}-${i}`,
           src: getAssetPath(`%PUBLIC_URL%/assets/img/gallery/${member}${i === 1 ? '' : i}.jpg`),
