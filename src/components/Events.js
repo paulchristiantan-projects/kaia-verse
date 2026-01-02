@@ -4,7 +4,7 @@ import { useTheme } from '../contexts/ThemeContext';
 const Events = () => {
   const { isDarkMode } = useTheme();
   const [events, setEvents] = useState([]);
-  const [currentYear, setCurrentYear] = useState(2025);
+  const [currentYear, setCurrentYear] = useState(2026);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const eventsPerPage = 10;
@@ -16,6 +16,8 @@ const Events = () => {
         { id: 1, date: 'October 29', event: 'Wish Bus (Walang Biruan)', venue: 'Venice Grand Canal Mall', status: 'Completed' }
       ],
       2025: [
+        { id: 74, date: 'December 31', event: 'Eastwood New Year Countdown', venue: 'Eastwood, Quezon City', status: 'Completed' },
+        { id: 73, date: 'December 28', event: 'MMFF Rekonek Block Screening', venue: 'Gateway Cineplex 18, Cubao', status: 'Completed' },
         { id: 72, date: 'December 19', event: 'MMFF Parade', venue: 'Circuit Makati', status: 'Completed' },
         { id: 71, date: 'December 15', event: 'Rekonek Premiere Night', venue: 'Trinoma, Quezon City', status: 'Completed' },
         { id: 70, date: 'December 12', event: 'Sony 12:12 Mega Celebration', venue: 'Sony Philippines Tiktok Live', status: 'Completed' },
