@@ -89,7 +89,9 @@ const Events = () => {
         { id: 4, date: 'January 1', event: 'Kapuso Countdown to 2025', venue: 'SM Mall of Asia (Open Grounds)', status: 'Completed' }
       ],
       2026: [
-        { id: 57, date: 'January 10', event: 'ALPAS sunset sessions', venue: 'Alpas La Union', status: 'Upcoming' }
+        { id: 59, date: 'February 22', event: 'Backyard Live Spotlight', venue: 'Backyard Warehouse Studio', status: 'Upcoming' },
+        { id: 58, date: 'January 27', event: 'PPOP Music and Culture Caravan', venue: 'Dela Salle - College of Saint Benilde, Antipolo', status: 'Upcoming' },
+        { id: 57, date: 'January 10', event: 'ALPAS sunset sessions', venue: 'Alpas La Union', status: 'Completed' },
       ]
     };
     
