@@ -89,9 +89,12 @@ const Events = () => {
         { id: 4, date: 'January 1', event: 'Kapuso Countdown to 2025', venue: 'SM Mall of Asia (Open Grounds)', status: 'Completed' }
       ],
       2026: [
-        { id: 59, date: 'February 22', event: 'Backyard Live Spotlight', venue: 'Backyard Warehouse Studio', status: 'Upcoming' },
-        { id: 58, date: 'January 27', event: 'PPOP Music and Culture Caravan', venue: 'Dela Salle - College of Saint Benilde, Antipolo', status: 'Upcoming' },
-        { id: 57, date: 'January 10', event: 'ALPAS sunset sessions', venue: 'Alpas La Union', status: 'Completed' },
+        { id: 62, date: 'February 22', event: 'Backyard Live Spotlight', venue: 'Backyard Warehouse Studio', status: 'Upcoming' },
+        { id: 61, date: 'January 28', event: 'ROUND PRESSCON', venue: 'Gateway, Cubao', status: 'Completed' },
+        { id: 60, date: 'January 27', event: 'PPOP Music and Culture Caravan', venue: 'Dela Salle - College of Saint Benilde, Antipolo', status: 'Completed' },
+        { id: 59, date: 'January 11', event: 'ASAP', venue: 'Online', status: 'Completed' },
+        { id: 58, date: 'January 10', event: 'ALPAS sunset sessions', venue: 'Alpas La Union', status: 'Completed' },
+        { id: 57, date: 'January 9', event: 'PPOP Music and Culture Caravan', venue: 'Holy Family Academy of Angels, Pampanga', status: 'Completed' },
       ]
     };
     
