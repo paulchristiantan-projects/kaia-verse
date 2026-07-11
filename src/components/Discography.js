@@ -1,73 +1,27 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { musicData } from '../data/music';
+import { useMusicPlayer } from '../contexts/MusicPlayerContext';
 import { getAssetPath } from '../utils/assetHelper';
-// import Videos from './Videos';
-
-// Import Swiper styles
+import LyricsPlayer from './LyricsPlayer';
+import ShareSongCard from './ShareSongCard';
+import MusicTimeline from './MusicTimeline';
+import Awards from './Awards';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 
 const Discography = () => {
-  const [currentSong, setCurrentSong] = useState(musicData[0]);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [setSwiperInstance] = useState(null);
-  const audioRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const { playSong, currentSong, isPlaying } = useMusicPlayer();
+  const selectedSong = musicData[currentIndex];
 
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (audio) {
-      const updateTime = () => setCurrentTime(audio.currentTime);
-      const updateDuration = () => setDuration(audio.duration);
-      
-      audio.addEventListener('timeupdate', updateTime);
-      audio.addEventListener('loadedmetadata', updateDuration);
-      audio.addEventListener('ended', () => setIsPlaying(false));
-      
-      return () => {
-        audio.removeEventListener('timeupdate', updateTime);
-        audio.removeEventListener('loadedmetadata', updateDuration);
-        audio.removeEventListener('ended', () => setIsPlaying(false));
-      };
-    }
-  }, [currentSong]);
-
-  const togglePlay = () => {
-    const audio = audioRef.current;
-    if (audio) {
-      if (isPlaying) {
-        audio.pause();
-      } else {
-        audio.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
+  const isCurrentlyPlaying = (song) => {
+    return currentSong?.id === song.id && isPlaying;
   };
 
-  const handleSeek = (e) => {
-    const audio = audioRef.current;
-    if (audio) {
-      const seekTime = (e.target.value / 100) * duration;
-      audio.currentTime = seekTime;
-      setCurrentTime(seekTime);
-    }
-  };
-
-  const formatTime = (time) => {
-    if (isNaN(time)) return '0:00';
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-  };
-
-  const handleSongSelect = (song) => {
-    setCurrentSong(song);
-    setIsPlaying(false);
-    setCurrentTime(0);
-  };
+  // Check if the selected song is the one currently playing (for lyrics sync)
+  const isSongPlaying = currentSong?.id === selectedSong.id && isPlaying;
 
   return (
     <section className="content-section" id="discography">
@@ -76,7 +30,6 @@ const Discography = () => {
           <h2 className="mb-5 fade-in">Music</h2>
         </div>
 
-        {/* Music Carousel */}
         <div className="music-carousel-container">
           <Swiper
             modules={[Navigation]}
@@ -93,22 +46,18 @@ const Discography = () => {
               768: { slidesPerView: 3 },
               1024: { slidesPerView: 5 }
             }}
-            onSwiper={setSwiperInstance}
             onSlideChange={(swiper) => {
-              const activeIndex = swiper.realIndex;
-              handleSongSelect(musicData[activeIndex]);
+              setCurrentIndex(swiper.realIndex);
             }}
             className="music-carousel"
           >
             {musicData.map((song, index) => {
-              const currentIndex = musicData.findIndex(s => s.id === currentSong.id);
               const isActive = index === currentIndex;
-              
               return (
                 <SwiperSlide key={song.id} data-index={index}>
                   <div className="music-slide-content">
-                    <img 
-                      src={getAssetPath(song.image)} 
+                    <img
+                      src={getAssetPath(song.image)}
                       alt={song.title}
                       className="music-cover"
                       onError={(e) => {
@@ -117,35 +66,15 @@ const Discography = () => {
                     />
                     <h5>{song.title}</h5>
                     <p>{song.releaseDate}</p>
-                    
+
                     {isActive && (
-                      <div className="music-player-inline">
-                        <div className="d-flex align-items-center justify-content-center mb-2">
-                          <span style={{ fontSize: '0.8rem', marginRight: '0.5rem' }}>
-                            {formatTime(currentTime)}
-                          </span>
-                          
-                          <button 
-                            className="playButton-inline"
-                            onClick={togglePlay}
-                          >
-                            {isPlaying ? '⏸' : '▶'}
-                          </button>
-                          
-                          <span style={{ fontSize: '0.8rem', marginLeft: '0.5rem' }}>
-                            {formatTime(duration)}
-                          </span>
-                        </div>
-
-                        <input
-                          type="range"
-                          className="seekBar-inline"
-                          value={duration ? (currentTime / duration) * 100 : 0}
-                          onChange={handleSeek}
-                        />
-
-                        <audio ref={audioRef} src={getAssetPath(currentSong.audio)} />
-                      </div>
+                      <button
+                        className="playButton-inline"
+                        onClick={() => playSong(song)}
+                        aria-label={isCurrentlyPlaying(song) ? `Pause ${song.title}` : `Play ${song.title}`}
+                      >
+                        {isCurrentlyPlaying(song) ? '⏸' : '▶'}
+                      </button>
                     )}
                   </div>
                 </SwiperSlide>
@@ -156,52 +85,49 @@ const Discography = () => {
           </Swiper>
         </div>
 
-        
         {/* Song Info & Lyrics */}
         <div className="row mt-5">
           <div className="col-md-6">
             <div className="song-info-panel">
-              <h3>{currentSong.title}</h3>
-              
+              <h3>{selectedSong.title}</h3>
               <div className="song-info-grid">
-                <div><strong>Artist:</strong> {currentSong.artist}</div>
-                <div><strong>Release Date:</strong> {currentSong.releaseDate}</div>
+                <div><strong>Artist:</strong> {selectedSong.artist}</div>
+                <div><strong>Release Date:</strong> {selectedSong.releaseDate}</div>
                 <div><strong>Album:</strong> Single</div>
                 <div><strong>Genre:</strong> P-Pop</div>
               </div>
+              <div className="song-actions">
+                <ShareSongCard song={selectedSong} />
+              </div>
             </div>
           </div>
-          
+
           <div className="col-md-6">
             <div className="lyrics-panel">
-              <h4 style={{ color: 'var(--kaia-primary)', marginBottom: '1rem' }}>Lyrics</h4>
-              <div 
-                style={{
-                  maxHeight: '400px',
-                  overflowY: 'auto',
-                  padding: '1rem',
-                  background: '#f8f9fa',
-                  borderRadius: '8px',
-                  border: '1px solid rgba(214, 51, 132, 0.1)'
-                }}
-              >
-                <pre style={{ 
-                  whiteSpace: 'pre-wrap', 
-                  fontFamily: 'inherit',
-                  fontSize: '0.9rem',
-                  lineHeight: '1.6',
-                  color: '#333',
-                  margin: 0
-                }}>
-                  {currentSong.lyrics}
-                </pre>
+              <div className="lyrics-panel-header">
+                <h4 className="lyrics-heading">Lyrics</h4>
+                {isSongPlaying && <span className="lyrics-live-badge">● LIVE</span>}
+              </div>
+              <div className="lyrics-content">
+                {isSongPlaying ? (
+                  <LyricsPlayer lyrics={selectedSong.lyrics} />
+                ) : (
+                  <pre className="lyrics-text">{selectedSong.lyrics}</pre>
+                )}
               </div>
             </div>
           </div>
         </div>
-        
-        {/* Videos Section */}
-        {/* <Videos /> */}
+
+        {/* Discography Timeline + Awards side by side */}
+        <div className="row mt-5">
+          <div className="col-md-6">
+            <MusicTimeline />
+          </div>
+          <div className="col-md-6">
+            <Awards />
+          </div>
+        </div>
       </div>
     </section>
   );

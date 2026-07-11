@@ -3,13 +3,13 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBeBkWulmBjnWh6KxJE0K3xPvO3c136eUc",
-  authDomain: "kaia-verse.firebaseapp.com",
-  projectId: "kaia-verse",
-  storageBucket: "kaia-verse.firebasestorage.app",
-  messagingSenderId: "391938553161",
-  appId: "1:391938553161:web:b7a45774f08dc7c8ce1698",
-  measurementId: "G-B8WMD5PWZX"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);

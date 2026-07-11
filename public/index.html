@@ -3,12 +3,31 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/assets/kaia-logo.jpg" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/assets/kaia-logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#d63384" />
     <meta name="description" content="KAIAVerse is a fanmade digital hub for KAIA, the rising P-pop girl group. Explore member profiles, updates, fan art, and celebrate KAIA's journey with fellow fans." />
     <meta name="keywords" content="KAIA, P-pop, KAIA P-pop, KAIA members, KAIA fan site, KAIA photos, KAIAVerse, P-pop girl group, Filipino pop group, KAIA fanmade, KAIA updates" />
     <meta name="robots" content="index, follow" />
     <meta name="google-site-verification" content="0VGQak9cX9UuDoxUaAwxJ7D-3S-gAzhVG9WxUxwGVXs" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kaia-verse.vercel.app" />
+    <meta property="og:title" content="KAIAverse – KAIA Fanmade Website" />
+    <meta property="og:description" content="The ultimate fan hub for KAIA, the rising P-pop girl group. Explore member profiles, music, events, and connect with the ZAIA community." />
+    <meta property="og:image" content="https://kaia-verse.vercel.app/assets/img/gallery/kaia17.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="KAIAverse" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://kaia-verse.vercel.app" />
+    <meta name="twitter:title" content="KAIAverse – KAIA Fanmade Website" />
+    <meta name="twitter:description" content="The ultimate fan hub for KAIA, the rising P-pop girl group. Music, events, gallery & ZAIA community." />
+    <meta name="twitter:image" content="https://kaia-verse.vercel.app/assets/img/gallery/kaia17.jpg" />
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
@@ -33,5 +52,12 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
   </body>
 </html>

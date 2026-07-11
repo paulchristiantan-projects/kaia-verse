@@ -1,0 +1,22 @@
+{
+  "short_name": "KAIAverse",
+  "name": "KAIAverse - KAIA Fanmade Website",
+  "description": "The ultimate fan hub for KAIA, the rising P-pop girl group.",
+  "icons": [
+    {
+      "src": "/assets/kaia-logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/assets/kaia-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#d63384",
+  "background_color": "#ffffff",
+  "orientation": "portrait"
+}

@@ -1,83 +1,82 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { MusicPlayerProvider } from './contexts/MusicPlayerContext';
+import { MemberProvider } from './contexts/MemberContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import ThemeToggle from './components/ThemeToggle';
 import Header from './components/Header';
 import Members from './components/Members';
-import Gallery from './components/Gallery';
 import Discography from './components/Discography';
 import Videos from './components/Videos';
 import News from './components/News';
 import Events from './components/Events';
 import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
-import AnnouncementModal from './components/AnnouncementModal';
+import PersistentPlayer from './components/PersistentPlayer';
 import MessageButton from './components/MessageButton';
 import MessageKaiaPage from './components/MessageKaiaPage';
+import BirthdayCelebration from './components/BirthdayCelebration';
+import EventCountdown from './components/EventCountdown';
+import FanCardButton from './components/FanCardButton';
+import BackToTop from './components/BackToTop';
+import LoadingSkeleton from './components/LoadingSkeleton';
+import OnThisDay from './components/OnThisDay';
+import NotFound from './components/NotFound';
+import { useScrollReveal } from './hooks/useScrollReveal';
+
+const HomePage = () => {
+  useScrollReveal();
+  return (
+    <>
+      <ThemeToggle />
+      <Header />
+      <OnThisDay />
+      <BirthdayCelebration />
+      <EventCountdown />
+      <Members />
+      <Discography />
+      <Videos />
+      <News />
+      <Events />
+      <Footer />
+      <ChatBot />
+      <MessageButton />
+      <FanCardButton />
+      <BackToTop />
+      <PersistentPlayer />
+    </>
+  );
+};
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [showBirthdayModal, setShowBirthdayModal] = useState(false); // Temporarily disabled - no announcements
-  
-  // Check if this is the message page
-  const isMessagePage = window.location.pathname === '/message-kaia' || window.location.search.includes('message=true');
 
   useEffect(() => {
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
+    const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {
-    return (
-      <div className="loading">
-        <div className="spinner"></div>
-      </div>
-    );
-  }
-  
-  // Show message page if requested
-  if (isMessagePage) {
-    return <MessageKaiaPage />;
+    return <LoadingSkeleton />;
   }
 
   return (
     <ErrorBoundary>
       <ThemeProvider>
-        <div className="App">
-          <ThemeToggle />
-          <Header />
-          <Members />
-          <Gallery />
-          <Discography />
-          <Videos />
-          <News />
-          <Events />
-          <Footer />
-          <ChatBot />
-          
-          {/* Message Board for KAIA */}
-          <MessageButton />
-          <AnnouncementModal 
-            isOpen={showBirthdayModal}
-            onClose={() => setShowBirthdayModal(false)}
-            type="birthday"
-            members={[
-              {
-                name: "Angela",
-                image: "/assets/img/gallery/angela.jpg"
-              },
-              {
-                name: "Charice",
-                image: "/assets/img/gallery/charice.jpg"
-              }
-            ]}
-            date="November 3, 2025"
-          />
-        </div>
+        <MusicPlayerProvider>
+          <MemberProvider>
+            <Router>
+              <div className="App">
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/message-kaia" element={<MessageKaiaPage />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </div>
+            </Router>
+          </MemberProvider>
+        </MusicPlayerProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

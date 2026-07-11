@@ -1,139 +1,87 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useScrollNavigation } from '../hooks/useScrollNavigation';
+
+const NAV_ITEMS = [
+  { id: 'about', label: 'About' },
+  { id: 'gallery', label: 'Gallery' },
+  { id: 'discography', label: 'Music' },
+  { id: 'videos', label: 'Videos' },
+  { id: 'news', label: 'News' },
+  { id: 'events', label: 'Events' },
+];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const { isScrolled, scrollToSection } = useScrollNavigation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeSidebar = () => {
+  const handleNavClick = (sectionId) => {
+    scrollToSection(sectionId);
     setIsOpen(false);
-  };
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    closeSidebar();
   };
 
   return (
     <>
       <header className="masthead d-flex align-items-center" id="page-top">
-        {/* Desktop Top Navigation */}
         <nav className={`top-nav ${isScrolled ? 'scrolled' : ''}`}>
-          <div className="nav-brand" onClick={() => scrollToSection('page-top')} style={{cursor: 'pointer'}}>
+          <div className="nav-brand" onClick={() => handleNavClick('page-top')} style={{cursor: 'pointer'}}>
             <img src="/assets/kaia-logo.jpg" alt="KAIA Logo" />
             <span>KAIA</span>
           </div>
           <ul className="nav-links">
-            <li><a href="#about" onClick={() => scrollToSection('about')}>About</a></li>
-            <li><a href="#gallery" onClick={() => scrollToSection('gallery')}>Gallery</a></li>
-            <li><a href="#discography" onClick={() => scrollToSection('discography')}>Music</a></li>
-            <li><a href="#videos" onClick={() => scrollToSection('videos')}>Videos</a></li>
-            <li><a href="#news" onClick={() => scrollToSection('news')}>News</a></li>
-            <li><a href="#events" onClick={() => scrollToSection('events')}>Events</a></li>
-            <li><a href="/?message=true" style={{ color: 'var(--kaia-primary)' }}>Member Login</a></li>
+            {NAV_ITEMS.map(item => (
+              <li key={item.id}>
+                <a href={`#${item.id}`} onClick={() => handleNavClick(item.id)}>{item.label}</a>
+              </li>
+            ))}
+            <li><a href="/message-kaia" className="nav-login-link">Member Login</a></li>
           </ul>
         </nav>
 
-        {/* Mobile Menu Toggle */}
-        <button className="menu-toggle" onClick={toggleSidebar}>
+        <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
           <i className={`fas ${isOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
         </button>
-        
+
         <div className="image-background">
-          <img 
-            src="/assets/img/gallery/kaia17.jpg" 
-            alt="KAIA Banner" 
+          <img
+            src="/assets/img/gallery/kaia17.jpg"
+            alt="KAIA Banner"
             className="d-none d-md-block"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover'
-            }}
           />
-          <img 
-            src="/assets/img/gallery/kaia172.jpg" 
-            alt="KAIA Banner" 
+          <img
+            src="/assets/img/gallery/kaia172.jpg"
+            alt="KAIA Banner"
             className="d-md-none"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover'
-            }}
           />
-          
           <div className="content-banner">
             <div className="container px-4 px-lg-5 text-center">
               <h1 className="mb-1 fade-in">KAIAverse</h1>
-              <h6 className="kaia-official fade-in">
-                {/* Official website link can be added here */}
-              </h6>
             </div>
           </div>
         </div>
       </header>
-      
+
       {/* Mobile Sidebar */}
       <nav className={`sidebar-wrapper ${isOpen ? 'active' : ''}`}>
         <ul className="sidebar-nav">
           <li className="sidebar-brand">
-            <a href="#page-top" onClick={() => scrollToSection('page-top')}>
-              <img src="/assets/kaia-logo.jpg" style={{height: '24px', width: 'auto', verticalAlign: 'middle'}} alt="KAIA Logo" />
+            <a href="#page-top" onClick={() => handleNavClick('page-top')}>
+              <img src="/assets/kaia-logo.jpg" alt="KAIA Logo" />
               K A I A
             </a>
           </li>
+          {NAV_ITEMS.map(item => (
+            <li key={item.id} className="sidebar-nav-item">
+              <a href={`#${item.id}`} onClick={() => handleNavClick(item.id)}>{item.label}</a>
+            </li>
+          ))}
           <li className="sidebar-nav-item">
-            <a href="#about" onClick={() => scrollToSection('about')}>About</a>
-          </li>
-          <li className="sidebar-nav-item">
-            <a href="#gallery" onClick={() => scrollToSection('gallery')}>Gallery</a>
-          </li>
-          <li className="sidebar-nav-item">
-            <a href="#discography" onClick={() => scrollToSection('discography')}>Music</a>
-          </li>
-          <li className="sidebar-nav-item">
-            <a href="#videos" onClick={() => scrollToSection('videos')}>Videos</a>
-          </li>
-          <li className="sidebar-nav-item">
-            <a href="#news" onClick={() => scrollToSection('news')}>News</a>
-          </li>
-          <li className="sidebar-nav-item">
-            <a href="#events" onClick={() => scrollToSection('events')}>Events</a>
-          </li>
-          <li className="sidebar-nav-item">
-            <a href="/?message=true" style={{ color: 'var(--kaia-primary)' }}>Member Login</a>
+            <a href="/message-kaia" className="nav-login-link">Member Login</a>
           </li>
         </ul>
       </nav>
-      
+
       {isOpen && (
-        <div 
-          className="sidebar-overlay" 
-          onClick={closeSidebar}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            background: 'rgba(0, 0, 0, 0.5)',
-            zIndex: 1049
-          }}
-        />
+        <div className="sidebar-overlay" onClick={() => setIsOpen(false)} />
       )}
     </>
   );

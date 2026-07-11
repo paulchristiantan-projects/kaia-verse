@@ -1,35 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { getAssetPath } from '../utils/assetHelper';
+import { useMember } from '../contexts/MemberContext';
+
+const MEMBERS_LIST = ['angela', 'charice', 'alexa', 'sophia', 'charlotte', 'kaia'];
 
 const Gallery = () => {
+  const { selectedMember, setSelectedMember } = useMember();
   const [currentPage, setCurrentPage] = useState(1);
-  const [galleryImages, setGalleryImages] = useState([]);
-  const [filteredImages, setFilteredImages] = useState([]);
-  const [selectedMember, setSelectedMember] = useState('angela');
-  const [loading, setLoading] = useState(true);
+  const [lightboxImg, setLightboxImg] = useState(null);
   const imagesPerPage = 6;
 
-  useEffect(() => {
-    // Generate gallery images array
+  // Generate all gallery images once
+  const galleryImages = useMemo(() => {
     const images = [];
-    const members = ['angela', 'charice', 'alexa', 'sophia', 'charlotte', 'kaia'];
-    
-    members.forEach(member => {
+    MEMBERS_LIST.forEach(member => {
       for (let i = 18; i >= 1; i--) {
-        if (member === 'kaia' && i > 18) continue; // KAIA has fewer images
         images.push({
           id: `${member}-${i}`,
           src: getAssetPath(`%PUBLIC_URL%/assets/img/gallery/${member}${i === 1 ? '' : i}.jpg`),
-          alt: `${member.charAt(0).toUpperCase() + member.slice(1)} ${i}`,
+          alt: `${member.charAt(0).toUpperCase() + member.slice(1)} photo ${i}`,
           member: member
         });
       }
     });
-    
-    setGalleryImages(images);
-    setFilteredImages(images.filter(img => img.member === 'angela'));
-    setLoading(false);
+    return images;
   }, []);
+
+  const filteredImages = useMemo(() =>
+    galleryImages.filter(img => img.member === selectedMember),
+    [galleryImages, selectedMember]
+  );
+
+  // Reset page when member changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedMember]);
 
   const totalPages = Math.ceil(filteredImages.length / imagesPerPage);
   const startIndex = (currentPage - 1) * imagesPerPage;
@@ -37,151 +42,86 @@ const Gallery = () => {
 
   const handleMemberFilter = (member) => {
     setSelectedMember(member);
-    setCurrentPage(1);
-    setFilteredImages(galleryImages.filter(img => img.member === member));
   };
-
-  const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const handleImageError = (e) => {
-    e.target.src = getAssetPath('%PUBLIC_URL%/assets/img/fallback-image.jpg');
-  };
-
-  if (loading) {
-    return (
-      <section className="content-section" id="gallery">
-        <div className="container px-4 px-lg-5">
-          <div className="loading">
-            <div className="spinner"></div>
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section className="content-section" id="gallery">
       <div className="container px-4 px-lg-5">
-        <div className="row">
-          {/* Left Side - 3x3 Photo Grid */}
-          <div className="col-md-9">
-            <div className="content-section-heading text-center">
-              <h2 className="fade-in">Gallery</h2>
-            </div>
-            
-            {/* Mobile Dropdown */}
-            <div className="mobile-member-select d-md-none mb-3 text-center">
-              <select 
-                value={selectedMember} 
-                onChange={(e) => handleMemberFilter(e.target.value)}
-                className="form-select"
-              >
-                {['angela', 'charice', 'alexa', 'sophia', 'charlotte', 'kaia'].map(member => (
-                  <option key={member} value={member}>
-                    {member.charAt(0).toUpperCase() + member.slice(1)}
-                  </option>
-                ))}
-              </select>
-            </div>
-            
-            <div className="gallery-grid">
-              {currentImages.map((image, index) => (
-                <div 
-                  key={image.id} 
-                  className="gallery-tile"
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    onError={handleImageError}
-                    onClick={() => {
-                      const modal = document.createElement('div');
-                      modal.style.cssText = `
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: rgba(0, 0, 0, 0.9);
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        z-index: 9999;
-                        cursor: pointer;
-                      `;
-                      
-                      const img = document.createElement('img');
-                      img.src = image.src;
-                      img.style.cssText = `
-                        max-width: 90%;
-                        max-height: 90%;
-                        object-fit: contain;
-                        border-radius: 10px;
-                      `;
-                      
-                      modal.appendChild(img);
-                      document.body.appendChild(modal);
-                      
-                      modal.onclick = () => {
-                        document.body.removeChild(modal);
-                      };
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-            
-            <div className="pagination">
-              <button 
-                onClick={handlePrevPage} 
-                disabled={currentPage === 1}
-              >
-                &laquo; Prev
-              </button>
-              
-              <span className="page-info">
-                {currentPage} of {totalPages}
-              </span>
-              
-              <button 
-                onClick={handleNextPage} 
-                disabled={currentPage === totalPages}
-              >
-                Next &raquo;
-              </button>
-            </div>
-          </div>
-          
-          {/* Right Sidebar - Member Names Timeline */}
-          <div className="col-md-3">
-            {/* Desktop Timeline */}
-            <div className="member-timeline gallery-timeline d-none d-md-flex">
-              <div className="timeline-line"></div>
-              {['angela', 'charice', 'alexa', 'sophia', 'charlotte', 'kaia'].map(member => (
-                <div
-                  key={member}
-                  onClick={() => handleMemberFilter(member)}
-                  className={`timeline-item ${selectedMember === member ? 'active' : ''}`}
-                >
-                  <div className="timeline-dot"></div>
-                  <div className="timeline-name">{member}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Header with member avatar tabs */}
+        <div className="content-section-heading text-center">
+          <h2 className="fade-in">Gallery</h2>
         </div>
 
+        {/* Member filter tabs - avatar style */}
+        <div className="gallery-member-tabs">
+          {MEMBERS_LIST.map(member => (
+            <button
+              key={member}
+              className={`gallery-member-tab ${selectedMember === member ? 'active' : ''}`}
+              onClick={() => handleMemberFilter(member)}
+            >
+              <img
+                src={getAssetPath(`%PUBLIC_URL%/assets/img/gallery/${member}.jpg`)}
+                alt={member}
+                className="gallery-member-tab-img"
+                onError={(e) => { e.target.src = getAssetPath('%PUBLIC_URL%/assets/img/fallback-image.jpg'); }}
+              />
+              <span className="gallery-member-tab-name">
+                {member.charAt(0).toUpperCase() + member.slice(1)}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        {/* Photo grid */}
+        <div className="gallery-grid-unified">
+          {currentImages.map((image) => (
+            <div
+              key={image.id}
+              className="gallery-tile-unified"
+              onClick={() => setLightboxImg(image.src)}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                onError={(e) => { e.target.src = getAssetPath('%PUBLIC_URL%/assets/img/fallback-image.jpg'); }}
+              />
+              <div className="gallery-tile-overlay">
+                <i className="fas fa-expand"></i>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="gallery-pagination">
+            <button
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+              className="gallery-page-btn"
+            >
+              &laquo; Prev
+            </button>
+            <span className="gallery-page-info">{currentPage} of {totalPages}</span>
+            <button
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+              className="gallery-page-btn"
+            >
+              Next &raquo;
+            </button>
+          </div>
+        )}
       </div>
+
+      {/* Lightbox */}
+      {lightboxImg && (
+        <div className="gallery-lightbox" onClick={() => setLightboxImg(null)}>
+          <img src={lightboxImg} alt="Full size" />
+          <button className="gallery-lightbox-close" aria-label="Close">✕</button>
+        </div>
+      )}
     </section>
   );
 };
