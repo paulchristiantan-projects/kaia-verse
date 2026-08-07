@@ -165,13 +165,45 @@ const Auth = ({ onAuthSuccess }) => {
             style={{
               width: '100%',
               padding: '1rem',
-              marginBottom: emailError ? '0.5rem' : '1rem',
+              marginBottom: emailError ? '0.5rem' : '0.25rem',
               border: `2px solid ${emailError ? '#dc3545' : '#ddd'}`,
               borderRadius: '10px',
               fontSize: '1rem',
               outline: 'none'
             }}
           />
+          {!isLogin && !emailError && (
+            <div style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '0.4rem',
+              background: 'rgba(214, 51, 132, 0.08)',
+              border: '1px solid rgba(214, 51, 132, 0.25)',
+              borderRadius: '8px',
+              padding: '0.5rem 0.75rem',
+              marginBottom: '1rem',
+              fontSize: '0.8rem',
+              color: 'var(--kaia-primary)'
+            }}>
+              💡 You can use a dummy email — just remember it for logging in.
+            </div>
+          )}
+          {isLogin && (
+            <div style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '0.4rem',
+              background: 'rgba(214, 51, 132, 0.08)',
+              border: '1px solid rgba(214, 51, 132, 0.25)',
+              borderRadius: '8px',
+              padding: '0.5rem 0.75rem',
+              marginBottom: '1rem',
+              fontSize: '0.8rem',
+              color: 'var(--kaia-primary)'
+            }}>
+              💡 Enter the email (or dummy email) you used when you registered.
+            </div>
+          )}
           {emailError && (
             <div style={{
               color: '#dc3545',

@@ -172,15 +172,22 @@ const AdminPanel = () => {
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundImage: 'url(/assets/img/gallery/kaia17.jpg)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundAttachment: 'fixed',
       position: 'relative',
       padding: '2rem 1rem'
     }}>
       <div style={{
-        position: 'absolute',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage: 'url(/assets/img/gallery/kaia17.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        zIndex: 0
+      }}></div>
+      <div style={{
+        position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
