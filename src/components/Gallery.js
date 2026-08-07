@@ -14,14 +14,36 @@ const Gallery = () => {
   const galleryImages = useMemo(() => {
     const images = [];
     MEMBERS_LIST.forEach(member => {
-      for (let i = 18; i >= 1; i--) {
+      // Add numbered images from 18 down to 2
+      for (let i = 18; i >= 2; i--) {
         images.push({
           id: `${member}-${i}`,
-          src: getAssetPath(`%PUBLIC_URL%/assets/img/gallery/${member}${i === 1 ? '' : i}.jpg`),
+          src: getAssetPath(`%PUBLIC_URL%/assets/img/gallery/${member}${i}.jpg`),
           alt: `${member.charAt(0).toUpperCase() + member.slice(1)} photo ${i}`,
           member: member
         });
       }
+      // Add member1a.jpg (variant of photo 1)
+      images.push({
+        id: `${member}-1a`,
+        src: getAssetPath(`%PUBLIC_URL%/assets/img/gallery/${member}1a.jpg`),
+        alt: `${member.charAt(0).toUpperCase() + member.slice(1)} photo 1a`,
+        member: member
+      });
+      // Add member1.jpg (base photo, no number suffix)
+      images.push({
+        id: `${member}-1`,
+        src: getAssetPath(`%PUBLIC_URL%/assets/img/gallery/${member}.jpg`),
+        alt: `${member.charAt(0).toUpperCase() + member.slice(1)} photo 1`,
+        member: member
+      });
+      // Add member0.jpg
+      images.push({
+        id: `${member}-0`,
+        src: getAssetPath(`%PUBLIC_URL%/assets/img/gallery/${member}0.jpg`),
+        alt: `${member.charAt(0).toUpperCase() + member.slice(1)} photo 0`,
+        member: member
+      });
     });
     return images;
   }, []);

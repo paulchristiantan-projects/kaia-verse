@@ -10,6 +10,10 @@ const Videos = () => {
 
   const videoList = [
     {
+      src: "https://www.youtube.com/embed/UAuKDalG6cQ?list=RDUAuKDalG6cQ",
+      title: "KAIA 'Hulog' Official Music Video"
+    },
+    {
       src: "https://www.youtube.com/embed/SqARYU7Xf0A?list=RDSqARYU7Xf0A",
       title: "Puregold Nasa Atin Ang Panalo- Kaya Mo ft. KAIA"
     },

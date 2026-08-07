@@ -38,7 +38,7 @@ const HomePage = () => {
       <Discography />
       <Videos />
       <News />
-      <Events />
+      {/* <Events /> */}
       <Footer />
       <ChatBot />
       <MessageButton />

@@ -104,7 +104,7 @@ const Members = () => {
                     <div className="photo-behind"></div>
                     <div className="photo-main">
                       <img
-                        src={currentMemberIndex === -1 ? '/assets/img/gallery/kaia.jpg' : currentMember.img}
+                        src={currentMemberIndex === -1 ? '/assets/img/gallery/kaia0.jpg' : currentMember.img}
                         alt={currentMemberIndex === -1 ? 'KAIA Group' : currentMember.name}
                       />
                     </div>

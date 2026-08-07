@@ -1,6 +1,72 @@
 export const musicData = [
     {
     id: 0,
+    title: "Hulog",
+    artist: "KAIA",
+    releaseDate: "2026",
+    image: "%PUBLIC_URL%/assets/img/music-hulog.png",
+    audio: "%PUBLIC_URL%/assets/audio/music-hulog.mp3",
+    lyrics: `[Verse 1: Sophia]
+Lagi, ba't ba palagi walang masabi?
+Pero mata'y nagtitinginan
+Nag-iindakan, 'di mapigilan
+Ba't ko ba tatanggihan?
+
+[Pre-Chorus: Angela]
+Kasi hindi ka maalis sa isip lumalabis
+Kailan ko ba 'to haharapin?
+
+[Chorus: Charlotte]
+Hindi ka mawala, natutulala
+Hindi maipaliwanag ang nadarama
+Hindi maisantabi, 'di maitatanggi
+Nahuhulog na rin 'ata, hulog na rin 'ata sa 'yo, ooh-woah
+
+[Verse 2: Angela]
+Hanap, lagi kong hanap
+Higpit ng yakap, pero 'di mahingi
+'Pag ikaw ay, ikaw ay kaharap
+'Di makausap, pa'no uusad?
+
+[Pre-Chorus: Alexa]
+Gabi-gabing panaginip, ikaw lang ang nasa tabi
+Nawawala buong mundo, buong puso nasa iyo
+Paano ba susulong pa? Pag-ibig na 'di magbunga
+'Di malabas ang salita
+
+
+[Chorus: Charice]
+Hindi ka mawala, natutulala
+Hindi maipaliwanag ang nadarama
+Hindi maisantabi, 'di maitatanggi
+Nahuhulog na rin 'ata, hulog na rin 'ata sa 'yo
+
+[Post-Chorus: Charice]
+Ooh-oh (Oh), oh-oh (Oh)
+Hulog na rin 'ata, hulog na rin 'ata sa 'yo
+Ooh-oh (Oh), oh-oh (Oh)
+Hulog na rin 'ata, nahuhulog na rin ata sa'yo
+
+[Bridge: Alexa]
+'Di mawari gagawin ko
+Nahuhulog na buong mundo
+Nahuhulog na rin ako sa 'yo
+Sa 'yo, sa 'yo
+
+[Chorus: Sophia]
+Hindi ka mawala, natutulala
+Hindi maipaliwanag ang nadarama
+Hindi maisantabi, 'di maitatanggi
+Nahuhulog na rin 'ata, hulog na rin 'ata sa 'yo
+
+[Post-Chorus: Sophia]
+Ooh-oh (Oh), oh-oh (Oh)
+Hulog na rin 'ata, hulog na rin 'ata sa 'yo
+Ooh-oh (Oh), oh-oh (Oh)
+Hulog na rin 'ata, nahuhulog na rin ata sa 'yo`
+  },
+    {
+    id: 1,
     title: "Tara Sayaw",
     artist: "KAIA",
     releaseDate: "2025",
@@ -66,7 +132,7 @@ Tara na't sayaw! (sumasayaw)
 Tara na't sayaw! (sumasayaw)`
   },
   {
-    id: 1,
+    id: 2,
     title: "Walkie Talkie",
     artist: "KAIA",
     releaseDate: "2025",
@@ -109,7 +175,7 @@ D-O Y-O-U copy? Check that walkie-talkie, baby
 D-O Y-O-U copy?Check that, check that Check that, check that`
   },
   {
-    id: 2,
+    id: 3,
     title: "Tanga",
     artist: "KAIA",
     releaseDate: "2025",
@@ -159,7 +225,7 @@ Nandito pa rin ako
 Nandito pa rin ako`
   },
   {
-    id: 3,
+    id: 4,
     title: "Walang Biruan Christmas Edition",
     artist: "KAIA",
     releaseDate: "2024",
@@ -211,7 +277,7 @@ Na tayo lamang, ni walang kasama
 Kasi ikaw`
   },
   {
-    id: 4,
+    id: 5,
     title: "Walang Biruan",
     artist: "KAIA",
     releaseDate: "2024",
@@ -263,7 +329,7 @@ Na tayo lamang, ni walang kasama
 Kasi ikaw`
   },
   {
-    id: 5,
+    id: 6,
     title: "You Did It",
     artist: "KAIA",
     releaseDate: "2024",
