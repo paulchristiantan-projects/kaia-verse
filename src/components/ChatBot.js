@@ -92,12 +92,10 @@ ${infoText}
       });
 
       const data = await response.json();
-      console.log('API Response:', data);
       
       // Check if response has the expected structure
       if (data.choices && data.choices.length > 0 && data.choices[0].message) {
         const content = data.choices[0].message.content;
-        console.log('Message content:', content);
         const trimmedContent = content?.trim();
         
         // Check if content is empty or just whitespace

@@ -13,11 +13,6 @@ const AuthApp = () => {
   const adminEmails = ['admin@kaiaverse.com', 'kaiaadmin@gmail.com'];
   
   const isAdmin = user && adminEmails.includes(user.email);
-  
-  // Debug logging
-  console.log('User:', user);
-  console.log('Email:', user?.email);
-  console.log('Is Admin:', isAdmin);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -43,10 +38,6 @@ const AuthApp = () => {
   }
 
   if (user) {
-    // Show current user info for debugging
-    console.log('Current user email:', user.email);
-    console.log('Admin check result:', isAdmin);
-    
     return isAdmin ? <AdminPanel /> : <MessageBoard />;
   }
   
