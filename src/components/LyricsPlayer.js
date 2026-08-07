@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useMemo } from 'react';
 import { useMusicPlayer } from '../contexts/MusicPlayerContext';
 
 const LyricsPlayer = ({ lyrics }) => {
-  const { currentTime, duration, isPlaying, currentSong } = useMusicPlayer();
+  const { currentTime, duration, isPlaying } = useMusicPlayer();
   const lyricsRef = useRef(null);
 
   // Split lyrics into lines and assign approximate timestamps
