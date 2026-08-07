@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { doc, setDoc, updateDoc, increment } from 'firebase/firestore';
+import { db } from './firebase/config';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { MusicPlayerProvider } from './contexts/MusicPlayerContext';
 import { MemberProvider } from './contexts/MemberContext';
@@ -54,6 +56,18 @@ function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 800);
+
+    // Track site visit once per session (guards against StrictMode double-invoke)
+    if (!sessionStorage.getItem('visited')) {
+      sessionStorage.setItem('visited', '1');
+      const visitRef = doc(db, 'stats', 'siteVisits');
+      updateDoc(visitRef, { count: increment(1) })
+        .catch(() => {
+          // Doc doesn't exist yet, create it
+          setDoc(visitRef, { count: 1 });
+        });
+    }
+
     return () => clearTimeout(timer);
   }, []);
 

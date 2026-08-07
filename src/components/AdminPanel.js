@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, doc, updateDoc, query, orderBy, addDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, updateDoc, query, orderBy, addDoc, getDoc } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../firebase/config';
 
@@ -14,10 +14,30 @@ const AdminPanel = () => {
   const [toast, setToast] = useState(null);
   const [myAnnouncements, setMyAnnouncements] = useState([]);
   const [activeTab, setActiveTab] = useState('pending');
+  const [siteVisits, setSiteVisits] = useState(null);
 
   useEffect(() => {
     fetchPendingMessages();
     fetchMyAnnouncements();
+    fetchSiteVisits();
+  }, []);
+
+  const fetchSiteVisits = async () => {
+    try {
+      const snap = await getDoc(doc(db, 'stats', 'siteVisits'));
+      if (snap.exists()) setSiteVisits(snap.data().count ?? 0);
+      else setSiteVisits(0);
+    } catch (error) {
+      console.error('Error fetching site visits:', error);
+      setSiteVisits('N/A');
+    }
+  };
+
+  // Re-fetch visits when admin tab gets focus (picks up latest count)
+  useEffect(() => {
+    const onFocus = () => fetchSiteVisits();
+    window.addEventListener('focus', onFocus);
+    return () => window.removeEventListener('focus', onFocus);
   }, []);
 
   const fetchPendingMessages = async () => {
@@ -203,6 +223,40 @@ const AdminPanel = () => {
           >
             Logout
           </button>
+        </div>
+
+        {/* Site Visits Stat */}
+        <div style={{
+          background: 'white',
+          borderRadius: '15px',
+          padding: '1.5rem 2rem',
+          marginBottom: '2rem',
+          boxShadow: '0 5px 20px rgba(0, 0, 0, 0.1)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1.5rem'
+        }}>
+          <div style={{
+            width: '56px',
+            height: '56px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, var(--kaia-primary), #b8296b)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '1.6rem',
+            flexShrink: 0
+          }}>
+            👁️
+          </div>
+          <div>
+            <div style={{ color: '#888', fontSize: '0.85rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              Total Site Visits
+            </div>
+            <div style={{ color: 'var(--kaia-primary)', fontSize: '2rem', fontWeight: '700', lineHeight: 1.2 }}>
+              {siteVisits === null ? '...' : siteVisits.toLocaleString?.() ?? siteVisits}
+            </div>
+          </div>
         </div>
 
         {/* Send Announcement */}

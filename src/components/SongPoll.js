@@ -7,17 +7,18 @@ const VOTE_KEY = 'kaia-song-vote';
 
 // All KAIA songs for the poll
 const ALL_SONGS = [
-  { id: 0, title: 'Tara Sayaw', image: '%PUBLIC_URL%/assets/img/music-tara-sayaw.png' },
-  { id: 1, title: 'Walkie Talkie', image: '%PUBLIC_URL%/assets/img/music-walkietalkie.png' },
-  { id: 2, title: 'Tanga', image: '%PUBLIC_URL%/assets/img/music-tanga.png' },
-  { id: 3, title: 'A Perfect Christmas', image: '%PUBLIC_URL%/assets/img/music-aperfectchristmas.png' },
-  { id: 4, title: 'Walang Biruan', image: '%PUBLIC_URL%/assets/img/music-walangbiruan.png' },
-  { id: 5, title: 'You Did It', image: '%PUBLIC_URL%/assets/img/music-youdidit.png' },
-  { id: 6, title: '5678', image: '%PUBLIC_URL%/assets/img/music-5678.png' },
-  { id: 7, title: 'TURN UP', image: '%PUBLIC_URL%/assets/img/music-turnup.png' },
-  { id: 8, title: 'Dalawa', image: '%PUBLIC_URL%/assets/img/music-dalawa.png' },
-  { id: 9, title: 'Blah Blah', image: '%PUBLIC_URL%/assets/img/music-blahblah.png' },
-  { id: 10, title: 'KAYA', image: '%PUBLIC_URL%/assets/img/music-kaya.png' },
+  { id: 0, title: 'Hulog', image: '%PUBLIC_URL%/assets/img/music-hulog.png' },
+  { id: 1, title: 'Tara Sayaw', image: '%PUBLIC_URL%/assets/img/music-tara-sayaw.png' },
+  { id: 2, title: 'Walkie Talkie', image: '%PUBLIC_URL%/assets/img/music-walkietalkie.png' },
+  { id: 3, title: 'Tanga', image: '%PUBLIC_URL%/assets/img/music-tanga.png' },
+  { id: 4, title: 'A Perfect Christmas', image: '%PUBLIC_URL%/assets/img/music-aperfectchristmas.png' },
+  { id: 5, title: 'Walang Biruan', image: '%PUBLIC_URL%/assets/img/music-walangbiruan.png' },
+  { id: 6, title: 'You Did It', image: '%PUBLIC_URL%/assets/img/music-youdidit.png' },
+  { id: 7, title: '5678', image: '%PUBLIC_URL%/assets/img/music-5678.png' },
+  { id: 8, title: 'TURN UP', image: '%PUBLIC_URL%/assets/img/music-turnup.png' },
+  { id: 9, title: 'Dalawa', image: '%PUBLIC_URL%/assets/img/music-dalawa.png' },
+  { id: 10, title: 'Blah Blah', image: '%PUBLIC_URL%/assets/img/music-blahblah.png' },
+  { id: 11, title: 'KAYA', image: '%PUBLIC_URL%/assets/img/music-kaya.png' },
 ];
 
 const SongPoll = () => {

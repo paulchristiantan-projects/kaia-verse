@@ -6,17 +6,18 @@ import { getAssetPath } from '../utils/assetHelper';
 const VOTE_KEY = 'kaia-song-vote';
 
 const SONGS = [
-  { id: 0, title: 'Tara Sayaw', date: 'Sep 2025', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-tara-sayaw.png' },
-  { id: 1, title: 'Walkie Talkie', date: 'Jun 2025', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-walkietalkie.png' },
-  { id: 2, title: 'Tanga', date: 'Mar 2025', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-tanga.png' },
-  { id: 3, title: 'A Perfect Christmas', date: 'Dec 2024', type: 'Christmas Single', image: '%PUBLIC_URL%/assets/img/music-aperfectchristmas.png' },
-  { id: 4, title: 'Walang Biruan', date: 'Aug 2024', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-walangbiruan.png' },
-  { id: 5, title: 'You Did It', date: 'Apr 2024', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-youdidit.png' },
-  { id: 6, title: '5678', date: 'Feb 2023', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-5678.png' },
-  { id: 7, title: 'TURN UP', date: 'Oct 2022', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-turnup.png' },
-  { id: 8, title: 'Dalawa', date: 'Jul 2022', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-dalawa.png' },
-  { id: 9, title: 'Blah Blah', date: 'Apr 2022', type: 'Debut Single', image: '%PUBLIC_URL%/assets/img/music-blahblah.png' },
-  { id: 10, title: 'KAYA', date: 'Dec 2021', type: 'Pre-debut Single', image: '%PUBLIC_URL%/assets/img/music-kaya.png' },
+  { id: 0, title: 'Hulog', date: 'June 2026', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-hulog.png' },
+  { id: 1, title: 'Tara Sayaw', date: 'Sep 2025', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-tara-sayaw.png' },
+  { id: 2, title: 'Walkie Talkie', date: 'Jun 2025', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-walkietalkie.png' },
+  { id: 3, title: 'Tanga', date: 'Mar 2025', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-tanga.png' },
+  { id: 4, title: 'A Perfect Christmas', date: 'Dec 2024', type: 'Christmas Single', image: '%PUBLIC_URL%/assets/img/music-aperfectchristmas.png' },
+  { id: 5, title: 'Walang Biruan', date: 'Aug 2024', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-walangbiruan.png' },
+  { id: 6, title: 'You Did It', date: 'Apr 2024', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-youdidit.png' },
+  { id: 7, title: '5678', date: 'Feb 2023', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-5678.png' },
+  { id: 8, title: 'TURN UP', date: 'Oct 2022', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-turnup.png' },
+  { id: 9, title: 'Dalawa', date: 'Jul 2022', type: 'Single', image: '%PUBLIC_URL%/assets/img/music-dalawa.png' },
+  { id: 10, title: 'Blah Blah', date: 'Apr 2022', type: 'Debut Single', image: '%PUBLIC_URL%/assets/img/music-blahblah.png' },
+  { id: 11, title: 'KAYA', date: 'Dec 2021', type: 'Pre-debut Single', image: '%PUBLIC_URL%/assets/img/music-kaya.png' },
 ];
 
 const MusicTimeline = () => {
