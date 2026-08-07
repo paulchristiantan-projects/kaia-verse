@@ -25,7 +25,10 @@ const Header = () => {
         <nav className={`top-nav ${isScrolled ? 'scrolled' : ''}`}>
           <div className="nav-brand" onClick={() => handleNavClick('page-top')} style={{cursor: 'pointer'}}>
             <img src="/assets/kaia-logo.jpg" alt="KAIA Logo" />
-            <span>KAIA</span>
+            <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
+              <span>KAIA</span>
+              <span style={{ fontSize: '0.55rem', opacity: 0.45, letterSpacing: '0.05em' }}>v20260807</span>
+            </div>
           </div>
           <ul className="nav-links">
             {NAV_ITEMS.map(item => (
