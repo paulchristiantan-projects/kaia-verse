@@ -6,13 +6,11 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import { MusicPlayerProvider } from './contexts/MusicPlayerContext';
 import { MemberProvider } from './contexts/MemberContext';
 import ErrorBoundary from './components/ErrorBoundary';
-import ThemeToggle from './components/ThemeToggle';
 import Header from './components/Header';
 import Members from './components/Members';
 import Discography from './components/Discography';
 import Videos from './components/Videos';
 import News from './components/News';
-import Events from './components/Events';
 import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
 import PersistentPlayer from './components/PersistentPlayer';
@@ -21,6 +19,7 @@ import MessageKaiaPage from './components/MessageKaiaPage';
 import BirthdayCelebration from './components/BirthdayCelebration';
 import EventCountdown from './components/EventCountdown';
 import FanCardButton from './components/FanCardButton';
+import ThemeToggle from './components/ThemeToggle';
 import BackToTop from './components/BackToTop';
 import LoadingSkeleton from './components/LoadingSkeleton';
 import OnThisDay from './components/OnThisDay';
@@ -31,7 +30,6 @@ const HomePage = () => {
   useScrollReveal();
   return (
     <>
-      <ThemeToggle />
       <Header />
       <OnThisDay />
       <BirthdayCelebration />
@@ -43,8 +41,11 @@ const HomePage = () => {
       {/* <Events /> */}
       <Footer />
       <ChatBot />
-      <MessageButton />
-      <FanCardButton />
+      <div className="desktop-only-btns">
+        <ThemeToggle />
+        <MessageButton />
+        <FanCardButton />
+      </div>
       <BackToTop />
       <PersistentPlayer />
     </>

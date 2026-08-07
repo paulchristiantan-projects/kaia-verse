@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useScrollNavigation } from '../hooks/useScrollNavigation';
+import { useTheme } from '../contexts/ThemeContext';
+import KaiaWall from './KaiaWall';
+import FanCard from './FanCard';
 
 const NAV_ITEMS = [
   { id: 'about', label: 'About' },
@@ -12,7 +15,10 @@ const NAV_ITEMS = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showWall, setShowWall] = useState(false);
+  const [showFanCard, setShowFanCard] = useState(false);
   const { isScrolled, scrollToSection } = useScrollNavigation();
+  const { isDarkMode, toggleTheme } = useTheme();
 
   const handleNavClick = (sectionId) => {
     scrollToSection(sectionId);
@@ -80,12 +86,34 @@ const Header = () => {
           <li className="sidebar-nav-item">
             <a href="/message-kaia" className="nav-login-link">Member Login</a>
           </li>
+          <li className="sidebar-nav-item sidebar-actions">
+            <button
+              className="sidebar-action-btn"
+              onClick={() => { setShowWall(true); setIsOpen(false); }}
+              aria-label="Open KAIA Wall"
+              title="KAIA Wall"
+            >💌 KAIA Wall</button>
+            <button
+              className="sidebar-action-btn"
+              onClick={() => { setShowFanCard(true); setIsOpen(false); }}
+              aria-label="Open ZAIA Card"
+              title="My ZAIA Card"
+            >🎫 ZAIA Card</button>
+            <button
+              className="sidebar-action-btn"
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+            >{isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}</button>
+          </li>
         </ul>
       </nav>
 
       {isOpen && (
         <div className="sidebar-overlay" onClick={() => setIsOpen(false)} />
       )}
+
+      {showWall && <KaiaWall onClose={() => setShowWall(false)} />}
+      <FanCard isOpen={showFanCard} onClose={() => setShowFanCard(false)} />
     </>
   );
 };

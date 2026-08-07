@@ -157,6 +157,44 @@ body {
   padding-left: 2rem;
 }
 
+.sidebar-actions {
+  border-bottom: none;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.desktop-only-btns {
+  display: contents; /* lets children behave as if directly in the DOM */
+}
+
+@media (max-width: 768px) {
+  .desktop-only-btns {
+    display: none;
+  }
+}
+
+.sidebar-action-btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(214, 51, 132, 0.08);
+  border: 1px solid rgba(214, 51, 132, 0.2);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar-action-btn:hover {
+  background: rgba(214, 51, 132, 0.15);
+  color: var(--kaia-primary);
+}
+
 /* Header Styles */
 .masthead {
   position: relative;
@@ -1897,24 +1935,24 @@ body {
 @media (max-width: 768px) {
   .theme-toggle {
     position: fixed !important;
-    bottom: 1.5rem !important;
+    bottom: 5rem !important;
     left: 50% !important;
     top: auto !important;
     right: auto !important;
-    transform: translateX(-4rem);
+    transform: translateX(-4.5rem);
     z-index: 1050 !important;
   }
 
   .fancard-trigger-btn {
-    bottom: 1.5rem;
+    bottom: 5rem;
     left: 50%;
-    transform: translateX(-0.75rem);
+    transform: translateX(-1.5rem);
   }
 
   .kaia-wall-btn {
-    bottom: 1.5rem;
+    bottom: 5rem;
     left: 50%;
-    transform: translateX(2.5rem);
+    transform: translateX(1.5rem);
   }
 }
 /* Events Table Mobile Scrollable */
@@ -2932,7 +2970,7 @@ body.player-active {
 
 @media (max-width: 768px) {
   .fancard-trigger-btn {
-    bottom: 1.5rem;
+    bottom: 5rem;
   }
 
   .fancard-modal {
@@ -2976,7 +3014,7 @@ body.player-active {
 
 @media (max-width: 768px) {
   .kaia-wall-btn {
-    bottom: 1.5rem;
+    bottom: 5rem;
   }
 }
 
